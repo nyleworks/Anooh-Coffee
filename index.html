@@ -146,12 +146,26 @@ header.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45d
 .product p{margin:0 6px;font-size:15px;line-height:1.5;color:var(--body)}
 .product .price{margin:auto 6px 0;padding-top:4px;font-weight:700;color:var(--espresso);font-variant-numeric:tabular-nums}
 .menu-sec .wrap{padding-block:72px;display:flex;flex-direction:column;gap:28px}
+.menu-sec{background:var(--wall)}
 .menu-sec.alt{background:var(--sand)}
-.menu-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:26px 56px}
-.menu-list h3{grid-column:1/-1;margin:8px 0 0;font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--muted)}
-.menu-list .item-row{font-size:21px}
-.menu-list .item p{font-size:15px}
-@media (max-width:420px){.menu-list{grid-template-columns:minmax(0,1fr)}}
+.mn-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 32px}
+.mn-head p{margin:0;font-size:15px;color:var(--body);max-width:520px}
+/* menu: plain typographic lists, one per category, flowing into as many columns as fit */
+.mn-grid{columns:3 300px;column-gap:64px}
+.mn-cat{break-inside:avoid;margin:0 0 44px}
+.mn-t{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.mn-t caption{text-align:left;padding-bottom:4px;border-bottom:1.5px solid var(--espresso)}
+.mn-tag{display:block;padding-bottom:8px;font-family:var(--display);font-size:26px;font-weight:400;line-height:1.15;color:var(--espresso)}
+.mn-t thead th{padding:10px 0 2px 16px;text-align:right;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);white-space:nowrap;vertical-align:bottom}
+.mn-t thead small{display:block;font-size:11px;font-weight:500;letter-spacing:0;text-transform:none}
+.mn-t tbody th{padding:9px 0;text-align:left;font-weight:500;font-size:15.5px;line-height:1.35;color:var(--ink)}
+.mn-t tbody td{padding:9px 0 9px 16px;text-align:right;font-weight:600;font-size:15.5px;color:var(--espresso);white-space:nowrap;vertical-align:top;min-width:44px}
+.mn-t tbody tr + tr > *{border-top:1px solid rgba(74,54,38,.1)}
+.mn-t td.mn-na{color:var(--rule);font-weight:400}
+.mn-t tr.mn-sub th{padding:16px 0 2px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent)}
+.mn-t tr.mn-sub + tr > *{border-top:0}
+.mn-note{margin:8px 0 0;font-size:13.5px;font-style:italic;color:var(--muted)}
+@media (max-width:520px){.mn-cat{margin-bottom:36px}.mn-tag{font-size:23px}}
 .foot-links{display:flex;flex-wrap:wrap;gap:4px 24px}
 /* Anooh Prihatin: activity post with a swipeable photo strip; thumbnails jump to a photo */
 .ph-sdg{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
@@ -350,7 +364,7 @@ header.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45d
 @media (max-width:520px){.hero-art{min-height:0}.badge{width:96px;height:96px}.badge svg.spin{width:96px;height:96px}.badge .arrow{top:30px;left:30px;width:36px;height:36px}}
 
 /* menu book */
-#menu-book{position:relative;height:2660px;background:var(--sand)}
+#menu-book{position:relative;height:2300px;background:var(--sand)}
 .stage{position:sticky;top:var(--hh,0px);height:min(860px,calc(100vh - var(--hh,0px)));box-sizing:border-box;padding-block:32px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;overflow:hidden}
 .stage-head{text-align:center;display:flex;flex-direction:column;gap:8px;max-width:720px}
 .stage-head h2{margin:0;font-family:var(--display);font-weight:400;font-size:clamp(30px,4vw,48px);line-height:1.1;color:var(--espresso)}
@@ -358,12 +372,12 @@ header.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45d
 .book{position:relative;width:min(900px,100%,calc((100vh - 280px - var(--hh,0px)) * 1.6));aspect-ratio:1.6/1;max-width:100%;perspective:2400px}
 @media (max-width:720px){.book{aspect-ratio:0.85/1;width:min(900px,100%,calc((100vh - 280px - var(--hh,0px)) * 0.85))}}
 .page{position:absolute;top:0;width:50%;height:100%;box-sizing:border-box;background:var(--paper);overflow:hidden}
-.page.base-l{left:0;border-radius:10px 0 0 10px;box-shadow:inset -14px 0 20px -14px rgba(58,40,25,.35),0 18px 40px rgba(58,40,25,.18);padding:clamp(14px,3vw,40px);display:flex;flex-direction:column;justify-content:center;gap:14px}
+.page.base-l{left:0;border-radius:10px 0 0 10px;box-shadow:inset -12px 0 18px -14px rgba(58,40,25,.2),0 18px 40px rgba(58,40,25,.18);padding:clamp(14px,3vw,40px);display:flex;flex-direction:column;justify-content:center;gap:14px}
 .page.base-r{right:0;border-radius:0 10px 10px 0;box-shadow:0 18px 40px rgba(58,40,25,.18)}
 .leaf{position:absolute;top:0;left:50%;width:50%;height:100%;transform-origin:left center;transform-style:preserve-3d;transition:transform .2s linear}
 .face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;box-sizing:border-box;overflow:hidden;background:var(--paper);padding:clamp(14px,3vw,40px);display:flex;flex-direction:column}
-.face.front{border-radius:0 10px 10px 0;box-shadow:inset 14px 0 20px -14px rgba(58,40,25,.35);gap:14px}
-.face.back{transform:rotateY(180deg);border-radius:10px 0 0 10px;box-shadow:inset -14px 0 20px -14px rgba(58,40,25,.35);gap:clamp(8px,1.6vw,18px)}
+.face.front{border-radius:0 10px 10px 0;box-shadow:inset 12px 0 18px -14px rgba(58,40,25,.2);gap:14px}
+.face.back{transform:rotateY(180deg);border-radius:10px 0 0 10px;box-shadow:inset -12px 0 18px -14px rgba(58,40,25,.2);gap:clamp(8px,1.6vw,18px)}
 .face.cover{background:var(--espresso);color:var(--wall);justify-content:space-between;padding:clamp(16px,3vw,44px)}
 .face.endpaper{background:var(--espresso);padding:0}
 .pg-label{margin:0;font-size:clamp(10px,1.1vw,12px);font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--muted)}
@@ -380,6 +394,36 @@ header.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45d
 .cover-t{font-family:var(--display);font-size:clamp(30px,5vw,64px);line-height:1;color:var(--paper)}
 .cover-s{font-size:clamp(11px,1.2vw,14px);color:var(--biscuit)}
 .book-small-btn{align-self:flex-start;text-decoration:none;padding:12px 22px;border-radius:999px;background:var(--espresso);color:var(--paper);font-size:clamp(12px,1.3vw,15px);font-weight:700}
+/* menu book pages: a title, then one tidy row per item (photo, name, prices); photos sit on the paper via multiply */
+.bk-head{display:grid;grid-template-columns:1fr auto;align-items:end;column-gap:12px;padding-bottom:clamp(6px,1vw,12px);border-bottom:1.5px solid var(--espresso)}
+.bk-num{grid-column:1/-1;margin:0;font-size:clamp(9px,1vw,11px);font-weight:700;letter-spacing:2px;color:var(--accent)}
+.bk-title{margin:0;font-family:var(--display);font-weight:400;font-size:clamp(17px,2.4vw,30px);line-height:1.1;color:var(--espresso)}
+.bk-cols{margin:0;display:grid;grid-template-columns:repeat(var(--pc,1),clamp(30px,4.6vw,56px));font-size:clamp(8px,.9vw,11px);font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);text-align:right}
+.bk-list{flex:1;min-height:0;margin:0;padding:0;list-style:none;display:flex;flex-direction:column;justify-content:space-evenly}
+.bk-list li{display:grid;grid-template-columns:clamp(28px,4.6vw,50px) minmax(0,1fr) repeat(var(--pc,1),clamp(30px,4.6vw,56px));align-items:center;column-gap:clamp(6px,1.2vw,14px)}
+.bk-list li + li{border-top:1px solid rgba(74,54,38,.1)}
+.bk-list img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:contain;mix-blend-mode:multiply;margin-block:clamp(2px,.4vw,4px)}
+.bk-n{font-family:var(--display);font-size:clamp(10.5px,1.5vw,18px);line-height:1.2;color:var(--espresso)}
+.bk-v{display:block;font-family:var(--sans);font-size:.72em;color:var(--muted);margin-top:1px}
+.bk-p{text-align:right;font-size:clamp(9.5px,1.15vw,14px);font-weight:600;color:var(--espresso);font-variant-numeric:tabular-nums}
+.bk-p i{font-style:normal;color:var(--rule)}
+.bk-more{margin:0;padding:0;list-style:none;flex:1;display:flex;flex-direction:column;justify-content:space-evenly}
+.bk-more li{font-family:var(--display);font-size:clamp(11px,1.5vw,18px);line-height:1.3;color:var(--espresso);padding-block:clamp(4px,.8vw,10px)}
+.bk-more li + li{border-top:1px solid rgba(74,54,38,.1)}
+.face.bk-end{justify-content:center}
+@media (max-width:720px){
+  .bk-head{padding-bottom:5px}
+  .bk-title{font-size:14px;white-space:nowrap}
+  .bk-num{font-size:8px}
+  .bk-cols[style*="--pc:1"]{display:none}
+  .bk-cols{grid-column:1/-1;display:flex;gap:0;font-size:8px;letter-spacing:.5px;text-align:left}
+  .bk-cols span + span::before{content:" / "}
+  .bk-list li{grid-template-columns:20px auto auto 1fr;column-gap:5px;padding-block:2px}
+  .bk-list img{grid-row:span 2;align-self:center}
+  .bk-n{grid-column:2/-1;font-size:9.5px;line-height:1.12}
+  .bk-p{text-align:left;font-size:8.5px;line-height:1.25;color:var(--accent);white-space:nowrap}
+  .bk-p[data-l="Iced"]::before{content:"/ ";color:var(--muted);font-weight:400}
+}
 .pager{display:flex;align-items:center;gap:16px}
 .pager button{width:48px;height:48px;border-radius:50%;border:2px solid var(--espresso);background:transparent;color:var(--espresso);cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0}
 .pager button.fwd{background:var(--espresso);color:var(--paper)}
@@ -403,12 +447,30 @@ header.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45d
 .promos .wrap{padding-block:104px;display:flex;flex-direction:column;gap:44px}
 .promos .h2{color:var(--wall)}
 .promo-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px}
-.promo-head a{text-decoration:none;padding:14px 28px;border-radius:999px;border:1.5px solid var(--wall);font-weight:700}
-.promo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}
-.promo{text-decoration:none;aspect-ratio:1/1;max-width:100%;border-radius:16px;color:var(--espresso);padding:24px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between}
-.promo .label{color:var(--muted)}
-.promo strong{font-family:var(--display);font-weight:400;font-size:26px;line-height:1.15}
-@media (max-width:520px){.promo{aspect-ratio:auto;min-height:170px}}
+.promos{overflow:hidden}
+.promos .wrap{padding-bottom:0}
+/* promotions drift slowly right to left; JS clones the cards so the loop is seamless, and hover, focus or the button pauses it */
+.pm-toggle{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 20px;border-radius:999px;border:1.5px solid var(--wall);background:transparent;color:var(--wall);font:inherit;font-weight:700;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.pm-toggle svg{width:16px;height:16px}
+.pm-toggle .i-play,.pm-toggle[aria-pressed="true"] .i-pause{display:none}
+.pm-toggle[aria-pressed="true"] .i-play{display:inline}
+.pm-marquee{padding:44px 0 104px}
+.pm-track{list-style:none;margin:0 auto;padding:0 max(16px,calc((100% - 1280px)/2 + 16px));display:flex;flex-wrap:wrap;justify-content:center;gap:24px}
+.pm-marquee.moving{overflow:hidden}
+.pm-marquee.moving .pm-track{flex-wrap:nowrap;justify-content:flex-start;width:max-content;padding:0;animation:pm-slide var(--pm-dur,60s) linear infinite;will-change:transform}
+.pm-marquee.moving:hover .pm-track,.pm-marquee.moving:focus-within .pm-track,.pm-marquee.paused .pm-track{animation-play-state:paused}
+@keyframes pm-slide{from{transform:translateX(0)}to{transform:translateX(calc(-1 * var(--pm-shift,0px)))}}
+.pm-card{flex:0 0 300px;display:flex;flex-direction:column;border-radius:18px;overflow:hidden;background:var(--paper);color:var(--espresso);box-shadow:0 18px 40px rgba(0,0,0,.25)}
+.pm-card img{display:block;width:100%;height:auto;aspect-ratio:640/816;object-fit:cover}
+.pm-cap{padding:16px 18px 18px;display:flex;flex-direction:column;gap:4px}
+.pm-day{align-self:flex-start;padding:4px 12px;border-radius:999px;background:var(--espresso);color:var(--paper);font-size:12px;font-weight:700;letter-spacing:.5px}
+.pm-cap strong{margin-top:6px;font-family:var(--display);font-weight:400;font-size:24px;line-height:1.15}
+.pm-what{font-size:14px;color:var(--body)}
+.pm-price{margin-top:6px;display:flex;align-items:baseline;gap:10px}
+.pm-price b{font-size:22px;color:var(--accent)}
+.pm-price s{font-size:14px;color:var(--muted)}
+@media (max-width:520px){.pm-card{flex-basis:240px}.pm-marquee{padding:32px 0 64px}}
+
 
 /* cta */
 .cta{background:var(--sand)}
@@ -529,7 +591,7 @@ footer a{padding:10px 0}
 <div class="page base-l">
 <p class="pg-label">Inside cover</p>
 <p class="pg-quote">Brewed to order, poured with care.</p>
-<p class="pg-note">Most of the menu sits between RM 1 and RM 20. Dine in with the view, take it away, or order for delivery.</p>
+<p class="pg-note">A taste of our bar and bakery case. Prices in RM. Dine in with the view, take it away, or order for delivery.</p>
 </div>
 <div class="page base-r"></div>
 
@@ -540,58 +602,70 @@ footer a{padding:10px 0}
 <svg viewBox="0 0 120 60" aria-hidden="true" style="width:clamp(48px,7vw,96px);height:auto" fill="none" stroke="#D9C4A6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 26h64v14a20 20 0 0 1-20 20H40a20 20 0 0 1-20-20z"></path><path d="M84 30h6a9 9 0 0 1 0 18h-8"></path><path d="M40 4c-4 6 4 8 0 14M54 4c-4 6 4 8 0 14M68 4c-4 6 4 8 0 14"></path></svg>
 <span class="cover-t">The Menu</span>
 </div>
-<span class="cover-s">Espresso · Slow Bar · Bakes · Brunch</span>
+<span class="cover-s">Coffee · Non-Coffee · Pastry Buns · Croissants</span>
 </div>
 <div class="face back">
-<p class="pg-label">01 · Espresso bar</p>
-<div class="item"><div class="item-row"><span>Flat White</span><i></i><span>[PRICE]</span></div><p>Double ristretto with silky steamed milk.</p></div>
-<div class="item"><div class="item-row"><span>Cappuccino</span><i></i><span>[PRICE]</span></div><p>Equal parts espresso, milk and foam, cocoa on request.</p></div>
-<div class="item"><div class="item-row"><span>Iced Spanish Latte</span><i></i><span>[PRICE]</span></div><p>Espresso over cold milk sweetened with condensed milk.</p></div>
+<div class="bk-head"><p class="bk-num">01</p><h3 class="bk-title">Coffee</h3><p class="bk-cols" style="--pc:2"><span>Hot</span><span>Iced</span></p></div>
+<ul class="bk-list" style="--pc:2">
+<li><img src="media/book/anooh-kupi.jpg" width="120" height="120" alt="" loading="lazy"><span class="bk-n">Signature Anooh Kupi</span><span class="bk-p" data-l="Hot">10.00</span><span class="bk-p" data-l="Iced">12.00</span></li>
+<li><img src="media/book/cafe-latte.jpg" width="120" height="120" alt="" loading="lazy"><span class="bk-n">Cafe Latté</span><span class="bk-p" data-l="Hot">12.00</span><span class="bk-p" data-l="Iced">14.00</span></li>
+<li><img src="media/book/caramel-macchiato.jpg" width="120" height="120" alt="" loading="lazy"><span class="bk-n">Caramel Macchiato</span><span class="bk-p" data-l="Hot">16.00</span><span class="bk-p" data-l="Iced">18.00</span></li>
+<li><img src="media/book/spanish-latte.jpg" width="120" height="120" alt="" loading="lazy"><span class="bk-n">Spanish Latté</span><span class="bk-p" data-l="Hot">12.00</span><span class="bk-p" data-l="Iced">14.00</span></li>
+</ul>
 </div>
 </div>
 
 <div class="leaf" data-leaf="1">
 <div class="face front">
-<div class="photo" style="background:#DCC3A0">[Photo: espresso bar]</div>
-<p class="caption">Oat, almond or soy milk at no extra charge.</p>
+<div class="bk-head"><p class="bk-num">02</p><h3 class="bk-title">Non-Coffee</h3><p class="bk-cols" style="--pc:2"><span>Hot</span><span>Iced</span></p></div>
+<ul class="bk-list" style="--pc:2">
+<li><img src="media/book/green-tea.jpg" width="120" height="120" alt="" loading="lazy"><span class="bk-n">Green Tea<small class="bk-v">Matcha or Thai</small></span><span class="bk-p" data-l="Hot">13.00</span><span class="bk-p" data-l="Iced">15.00</span></li>
+<li><img src="media/book/chocolate.jpg" width="120" height="120" alt="" loading="lazy"><span class="bk-n">Chocolate<small class="bk-v">Vanilla or Hazelnut</small></span><span class="bk-p" data-l="Hot">13.00</span><span class="bk-p" data-l="Iced">15.00</span></li>
+<li><img src="media/book/strawberry-chocolate.jpg" width="120" height="120" alt="" loading="lazy"><span class="bk-n">Strawberry Chocolate</span><span class="bk-p" data-l="Hot"><i>–</i></span><span class="bk-p" data-l="Iced">15.00</span></li>
+</ul>
 </div>
 <div class="face back">
-<p class="pg-label">02 · Slow bar</p>
-<div class="item"><div class="item-row"><span>Pour-over of the Day</span><i></i><span>[PRICE]</span></div><p>A single origin brewed by hand. Ask for today's beans.</p></div>
-<div class="item"><div class="item-row"><span>Cold Brew</span><i></i><span>[PRICE]</span></div><p>Steeped for 18 hours, smooth and low in acidity.</p></div>
-<div class="item"><div class="item-row"><span>Hojicha Latte</span><i></i><span>[PRICE]</span></div><p>Roasted green tea with steamed milk, for a caffeine break.</p></div>
+<div class="bk-head"><p class="bk-num">03</p><h3 class="bk-title">Pastry Buns</h3><p class="bk-cols" style="--pc:1"><span>RM</span></p></div>
+<ul class="bk-list" style="--pc:1">
+<li><img src="media/book/korean-garlic.jpg" width="120" height="120" alt="" loading="lazy"><span class="bk-n">Korean Garlic</span><span class="bk-p">8.00</span></li>
+<li><img src="media/book/pandan.jpg" width="120" height="120" alt="" loading="lazy"><span class="bk-n">Pandan</span><span class="bk-p">7.00</span></li>
+<li><img src="media/book/tausa.jpg" width="120" height="120" alt="" loading="lazy"><span class="bk-n">Tausa</span><span class="bk-p">7.00</span></li>
+<li><img src="media/book/sausage.jpg" width="120" height="120" alt="" loading="lazy"><span class="bk-n">Sausage</span><span class="bk-p">7.00</span></li>
+<li><img src="media/book/floss-chicken.jpg" width="120" height="120" alt="" loading="lazy"><span class="bk-n">Floss Chicken</span><span class="bk-p">7.00</span></li>
+</ul>
 </div>
 </div>
 
 <div class="leaf" data-leaf="2">
 <div class="face front">
-<div class="photo" style="background:#D9C4A6">[Photo: pour-over]</div>
-<p class="caption">Worth the four-minute wait. We'll bring it to your table.</p>
+<div class="bk-head"><p class="bk-num">04</p><h3 class="bk-title">Croissants</h3><p class="bk-cols" style="--pc:1"><span>RM</span></p></div>
+<ul class="bk-list" style="--pc:1">
+<li><img src="media/book/plain.jpg" width="120" height="120" alt="" loading="lazy"><span class="bk-n">Plain</span><span class="bk-p">7.00</span></li>
+<li><img src="media/book/salted-egg.jpg" width="120" height="120" alt="" loading="lazy"><span class="bk-n">Salted Egg</span><span class="bk-p">12.00</span></li>
+<li><img src="media/book/garlic-cream-cheese.jpg" width="120" height="120" alt="" loading="lazy"><span class="bk-n">Garlic Cream Cheese</span><span class="bk-p">12.00</span></li>
+<li><img src="media/book/ham-sandwich.jpg" width="120" height="120" alt="" loading="lazy"><span class="bk-n">Ham Sandwich</span><span class="bk-p">14.00</span></li>
+<li><img src="media/book/tuna.jpg" width="120" height="120" alt="" loading="lazy"><span class="bk-n">Tuna</span><span class="bk-p">14.00</span></li>
+<li><img src="media/book/almond-cream.jpg" width="120" height="120" alt="" loading="lazy"><span class="bk-n">Almond Cream</span><span class="bk-p">14.00</span></li>
+</ul>
 </div>
 <div class="face back">
-<p class="pg-label">03 · Bakes</p>
-<div class="item"><div class="item-row"><span>Butter Croissant</span><i></i><span>[PRICE]</span></div><p>Flaky, golden and best still warm.</p></div>
-<div class="item"><div class="item-row"><span>Basque Burnt Cheesecake</span><i></i><span>[PRICE]</span></div><p>Caramelised top, soft and creamy centre.</p></div>
-<div class="item"><div class="item-row"><span>Banana Walnut Loaf</span><i></i><span>[PRICE]</span></div><p>Thick slice, toasted with salted butter.</p></div>
+<div class="bk-head"><p class="bk-num">05</p><h3 class="bk-title">Also on the menu</h3></div>
+<ul class="bk-more">
+<li>Espresso, Americano &amp; lattes</li>
+<li>Soda &amp; Milky fruit drinks</li>
+<li>Sabah Tea, Kopi Tenom &amp; Apai Kopi</li>
+<li>Dimna &amp; Uinah bottled drinks</li>
+<li>Ice cream</li>
+<li>Cakes, sandwiches &amp; cookies</li>
+<li>Burritos &amp; tortillas</li>
+</ul>
 </div>
 </div>
 
 <div class="leaf" data-leaf="3">
-<div class="face front">
-<div class="photo" style="background:#E6D5BB">[Photo: bakes]</div>
-<p class="caption">Baked fresh each morning, until they're gone.</p>
-</div>
-<div class="face back">
-<p class="pg-label">04 · Brunch</p>
-<div class="item"><div class="item-row"><span>Avocado Sourdough</span><i></i><span>[PRICE]</span></div><p>Smashed avocado, chilli flakes and a soft egg.</p></div>
-<div class="item"><div class="item-row"><span>Scrambled Egg Croissant</span><i></i><span>[PRICE]</span></div><p>Buttery eggs, chives and melted cheddar.</p></div>
-<div class="item"><div class="item-row"><span>Granola Bowl</span><i></i><span>[PRICE]</span></div><p>House granola, yoghurt, honey and fresh fruit.</p></div>
-</div>
-</div>
-
-<div class="leaf" data-leaf="4">
-<div class="face front">
-<div class="photo" style="background:#DCC3A0">[Photo: brunch]</div>
+<div class="face front bk-end">
+<p class="pg-label">There's more</p>
+<p class="pg-quote">Sabahan coffee, sodas, cakes and more on the full menu.</p>
 <a href="#menu" class="book-small-btn">See the full menu</a>
 </div>
 <div class="face endpaper back"></div>
@@ -600,7 +674,7 @@ footer a{padding:10px 0}
 
 <div class="pager">
 <button type="button" id="prev" aria-label="Previous page"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"></path></svg></button>
-<span id="spread" aria-live="polite">Cover · 1 / 5</span>
+<span id="spread" aria-live="polite">Cover · 1 / 4</span>
 <button type="button" id="next" class="fwd" aria-label="Next page"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></button>
 </div>
 </div>
@@ -612,15 +686,24 @@ footer a{padding:10px 0}
 <div class="wrap">
 <div class="promo-head">
 <h2 class="h2">Promotions</h2>
-<a href="#">View all promotions</a>
+<button type="button" class="pm-toggle" aria-pressed="false" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-pause" d="M8 5h3v14H8zM13 5h3v14h-3z" fill="currentColor"></path><path class="i-play" d="M8 5.5v13l10.5-6.5z" fill="currentColor"></path></svg><span>Pause</span></button>
 </div>
-<div class="promo-grid">
-<a href="#" class="promo" style="background:#ECE7DE"><span class="label">Daily, 6:30 – 9am</span><strong>Early Bird Flat White</strong></a>
-<a href="#" class="promo" style="background:#DCC3A0"><span class="label" style="color:#4E3E30">Afternoons</span><strong>Coffee &amp; Cake Pairing</strong></a>
-<a href="#" class="promo" style="background:#E6D5BB"><span class="label" style="color:#4E3E30">Mon – Fri</span><strong>Brunch set from [PRICE]</strong></a>
-<a href="#" class="promo" style="background:#B5834F;color:#2B2017"><span class="label" style="color:#2B2017">Loyalty card</span><strong>Your 10th cup is on us</strong></a>
-<a href="#" class="promo" style="background:#ECE7DE"><span class="label">Bring your own cup</span><strong>[DISCOUNT] off every drink</strong></a>
 </div>
+<div class="pm-marquee">
+<ul class="pm-track" aria-label="This week's promotions">
+<li class="pm-card">
+<img src="media/promos/mix-match.jpg" width="640" height="816" alt="Anooh Mix and Match poster: pick any 2 drinks (Hot or Iced Anooh Kupi) and 2 buns (Tausa, Pandan or Sausage) for RM29 instead of RM38, Tuesday to Thursday" loading="lazy">
+<div class="pm-cap"><span class="pm-day">Tue · Wed · Thu</span><strong>Anooh Mix &amp; Match</strong><span class="pm-what">2 drinks + 2 buns</span><span class="pm-price"><b>RM29</b><s aria-label="normal price RM38">RM38</s></span></div>
+</li>
+<li class="pm-card">
+<img src="media/promos/milky-fruit.jpg" width="640" height="816" alt="Milky Fruit poster: Mango, Strawberry and Peach Milky for RM12 instead of RM16, only on Tuesday" loading="lazy">
+<div class="pm-cap"><span class="pm-day">Tuesday only</span><strong>Milky Fruit</strong><span class="pm-what">Mango, Strawberry or Peach</span><span class="pm-price"><b>RM12</b><s aria-label="normal price RM16">RM16</s></span></div>
+</li>
+<li class="pm-card">
+<img src="media/promos/soda-fruit.jpg" width="640" height="816" alt="Soda Fruit Day poster: Passion Fruit, Kiwi and Pineapple Soda for RM10 instead of RM14, only on Wednesday" loading="lazy">
+<div class="pm-cap"><span class="pm-day">Wednesday only</span><strong>Soda Fruit Day</strong><span class="pm-what">Passion Fruit, Kiwi or Pineapple</span><span class="pm-price"><b>RM10</b><s aria-label="normal price RM14">RM14</s></span></div>
+</li>
+</ul>
 </div>
 </section>
 
@@ -982,7 +1065,7 @@ footer a{padding:10px 0}
 <section class="wrap page-hero">
 <p class="eyebrow">Menu</p>
 <h1 tabindex="-1">Our menu</h1>
-<p>Most items are between RM 1 and RM 20. Dine in with the view, take it away, or order for delivery.</p>
+<p>Coffee, Sabahan drinks, buns and cakes, from RM 2. Dine in with the view, take it away, or order for delivery.</p>
 <div class="subnav">
 <a href="#drinks" class="pill">Drinks</a>
 <a href="#foods" class="pill">Foods</a>
@@ -992,32 +1075,217 @@ footer a{padding:10px 0}
 
 <section id="drinks" class="menu-sec alt anchor">
 <div class="wrap">
-<h2 class="h2">Drinks</h2>
-<div class="menu-list">
-<h3>Espresso bar</h3>
-<div class="item"><div class="item-row"><span>Flat White</span><i></i><span>[PRICE]</span></div><p>Double ristretto with silky steamed milk.</p></div>
-<div class="item"><div class="item-row"><span>Cappuccino</span><i></i><span>[PRICE]</span></div><p>Equal parts espresso, milk and foam, cocoa on request.</p></div>
-<div class="item"><div class="item-row"><span>Iced Spanish Latte</span><i></i><span>[PRICE]</span></div><p>Espresso over cold milk sweetened with condensed milk.</p></div>
-<h3>Slow bar</h3>
-<div class="item"><div class="item-row"><span>Pour-over of the Day</span><i></i><span>[PRICE]</span></div><p>A single origin brewed by hand. Ask for today's beans.</p></div>
-<div class="item"><div class="item-row"><span>Cold Brew</span><i></i><span>[PRICE]</span></div><p>Steeped for 18 hours, smooth and low in acidity.</p></div>
-<div class="item"><div class="item-row"><span>Hojicha Latte</span><i></i><span>[PRICE]</span></div><p>Roasted green tea with steamed milk, for a caffeine break.</p></div>
+<div class="mn-head"><h2 class="h2">Drinks</h2><p>Prices in RM. Hot drinks come in 12 oz cups (8 oz for Sabahan drinks), iced drinks in 16 oz.</p></div>
+<div class="mn-grid">
+<section class="mn-cat">
+<table class="mn-t">
+<caption><span class="mn-tag">Coffee</span></caption>
+<thead><tr><td></td><th scope="col">Hot<small>12 oz</small></th><th scope="col">Iced<small>16 oz</small></th></tr></thead>
+<tbody>
+<tr><th scope="row">Signature Anooh Kupi</th><td>10.00</td><td>12.00</td></tr>
+<tr><th scope="row">Cafe Latté</th><td>12.00</td><td>14.00</td></tr>
+<tr><th scope="row">Caramel Macchiato</th><td>16.00</td><td>18.00</td></tr>
+<tr><th scope="row">Spanish Latté</th><td>12.00</td><td>14.00</td></tr>
+<tr><th scope="row">Espresso, single shot</th><td>8.00</td><td class="mn-na" aria-label="not available">–</td></tr>
+<tr><th scope="row">Espresso, double shot</th><td>10.00</td><td class="mn-na" aria-label="not available">–</td></tr>
+<tr><th scope="row">Americano</th><td>9.00</td><td>11.00</td></tr>
+<tr><th scope="row">Cappuccino</th><td>11.00</td><td>13.00</td></tr>
+<tr><th scope="row">Cafe Mocha</th><td>16.00</td><td>18.00</td></tr>
+<tr><th scope="row">Hazelnut Latte</th><td>16.00</td><td>18.00</td></tr>
+<tr><th scope="row">Vanilla Latte</th><td>16.00</td><td>16.00</td></tr>
+<tr><th scope="row">Coconut Latte</th><td>14.00</td><td>16.00</td></tr>
+</tbody></table>
+</section>
+<section class="mn-cat">
+<table class="mn-t">
+<caption><span class="mn-tag">Non-Coffee</span></caption>
+<thead><tr><td></td><th scope="col">Hot<small>12 oz</small></th><th scope="col">Iced<small>16 oz</small></th></tr></thead>
+<tbody>
+<tr><th scope="row">Matcha Green Tea</th><td>13.00</td><td>15.00</td></tr>
+<tr><th scope="row">Thai Green Tea</th><td>13.00</td><td>15.00</td></tr>
+<tr><th scope="row">Chocolate Vanilla</th><td>13.00</td><td>15.00</td></tr>
+<tr><th scope="row">Chocolate Hazelnut</th><td>13.00</td><td>15.00</td></tr>
+<tr><th scope="row">Strawberry Chocolate</th><td class="mn-na" aria-label="not available">–</td><td>15.00</td></tr>
+</tbody></table>
+</section>
+<section class="mn-cat">
+<table class="mn-t">
+<caption><span class="mn-tag">Soda / Milky</span></caption>
+<thead><tr><td></td><th scope="col">Soda<small>16 oz</small></th><th scope="col">Milky<small>16 oz</small></th></tr></thead>
+<tbody>
+<tr><th scope="row">Kiwi</th><td>14.00</td><td>16.00</td></tr>
+<tr><th scope="row">Peach</th><td>14.00</td><td>16.00</td></tr>
+<tr><th scope="row">Mango</th><td>14.00</td><td>16.00</td></tr>
+<tr><th scope="row">Lychee</th><td>14.00</td><td>16.00</td></tr>
+<tr><th scope="row">Pineapple</th><td>14.00</td><td>16.00</td></tr>
+<tr><th scope="row">Strawberry</th><td>14.00</td><td>16.00</td></tr>
+<tr><th scope="row">Passion Fruit</th><td>14.00</td><td>16.00</td></tr>
+</tbody></table>
+</section>
+<section class="mn-cat">
+<table class="mn-t">
+<caption><span class="mn-tag">Sabahan Drinks</span></caption>
+<thead><tr><td></td><th scope="col">Hot<small>8 oz</small></th><th scope="col">Iced<small>16 oz</small></th></tr></thead>
+<tbody>
+<tr><th scope="row">Sabah Tea</th><td>4.00</td><td>5.00</td></tr>
+<tr><th scope="row">Kopi Tenom O</th><td>5.00</td><td>6.00</td></tr>
+<tr><th scope="row">Kopi Tenom Susu</th><td>5.00</td><td>6.00</td></tr>
+<tr><th scope="row">Apai Kopi 2 in 1</th><td>5.00</td><td>7.00</td></tr>
+<tr><th scope="row">Apai Kopi Cappuccino</th><td>6.00</td><td>8.00</td></tr>
+<tr><th scope="row">Apai Kopi Hazelnut</th><td>6.00</td><td>8.00</td></tr>
+</tbody></table>
+</section>
+<section class="mn-cat">
+<table class="mn-t">
+<caption><span class="mn-tag">Others</span></caption>
+<thead><tr><td></td><th scope="col">Hot<small>12 oz</small></th><th scope="col">Iced<small>16 oz</small></th></tr></thead>
+<tbody>
+<tr><th scope="row">Teh Tarik</th><td>5.00</td><td>6.90</td></tr>
+<tr><th scope="row">Ribena</th><td class="mn-na" aria-label="not available">–</td><td>6.00</td></tr>
+<tr><th scope="row">Honey Lemon Tea</th><td>5.00</td><td>6.00</td></tr>
+<tr><th scope="row">Tea O Lemon Laici</th><td>4.90</td><td>5.90</td></tr>
+<tr class="mn-sub"><th colspan="3" scope="colgroup">Mineral water</th></tr>
+<tr><th scope="row">500 ml</th><td colspan="2">2.00</td></tr>
+<tr><th scope="row">1.5 L</th><td colspan="2">3.00</td></tr>
+</tbody></table>
+</section>
+<section class="mn-cat">
+<table class="mn-t">
+<caption><span class="mn-tag">Dimna Drink</span></caption>
+<thead><tr><td></td><th scope="col">Bottle</th></tr></thead>
+<tbody>
+<tr><th scope="row">Kepayas</th><td>13.00</td></tr>
+<tr><th scope="row">Kitchai</th><td>13.00</td></tr>
+<tr><th scope="row">Cikui</th><td>13.00</td></tr>
+</tbody></table>
+</section>
+<section class="mn-cat">
+<table class="mn-t">
+<caption><span class="mn-tag">Uinah Drink</span></caption>
+<thead><tr><td></td><th scope="col">Bottle</th><th scope="col">Tin</th></tr></thead>
+<tbody>
+<tr><th scope="row">Ginger Land</th><td>15.00</td><td>10.00</td></tr>
+<tr><th scope="row">Roselle Paradise</th><td>15.00</td><td>10.00</td></tr>
+<tr><th scope="row">Honey Meadow</th><td>15.00</td><td>10.00</td></tr>
+</tbody></table>
+</section>
+<section class="mn-cat">
+<table class="mn-t">
+<caption><span class="mn-tag">Ice Cream</span></caption>
+<tbody>
+<tr><th scope="row">Cone, 1 flavour</th><td>4.00</td></tr>
+<tr><th scope="row">Cone, 2 flavours (mix)</th><td>6.00</td></tr>
+<tr><th scope="row">Cup</th><td>5.00</td></tr>
+</tbody></table>
+<p class="mn-note">Flavours: chocolate, matcha, or a mix of both.</p>
+</section>
+<section class="mn-cat">
+<table class="mn-t">
+<caption><span class="mn-tag">Add-on</span></caption>
+<tbody>
+<tr><th scope="row">Oat milk</th><td>3.00</td></tr>
+<tr><th scope="row">Whipping cream</th><td>2.00</td></tr>
+</tbody></table>
+</section>
 </div>
 </div>
 </section>
 
 <section id="foods" class="menu-sec anchor">
 <div class="wrap">
-<h2 class="h2">Foods</h2>
-<div class="menu-list">
-<h3>Bakes</h3>
-<div class="item"><div class="item-row"><span>Butter Croissant</span><i></i><span>[PRICE]</span></div><p>Flaky, golden and best still warm.</p></div>
-<div class="item"><div class="item-row"><span>Basque Burnt Cheesecake</span><i></i><span>[PRICE]</span></div><p>Caramelised top, soft and creamy centre.</p></div>
-<div class="item"><div class="item-row"><span>Banana Walnut Loaf</span><i></i><span>[PRICE]</span></div><p>Thick slice, toasted with salted butter.</p></div>
-<h3>Brunch</h3>
-<div class="item"><div class="item-row"><span>Avocado Sourdough</span><i></i><span>[PRICE]</span></div><p>Smashed avocado, chilli flakes and a soft egg.</p></div>
-<div class="item"><div class="item-row"><span>Scrambled Egg Croissant</span><i></i><span>[PRICE]</span></div><p>Buttery eggs, chives and melted cheddar.</p></div>
-<div class="item"><div class="item-row"><span>Granola Bowl</span><i></i><span>[PRICE]</span></div><p>House granola, yoghurt, honey and fresh fruit.</p></div>
+<div class="mn-head"><h2 class="h2">Foods</h2><p>Prices in RM. Fresh from the bakery case while stocks last.</p></div>
+<div class="mn-grid">
+<section class="mn-cat">
+<table class="mn-t">
+<caption><span class="mn-tag">Pastry Bun</span></caption>
+<tbody>
+<tr><th scope="row">Korean Garlic</th><td>8.00</td></tr>
+<tr><th scope="row">Pandan</th><td>7.00</td></tr>
+<tr><th scope="row">Tausa</th><td>7.00</td></tr>
+<tr><th scope="row">Sausage</th><td>7.00</td></tr>
+<tr><th scope="row">Floss Chicken</th><td>7.00</td></tr>
+</tbody></table>
+</section>
+<section class="mn-cat">
+<table class="mn-t">
+<caption><span class="mn-tag">Croissant</span></caption>
+<tbody>
+<tr><th scope="row">Plain</th><td>7.00</td></tr>
+<tr><th scope="row">Salted Egg</th><td>12.00</td></tr>
+<tr><th scope="row">Garlic Cream Cheese</th><td>12.00</td></tr>
+<tr><th scope="row">Ham Sandwich</th><td>14.00</td></tr>
+<tr><th scope="row">Tuna</th><td>14.00</td></tr>
+<tr><th scope="row">Almond Cream</th><td>14.00</td></tr>
+</tbody></table>
+</section>
+<section class="mn-cat">
+<table class="mn-t">
+<caption><span class="mn-tag">Cakes</span></caption>
+<tbody>
+<tr class="mn-sub"><th colspan="2" scope="colgroup">Per item</th></tr>
+<tr><th scope="row">Cheesekut Biscoff</th><td>22.00</td></tr>
+<tr><th scope="row">Oreo Nutella in Cup</th><td>14.90</td></tr>
+<tr><th scope="row">Red Velvet Cheese in Cup</th><td>14.90</td></tr>
+<tr><th scope="row">Tapak Kuda</th><td>25.00</td></tr>
+<tr><th scope="row">Banana Cake</th><td>7.00</td></tr>
+<tr class="mn-sub"><th colspan="2" scope="colgroup">Per slice</th></tr>
+<tr><th scope="row">Biscoff Cheesecake</th><td>15.50</td></tr>
+<tr><th scope="row">Chocolate Indulgence</th><td>15.50</td></tr>
+<tr><th scope="row">Japanese Cotton Cheese</th><td>11.90</td></tr>
+<tr><th scope="row">Carrot Pineapple Walnut</th><td>14.90</td></tr>
+</tbody></table>
+</section>
+<section class="mn-cat">
+<table class="mn-t">
+<caption><span class="mn-tag">Sandwich</span></caption>
+<tbody>
+<tr><th scope="row">Premium Chicken</th><td>7.00</td></tr>
+<tr><th scope="row">Premium Beef</th><td>7.00</td></tr>
+<tr><th scope="row">Premium Tuna</th><td>7.00</td></tr>
+<tr><th scope="row">Mini Sandwich</th><td>7.00</td></tr>
+<tr><th scope="row">French Toast Sausage</th><td>8.00</td></tr>
+</tbody></table>
+</section>
+<section class="mn-cat">
+<table class="mn-t">
+<caption><span class="mn-tag">Burrito</span></caption>
+<tbody>
+<tr><th scope="row">Chicken</th><td>13.00</td></tr>
+<tr><th scope="row">Beef</th><td>13.00</td></tr>
+</tbody></table>
+</section>
+<section class="mn-cat">
+<table class="mn-t">
+<caption><span class="mn-tag">Tortilla</span></caption>
+<tbody>
+<tr><th scope="row">Chicken</th><td>13.00</td></tr>
+</tbody></table>
+</section>
+<section class="mn-cat">
+<table class="mn-t">
+<caption><span class="mn-tag">Cookies</span></caption>
+<tbody>
+<tr><th scope="row">Jumbo Dark Chocolate Walnut</th><td>8.50</td></tr>
+<tr><th scope="row">Jumbo Peanut Butter Chocolate Chip</th><td>8.50</td></tr>
+<tr><th scope="row">Classy Chocolate Chip</th><td>3.00</td></tr>
+</tbody></table>
+</section>
+<section class="mn-cat">
+<table class="mn-t">
+<caption><span class="mn-tag">Others</span></caption>
+<tbody>
+<tr><th scope="row">Brownies</th><td>6.00</td></tr>
+<tr><th scope="row">Lemonies</th><td>6.00</td></tr>
+<tr><th scope="row">Doughnut</th><td>7.00</td></tr>
+<tr><th scope="row">Egg Tart</th><td>7.00</td></tr>
+<tr><th scope="row">Mochi</th><td>7.00</td></tr>
+<tr><th scope="row">Muffin, chocolate chip</th><td>6.00</td></tr>
+<tr><th scope="row">Muffin, double chocolate</th><td>6.00</td></tr>
+<tr><th scope="row">Fried Rice</th><td>6.00</td></tr>
+<tr><th scope="row">Panipuri</th><td>14.50</td></tr>
+<tr><th scope="row">Buttermilk Bun</th><td>5.00</td></tr>
+</tbody></table>
+</section>
 </div>
 </div>
 </section>
@@ -1214,15 +1482,15 @@ footer a{padding:10px 0}
 <div class="ac-d-day">
 <h4><span>Saturday</span><small data-day="sat"></small></h4>
 <ul>
-<li><time>[9:00 am]</time><div><b>[Busker 1]</b><span>[Guitar]</span></div></li>
-<li><time>[10:30 am]</time><div><b>[Busker 2]><span>[Piano]</span></div></li>
+<li><time>[Time]</time><div><b>[Performer name]</b><span>[Style or instruments]</span></div></li>
+<li><time>[Time]</time><div><b>[Performer name]</b><span>[Style or instruments]</span></div></li>
 </ul>
 </div>
 <div class="ac-d-day">
 <h4><span>Sunday</span><small data-day="sun"></small></h4>
 <ul>
-<li><time>[5:00 pm]</time><div><b>[Busker 3]</b><span>[Drum]</span></div></li>
-<li><time>[6:00 pm]</time><div><b>[Busker 4]</b><span>[Bass]</span></div></li>
+<li><time>[Time]</time><div><b>[Performer name]</b><span>[Style or instruments]</span></div></li>
+<li><time>[Time]</time><div><b>[Performer name]</b><span>[Style or instruments]</span></div></li>
 </ul>
 </div>
 <p class="ac-d-mic"><b>Open mic</b> Fancy a song? Let the buskers know and grab the mic.</p>
@@ -1259,7 +1527,7 @@ footer a{padding:10px 0}
   var label = document.getElementById('spread');
   var prev = document.getElementById('prev');
   var next = document.getElementById('next');
-  var names = ['Cover', 'Espresso bar', 'Slow bar', 'Bakes', 'Brunch'];
+  var names = ['Cover', 'Drinks', 'Bakery', 'More'];
   var n = leaves.length, last = n - 1, f = -1, raf = null;
 
   function render(v) {
@@ -1313,6 +1581,11 @@ footer a{padding:10px 0}
 })();
 // pages and navigation: each #token is an element id; its enclosing .view is the page to show
 (function () {
+  // opening the site always starts on the home page: drop any #page left in the address and start at the top
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  if (location.hash) {
+    try { history.replaceState(null, '', location.pathname + location.search); } catch (e) { location.hash = ''; }
+  }
   var header = document.querySelector('header');
   // publish the header's height for the sticky menu book and anchor offsets, and tint it once scrolled
   var row = header.querySelector('.wrap');
@@ -1530,6 +1803,40 @@ footer a{padding:10px 0}
   });
   window.addEventListener('hashchange', kcClose);
 
+
+  // promotions marquee: clone the cards until the strip is wider than the screen, then slide one set's width per loop (about 40px a second)
+  (function () {
+    var box = document.querySelector('.pm-marquee'), track = box && box.querySelector('.pm-track');
+    var btn = document.querySelector('.pm-toggle');
+    if (!track || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+    var originals = Array.prototype.slice.call(track.children);
+    function build() {
+      Array.prototype.slice.call(track.querySelectorAll('.pm-clone')).forEach(function (c) { c.remove(); });
+      box.classList.add('moving');
+      var gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+      var setW = originals.reduce(function (w, li) { return w + li.getBoundingClientRect().width + gap; }, 0);
+      var copies = Math.max(1, Math.ceil(box.clientWidth / setW));
+      for (var i = 0; i < copies; i++) {
+        originals.forEach(function (li) {
+          var c = li.cloneNode(true);
+          c.classList.add('pm-clone');
+          c.setAttribute('aria-hidden', 'true');
+          track.appendChild(c);
+        });
+      }
+      track.style.setProperty('--pm-shift', setW + 'px');
+      track.style.setProperty('--pm-dur', Math.round(setW / 40) + 's');
+    }
+    build();
+    var rw = box.clientWidth;
+    window.addEventListener('resize', function () { if (Math.abs(box.clientWidth - rw) > 40) { rw = box.clientWidth; build(); } });
+    btn.hidden = false;
+    btn.addEventListener('click', function () {
+      var paused = box.classList.toggle('paused');
+      btn.setAttribute('aria-pressed', paused ? 'true' : 'false');
+      btn.querySelector('span').textContent = paused ? 'Play' : 'Pause';
+    });
+  })();
 
   // looping preview videos (souvenirs, Artisan Corner): play muted while on screen, unless the viewer prefers reduced motion
   var calmVideo = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
