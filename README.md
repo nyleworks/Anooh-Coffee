@@ -14,6 +14,8 @@ It is a single static page: plain HTML, CSS and JavaScript with no build step. F
 | `media/keychains/` | The 8 Sabahan dress keychain photos |
 | `media/artisan-corner.mp4`, `media/artisan-corner-poster.jpg` | Busker video (Discover Us › Artisan Corner) |
 | `media/prihatin/` | Anooh Prihatin photos (Kongsi Rezeki Jumaat, Latihan Industri di Jepun) |
+| `media/book/` | Drink and pastry photos on the home page menu book |
+| `media/promos/` | Promotion posters (Mix & Match, Milky Fruit, Soda Fruit Day) |
 | `.nojekyll` | Tells GitHub Pages to serve the files as they are |
 
 Keep the folders and file names exactly as they are: `index.html` links to them by these paths.
@@ -37,7 +39,6 @@ Edit `index.html` (or replace a photo with a new file of the same name) and uplo
 
 Text in square brackets is a placeholder waiting for real details:
 
-- Menu items and prices (`[PRICE]`)
 - Shop items in Anooh Blend and Local Products, and their prices
 - Photos for the remaining grey tiles
 - The weekend line-up in the "Who's playing this weekend" pop-up (`[Time]`, `[Performer name]`)
