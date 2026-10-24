@@ -103,6 +103,64 @@ header.nav-open .burger span:nth-child(1){transform:translateY(7px) rotate(45deg
 header.nav-open .burger span:nth-child(2){opacity:0}
 header.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
+/* Blog: filter tabs over a card grid; a card opens its post full screen */
+.bl-in{padding-block:8px 96px;display:flex;flex-direction:column;gap:28px}
+.bl-tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.bl-tab{min-height:46px;padding:0 24px;border-radius:999px;border:1.5px solid transparent;background:transparent;font:inherit;font-size:16px;font-weight:700;color:var(--mocha);cursor:pointer;transition:background-color .2s ease,color .2s ease,scale .45s var(--spring,ease)}
+.bl-tab:hover{background:var(--sand);scale:1.04}
+.bl-tab[aria-pressed="true"]{background:var(--espresso);color:var(--wall)}
+.bl-tab:focus-visible{outline:2px solid var(--espresso);outline-offset:3px}
+.bl-note{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px 28px;text-align:center}
+.bl-note[hidden]{display:none}
+.bl-note p{margin:0;max-width:520px;font-size:16px;line-height:1.6;color:var(--body)}
+.bl-note .ph-sdg{flex:0 1 520px}
+.bl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:36px 32px}
+.bl-card{display:flex;flex-direction:column;align-items:stretch;gap:10px;padding:0;border:0;background:none;text-align:left;font:inherit;color:inherit;cursor:pointer}
+.bl-media{position:relative;display:block;aspect-ratio:1/1;border-radius:18px;overflow:hidden;background:var(--paper);box-shadow:0 10px 30px rgba(58,40,25,.08);transition:box-shadow .3s ease,translate .5s var(--spring,ease)}
+.bl-media img{display:block;width:100%;height:100%;object-fit:cover;object-position:center top;transition:scale .6s ease}
+.bl-tag{position:absolute;top:14px;left:14px;padding:7px 14px;border-radius:10px;background:var(--paper);font-size:13px;font-weight:700;color:var(--espresso);box-shadow:0 4px 12px rgba(58,40,25,.12)}
+.bl-title{display:block;margin-top:8px;font-family:var(--display);font-size:clamp(21px,2vw,25px);line-height:1.2;color:var(--espresso)}
+.bl-date{display:block;font-size:14.5px;color:var(--muted)}
+.bl-card:hover .bl-media,.bl-card:focus-visible .bl-media{translate:0 -4px;box-shadow:0 18px 40px rgba(58,40,25,.16)}
+.bl-card:hover .bl-media img{scale:1.04}
+.bl-card:focus-visible{outline:none}
+.bl-card:focus-visible .bl-media{outline:3px solid var(--espresso);outline-offset:3px}
+.bl-card[hidden]{display:none}
+@media (max-width:480px){.bl-tabs{gap:2px;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}.bl-tab{flex:none;padding:0 11px;font-size:14.5px}}
+.bl-empty{margin:0;padding:48px 16px;text-align:center;font-size:17px;color:var(--muted)}
+.blog.js .bl-store{display:none}
+.bl-dialog{margin:0;padding:0;border:0;width:100vw;max-width:100vw;height:100vh;height:100dvh;max-height:none;background:var(--wall);color:var(--ink);overflow-y:auto;overscroll-behavior:contain}
+.bl-dialog::backdrop{background:rgba(43,32,23,.55)}
+.bl-dialog[open]{animation:bl-in .5s var(--spring,ease) both}
+@keyframes bl-in{from{opacity:0;translate:0 40px;scale:.98}to{opacity:1;translate:0 0;scale:1}}
+.bl-d-bar{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px max(16px,calc((100vw - 1180px) / 2));background:var(--wall);border-bottom:1px solid var(--rule)}
+.bl-d-tag{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--mocha)}
+.bl-d-close{width:48px;height:48px;border-radius:50%;border:1.5px solid var(--espresso);background:transparent;color:var(--espresso);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background-color .2s ease,scale .45s var(--spring,ease)}
+.bl-d-close:hover{background:var(--sand);scale:1.06}
+.bl-d-close svg{width:22px;height:22px}
+.bl-d-body{max-width:1180px;margin:0 auto;padding:32px 16px 72px;box-sizing:border-box}
+.bl-d-body .ph-post{box-shadow:none;background:transparent;padding:0}
+@media (prefers-reduced-motion: reduce){.bl-dialog[open]{animation:none}.bl-media,.bl-media img,.bl-tab{transition:none}}
+/* centred header: Our Story · Menu · [Anooh Coffee] · Blog · Shop; the logo in the middle is the home link */
+.nav-home .brand{padding:0 6px}
+@media (min-width:901px){
+  header .wrap > .brand{display:none}
+  header .wrap{justify-content:center}
+  #main-nav{flex:1;position:relative;justify-content:center}
+  .nav-list{justify-content:center;gap:4px 40px}
+  .nav-home .nav-home-text{display:none}
+  .nav-social{position:absolute;right:0;top:50%;translate:0 -50%}
+  .nav-home .brand{flex-direction:column;gap:8px;padding:8px 6px}
+  .nav-home .brand-text{align-items:center}
+}
+@media (min-width:901px) and (max-width:1180px){
+  .nav-list{gap:4px 22px}
+  .nav-home .brand .logo-badge{width:52px;height:52px}
+  .nav-social{padding-left:10px}
+  .nav-social .soc-icon{width:38px;height:38px}
+}
+@media (max-width:900px){.nav-home .brand{display:none}}
+
 /* phones and small tablets: hamburger opens a full-width panel; each section expands like an accordion */
 @media (max-width:900px){
   .burger{display:flex}
@@ -185,11 +243,51 @@ header.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45d
 .ph-text p{margin:0;font-size:16px;line-height:1.7;color:var(--ink)}
 .ph-en{margin:4px 0 0;padding-top:12px;border-top:1px solid var(--rule);font-size:14.5px;line-height:1.6;color:var(--body)}
 .ph-en span{display:block;margin-bottom:2px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+.ph-post.ph-wide{grid-template-columns:minmax(0,1fr)}
+.ph-wide .ph-text,.ph-wide .ph-en{max-width:74ch}
+.ph-ol{margin:0;padding-left:22px;font-size:16px;line-height:1.7;color:var(--ink)}
+/* programme tree: dated branches off one trunk; picking a branch shows its poster */
+.pt:first-child{padding-top:0;border-top:0}
+.pt{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:8px 32px;align-items:start;padding-top:18px;border-top:1px solid var(--rule)}
+.pt-hint{grid-column:1/-1;margin:0 0 6px;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+.pt-tree{position:relative;display:flex;flex-direction:column;gap:14px;padding-left:34px}
+.pt-tree::before{content:"";position:absolute;left:9px;top:22px;bottom:22px;width:2px;border-radius:2px;background:var(--mocha);opacity:.45}
+.pt-node{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:3px;width:100%;text-align:left;font:inherit;color:var(--ink);background:var(--wall);border:1.5px solid transparent;border-radius:14px;padding:12px 16px;cursor:pointer;transition:background-color .2s ease,border-color .2s ease,box-shadow .2s ease,scale .45s var(--spring,ease)}
+.pt-node::before{content:"";position:absolute;left:-25px;top:50%;width:25px;height:2px;background:var(--mocha);opacity:.45}
+.pt-dot{position:absolute;left:-34px;top:50%;width:20px;height:20px;margin-top:-10px;box-sizing:border-box;border-radius:50%;background:var(--sand);border:3px solid var(--espresso);transition:background-color .2s ease,box-shadow .2s ease,scale .45s var(--spring,ease)}
+.pt-node time{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--mocha)}
+.pt-node strong{font-family:var(--display);font-weight:400;font-size:19px;line-height:1.2;color:var(--espresso)}
+.pt-node small{font-size:13.5px;color:var(--muted)}
+.pt-node:hover{border-color:rgba(74,54,38,.25);scale:1.015}
+.pt-node:focus-visible{outline:2px solid var(--espresso);outline-offset:3px}
+.pt-node[aria-selected="true"]{background:var(--paper);border-color:var(--espresso);box-shadow:0 10px 26px rgba(58,40,25,.12)}
+.pt-node[aria-selected="true"]::before{opacity:1}
+.pt-node[aria-selected="true"] .pt-dot{background:var(--espresso);box-shadow:0 0 0 5px rgba(74,54,38,.15);scale:1.1}
+.pt-stage{min-width:0}
+.pt-panel{display:flex;flex-direction:column;gap:12px}
+.pt-panel[hidden]{display:none}
+.pt-panel img{display:block;width:100%;height:auto;border-radius:14px;box-shadow:0 14px 34px rgba(58,40,25,.14)}
+.pt-panel.pt-in{animation:pt-in .55s var(--spring,ease) both}
+@keyframes pt-in{from{opacity:0;translate:0 14px;scale:.97}to{opacity:1;translate:0 0;scale:1}}
+@media (max-width:860px){.pt{grid-template-columns:minmax(0,1fr)}.pt-stage{max-width:520px}}
+@media (prefers-reduced-motion: reduce){.pt-panel.pt-in{animation:none}.pt-node,.pt-dot{transition:none}}
+.ph-poster{margin:0;min-width:0}
+.ph-poster img{display:block;width:100%;height:auto;border-radius:14px;box-shadow:0 14px 34px rgba(58,40,25,.14)}
 .ph-gallery{display:flex;flex-direction:column;gap:12px;min-width:0}
 .ph-track{list-style:none;margin:0;padding:0;display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;border-radius:20px;box-shadow:0 24px 50px rgba(58,40,25,.22);scrollbar-width:none;-webkit-overflow-scrolling:touch;outline-offset:4px}
 .ph-track::-webkit-scrollbar{display:none}
 .ph-track li{flex:0 0 100%;scroll-snap-align:start}
 .ph-track img{display:block;width:100%;height:auto;aspect-ratio:900/850;object-fit:cover}
+.ph-gallery.ph-square .ph-track img{aspect-ratio:1/1}
+.story-name{margin:8px 0;padding:22px 24px;border-left:4px solid var(--accent);background:var(--paper);border-radius:0 16px 16px 0;font-family:var(--display,inherit)}
+.story-name p{margin:0;font-size:1.15rem;line-height:1.5;color:var(--espresso)}
+.story-name p+p{margin-top:8px;font-size:1rem;opacity:.85}
+.story-name span[lang=dtp]{font-weight:700}
+.story-sub{margin:12px 0 0;font-size:1.25rem;color:var(--espresso)}
+.story-list{margin:0;padding-left:1.2em;display:grid;gap:10px;line-height:1.6}
+.story-list li::marker{color:var(--accent)}
+.ph-gallery.ph-portrait .ph-track img{aspect-ratio:900/1270}
+.ph-gallery.ph-portrait{max-width:520px;width:100%;justify-self:center}
 .ph-thumbs{display:grid;grid-template-columns:repeat(var(--n,4),minmax(0,1fr));gap:10px}
 .ph-thumb{padding:0;border:2px solid transparent;border-radius:12px;overflow:hidden;background:none;cursor:pointer;opacity:.6;transition:opacity .2s ease,border-color .2s ease;-webkit-tap-highlight-color:transparent}
 .ph-thumb img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover}
@@ -220,6 +318,9 @@ header.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45d
 .ph-facts dd{margin:0;font-size:15px;line-height:1.55;color:var(--ink)}
 .ph-facts ul{margin:0;padding-left:18px}
 .ph-more-row{position:relative;margin-top:28px}
+.ph-empty{position:relative;padding:18px 0}
+.ph-empty .ph-node{top:16px}
+.ph-empty p{margin:0;font-size:17px;color:var(--muted)}
 .ph-more-row .ph-node{top:10px;width:20px;height:20px;left:-42px;border-style:dashed}
 .ph-expand{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0 20px;border-radius:999px;border:0;background:var(--espresso);color:var(--paper);font:inherit;font-size:15px;font-weight:700;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .ph-expand:hover{background:var(--mocha)}
@@ -228,7 +329,7 @@ header.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45d
 .ph-expand[aria-expanded="true"] svg{transform:rotate(180deg)}
 .ph-entry.ph-reveal{animation:ph-in .35s ease both}
 @keyframes ph-in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
-@media (max-width:980px){.ph-post{grid-template-columns:minmax(0,1fr)}.ph-gallery{order:-1}}
+@media (max-width:980px){.ph-post{grid-template-columns:minmax(0,1fr)}.ph-gallery,.ph-poster{order:-1}.ph-poster{max-width:460px}}
 @media (max-width:520px){.ph-in{padding-block:64px}.ph-timeline{padding-left:30px}.ph-timeline::before{left:7px}.ph-node{left:-30px;width:16px;height:16px;border-width:2.5px;top:26px}.ph-more-row .ph-node{left:-29px;width:14px;height:14px;top:15px}.ph-facts div{grid-template-columns:minmax(0,1fr)}}
 @media (prefers-reduced-motion: reduce){.ph-entry.ph-reveal{animation:none}}
 /* Artisan Corner: weekend live music; reuses the arch video frame */
@@ -374,7 +475,10 @@ header.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45d
 .page{position:absolute;top:0;width:50%;height:100%;box-sizing:border-box;background:var(--paper);overflow:hidden}
 .page.base-l{left:0;border-radius:10px 0 0 10px;box-shadow:inset -12px 0 18px -14px rgba(58,40,25,.2),0 18px 40px rgba(58,40,25,.18);padding:clamp(14px,3vw,40px);display:flex;flex-direction:column;justify-content:center;gap:14px}
 .page.base-r{right:0;border-radius:0 10px 10px 0;box-shadow:0 18px 40px rgba(58,40,25,.18)}
-.leaf{position:absolute;top:0;left:50%;width:50%;height:100%;transform-origin:left center;transform-style:preserve-3d;transition:transform .2s linear}
+.leaf{position:absolute;top:0;left:50%;width:50%;height:100%;transform-origin:left center;transform-style:preserve-3d;transition:transform .28s cubic-bezier(.3,.1,.3,1)}
+/* soft page: while a leaf turns, a smooth light-and-shadow band runs across it so it reads as paper curving, not a flat board */
+.leaf .face::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:var(--k,0);transition:opacity .28s;background:linear-gradient(90deg,rgba(40,28,18,.10) 0%,rgba(255,250,240,.22) 38%,rgba(40,28,18,.08) 70%,rgba(40,28,18,.30) 100%)}
+.leaf .face.back::after{background:linear-gradient(270deg,rgba(40,28,18,.10) 0%,rgba(255,250,240,.22) 38%,rgba(40,28,18,.08) 70%,rgba(40,28,18,.30) 100%)}
 .face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;box-sizing:border-box;overflow:hidden;background:var(--paper);padding:clamp(14px,3vw,40px);display:flex;flex-direction:column}
 .face.front{border-radius:0 10px 10px 0;box-shadow:inset 12px 0 18px -14px rgba(58,40,25,.2);gap:14px}
 .face.back{transform:rotateY(180deg);border-radius:10px 0 0 10px;box-shadow:inset -12px 0 18px -14px rgba(58,40,25,.2);gap:clamp(8px,1.6vw,18px)}
@@ -477,6 +581,8 @@ header.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45d
 .cta .wrap{padding-block:104px;display:flex;flex-direction:column;align-items:center;gap:22px;text-align:center}
 .cta h2{margin:0;font-family:var(--display);font-weight:400;font-size:clamp(38px,5.4vw,72px);line-height:1.05;color:var(--espresso);max-width:820px}
 .cta p{margin:0;font-size:19px;line-height:1.6;max-width:560px;color:var(--body)}
+.cta-view .wrap>p:not(.eyebrow){max-width:640px}
+.cta-view-media{width:100%;max-width:960px;height:clamp(220px,34vw,420px);border-radius:24px;margin-block:10px}
 
 /* visit */
 .visit{padding-block:88px;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:40px}
@@ -494,9 +600,20 @@ footer{background:var(--espresso);color:var(--latte)}
 footer .wrap{padding-block:32px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 32px;font-size:14px}
 footer b{font-family:var(--display);font-weight:400;font-size:24px;color:var(--wall)}
 footer a{padding:10px 0}
+/* bouncy motion: blocks spring up as they scroll into view; buttons and cards spring on hover and press */
+:root{--spring:cubic-bezier(.34,1.56,.64,1)}
+html.edgy,html.edgy body{overscroll-behavior-y:none}
+html.bouncy .bnc{opacity:0;translate:0 28px;scale:.97;transition:opacity .5s ease,translate .8s var(--spring),scale .8s var(--spring)}
+html.bouncy .bnc.in{opacity:1;translate:0 0;scale:1}
+.btn,.ac-lineup-btn,.ph-expand,.pm-toggle,.soc-icon,.kc-more{transition:scale .45s var(--spring),background-color .2s ease,color .2s ease,box-shadow .2s ease,opacity .2s ease,transform .2s ease}
+.btn:hover,.ac-lineup-btn:hover,.ph-expand:hover,.pm-toggle:hover,.soc-icon:hover{scale:1.05}
+.btn:active,.ac-lineup-btn:active,.ph-expand:active,.pm-toggle:active,.soc-icon:active{scale:.95;transition-duration:.12s}
+html.bouncy .kc-card.in:hover,html.bouncy .product.in:hover,html.bouncy .tile.in:hover{scale:1.025;transition:opacity .5s ease,translate .8s var(--spring),scale .45s var(--spring),box-shadow .2s ease}
+@media (prefers-reduced-motion: reduce){html.bouncy .bnc{opacity:1;translate:none;scale:none;transition:none}.btn,.ac-lineup-btn,.ph-expand,.pm-toggle,.soc-icon{scale:none!important}}
 </style>
 </head>
 <body>
+
 <!-- Fixed wall background: the ANOOH wordmark set on gentle waves -->
 <div class="wall" aria-hidden="true">
 <svg>
@@ -523,33 +640,19 @@ footer a{padding:10px 0}
 <nav id="main-nav" aria-label="Main">
 <ul class="nav-list">
 <li class="nav-item" data-page="about">
-<div class="nav-row"><a class="nav-link" href="#about">About Us</a><button type="button" class="nav-toggle" aria-expanded="false" aria-controls="dd-about" aria-label="Show About Us pages"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></button></div>
-<ul class="dropdown" id="dd-about">
-<li><a href="#our-story">Our Story</a></li>
-</ul>
+<div class="nav-row"><a class="nav-link" href="#about">Our Story</a></div>
 </li>
 <li class="nav-item" data-page="menu">
-<div class="nav-row"><a class="nav-link" href="#menu">Menu</a><button type="button" class="nav-toggle" aria-expanded="false" aria-controls="dd-menu" aria-label="Show Menu pages"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></button></div>
-<ul class="dropdown" id="dd-menu">
-<li><a href="#drinks">Drinks</a></li>
-<li><a href="#foods">Foods</a></li>
-</ul>
+<div class="nav-row"><a class="nav-link" href="#menu">Menu</a></div>
+</li>
+<li class="nav-item nav-home" data-page="home">
+<div class="nav-row"><a href="#home" class="brand" aria-label="Anooh Coffee home"><svg class="logo-badge" viewBox="120 -20 690 690" aria-hidden="true"><circle cx="465" cy="325" r="330" fill="none" stroke="currentColor" stroke-width="18"/><g transform="translate(468 340) scale(.95) translate(-480 -323)" fill="none" stroke="currentColor" stroke-width="20" stroke-linejoin="round" stroke-linecap="round"><path d="M372 98c-14 26 12 44-2 70s-6 34 2 46M447 98c-14 26 12 44-2 70s-6 34 2 46M522 98c-14 26 12 44-2 70s-6 34 2 46"/><path d="M243 282H636C628 410 590 500 545 548H333C288 500 250 410 243 282Z"/><path d="M636 290C690 282 716 300 716 336C716 384 676 408 622 414"/><path d="M300 495L432 348L548 408L590 492M432 348L408 418L480 462L548 408M408 418L335 548M548 408L536 438L560 548"/></g></svg><span class="brand-text"><svg class="logo-word" viewBox="128 584 658 102" role="img" aria-label="Anooh Coffee"><g fill="none" stroke="currentColor" stroke-width="12" stroke-linejoin="round"><path transform="translate(134 590)" d="M6.0 84.0V22.0a16.0 16.0 0 0 1 32.0 0V84.0M6.0 49.0H38.0"/><path transform="translate(192 590)" d="M6.0 84.0V22.0a16.0 16.0 0 0 1 32.0 0V84.0"/><path transform="translate(250 590)" d="M6.0 22.0a16.0 16.0 0 0 1 32.0 0V68.0a16.0 16.0 0 0 1 -32.0 0Z"/><path transform="translate(308 590)" d="M6.0 22.0a16.0 16.0 0 0 1 32.0 0V68.0a16.0 16.0 0 0 1 -32.0 0Z"/><path transform="translate(366 590)" d="M6.0 0.0V90.0M38.0 0.0V90.0M6.0 45.0H38.0"/><path transform="translate(446 590)" d="M38.0 26.0V22.0a16.0 16.0 0 0 0 -32.0 0V68.0a16.0 16.0 0 0 0 32.0 0V64.0"/><path transform="translate(504 590)" d="M6.0 22.0a16.0 16.0 0 0 1 32.0 0V68.0a16.0 16.0 0 0 1 -32.0 0Z"/><path transform="translate(562 590)" d="M44.0 6.0H16.0a10 10 0 0 0 -10 10V90.0M6.0 45.0H34.0"/><path transform="translate(620 590)" d="M44.0 6.0H16.0a10 10 0 0 0 -10 10V90.0M6.0 45.0H34.0"/><path transform="translate(678 590)" d="M44.0 6.0H16.0a10 10 0 0 0 -10 10V74.0a10 10 0 0 0 10 10H44.0M6.0 45.0H34.0"/><path transform="translate(736 590)" d="M44.0 6.0H16.0a10 10 0 0 0 -10 10V74.0a10 10 0 0 0 10 10H44.0M6.0 45.0H34.0"/></g></svg><small>Love from the mountain</small></span></a><a class="nav-link nav-home-text" href="#home">Anooh Coffee</a></div>
 </li>
 <li class="nav-item" data-page="discover">
-<div class="nav-row"><a class="nav-link" href="#discover">Discover Us</a><button type="button" class="nav-toggle" aria-expanded="false" aria-controls="dd-discover" aria-label="Show Discover Us pages"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></button></div>
-<ul class="dropdown" id="dd-discover">
-<li><a href="#prihatin">Anooh Prihatin</a></li>
-<li><a href="#artisan-corner">Artisan Corner</a><ul class="dropdown-sub"><li><a href="#whos-playing" aria-haspopup="dialog">Who's Playing This Week?</a></li></ul></li>
-<li><a href="#the-view">View</a></li>
-</ul>
+<div class="nav-row"><a class="nav-link" href="#discover">Blog</a></div>
 </li>
 <li class="nav-item" data-page="shop">
-<div class="nav-row"><a class="nav-link" href="#shop">Shop</a><button type="button" class="nav-toggle" aria-expanded="false" aria-controls="dd-shop" aria-label="Show Shop pages"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></button></div>
-<ul class="dropdown" id="dd-shop">
-<li><a href="#souvenirs">Souvenirs</a></li>
-<li><a href="#anooh-blend">Anooh Blend</a></li>
-<li><a href="#local-products">Local Products</a></li>
-</ul>
+<div class="nav-row"><a class="nav-link" href="#shop">Shop</a></div>
 </li>
 </ul>
 <div class="nav-social">
@@ -707,10 +810,40 @@ footer a{padding:10px 0}
 </div>
 </section>
 
-<section class="cta">
+<section id="artisan-corner" class="feature anchor">
+<div class="wrap feature-in">
+<div class="feature-copy" id="whos-playing">
+<p class="eyebrow">Live music</p>
+<h2 class="h2">Artisan Corner</h2>
+<ul class="ac-tags">
+<li>Every weekend &amp; public holiday</li>
+<li>Live buskers</li>
+<li>Open mic</li>
+</ul>
+<div class="ac-text" lang="ms">
+<p>Hujung minggu dan cuti umum lebih istimewa sambil layan kopi panas, dengar busker live, sambil menikmati pemandangan Gunung Kinabalu yang memukau.</p>
+<p>Suasana chill, muzik yang menenangkan, dan view yang tak pernah mengecewakan memang perfect untuk recharge mood anda.</p>
+<p><b>Setiap hujung minggu &amp; cuti umum di Anooh Coffee.</b> Jom singgah dan nikmati pengalaman terbaik di Kundasang!</p>
+</div>
+<p class="ac-en"><span>In English</span>Weekends and public holidays are better with a hot coffee, live buskers and a stunning view of Mount Kinabalu. Easy vibes, calming music and a view that never disappoints: the perfect way to recharge. Every weekend and public holiday at Anooh Coffee, so drop by for the best of Kundasang.</p>
+<button type="button" class="ac-lineup-btn" id="ac-lineup-btn" aria-haspopup="dialog" aria-controls="ac-dialog"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>See who's playing this weekend</button>
+</div>
+<div class="feature-media ac-media">
+<figure class="sv-video">
+<video src="media/artisan-corner.mp4" poster="media/artisan-corner-poster.jpg" muted loop playsinline preload="metadata" aria-label="Artisan Corner at Anooh Coffee: musicians playing traditional instruments and guitar on the wooden stage, an open mic sign, and guests enjoying the mountain view"></video>
+<button type="button" class="sv-toggle" aria-label="Play video"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-play" d="M8 5.5v13l10.5-6.5z" fill="currentColor"></path><path class="i-pause" d="M8 5h3v14H8zM13 5h3v14h-3z" fill="currentColor"></path></svg></button>
+</figure>
+</div>
+</div>
+</section>
+
+<section id="the-view" class="cta cta-view anchor">
 <div class="wrap">
 <svg viewBox="0 0 120 60" aria-hidden="true" style="width:96px;height:auto" fill="none" stroke="#7A5536" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 26h64v14a20 20 0 0 1-20 20H40a20 20 0 0 1-20-20z"></path><path d="M84 30h6a9 9 0 0 1 0 18h-8"></path><path d="M40 4c-4 6 4 8 0 14M54 4c-4 6 4 8 0 14M68 4c-4 6 4 8 0 14"></path></svg>
+<p class="eyebrow">The view from our windows</p>
 <h2>The kettle's on. Your seat by the window is waiting.</h2>
+<p>Kundasang sits high in the hills below Mount Kinabalu. Come early on a clear morning for the best of it, before the afternoon mist rolls in. Grab a window seat or a table outside, order something warm, and take your time.</p>
+<div class="cta-view-media tile" style="background:#B5834F;color:#2B2017">[Photo: the view]</div>
 <p>Drop by on your way up the mountain or on the drive home. Only at Anooh Coffee, Kundasang.</p>
 <a href="#visit" class="btn">Plan your visit</a>
 </div>
@@ -746,17 +879,25 @@ footer a{padding:10px 0}
 <!-- ABOUT US -->
 <main id="about" class="view" hidden>
 <section class="wrap page-hero">
-<p class="eyebrow">About Us</p>
-<h1 tabindex="-1">Love from the mountain.</h1>
-<p>Anooh Coffee is a small coffee shop at KM3 on the Kundasang–Ranau road in Sabah, open every day from 6:30 am to 9:30 pm.</p>
+<p class="eyebrow">Our Story</p>
+<h1 tabindex="-1">Anooh. Let's go for coffee.</h1>
+<p>Anooh Coffee is not an ordinary roadside cafe, it is part of a homegrown journey rooted deeply in Sabah’s highland soil.</p>
 <div class="subnav"><a href="#our-story" class="pill">Our Story</a></div>
 </section>
 <section id="our-story" class="anchor">
 <div class="wrap story" style="padding-block:72px 104px">
 <div class="story-copy">
 <h2 class="h2">Our story</h2>
-<p class="lead">Anooh sits at KM3 on the road between Kundasang and Ranau, with wooden tables, wide windows and the highland air coming through the door. We wanted a place where carefully made coffee comes with one of the best views in Sabah.</p>
-<p class="lead">Stop in for an early cup before a day on the mountain, or warm up on the drive home. We're open every day until 9:30 at night.</p>
+<p class="lead">Anooh Coffee was founded by Azizul Julirin, a Sabahan agro-entrepreneur from Kundasang. Long before the coffee shop came farming in the highlands: Kundasang Aquafarm, an aquaponics and hydroponics farm Azizul set up in 2015, along with Midori Homestay in Mesilou.</p>
+<p class="lead">When COVID-19 and the lockdowns made those years hard for farms and homestays alike, the business looked for a new way forward and turned to food and drink. In late 2022, Anooh Coffee opened its doors.</p>
+<blockquote class="story-name"><p><span lang="dtp">Anooh</span> means <em>“jom”</em>, <em>“mari”</em>, or <em>“let’s go”</em> in Dusun.</p><p>It’s an invitation: bring your friends and family, sit down, and have a <span lang="ms">kopi-kopi</span> together.</p></blockquote>
+<h3 class="story-sub">What you’ll find here</h3>
+<ul class="story-list">
+<li><strong>Freshly ground coffee</strong>, from local Sabah beans and imported varieties.</li>
+<li><strong>Local products</strong> from Sabahan small businesses (IKS), so the cottage producers around us grow with us.</li>
+<li><strong>Thai-style food</strong> from our friends at Tuktuk Tomyam, to go with your drink.</li>
+</ul>
+<p class="lead">We sit on the main East–West highway, about 3 km from Kundasang town. Anooh grew out of adapting after the pandemic, working hand in hand with our community and taking the business online, and that spirit still shapes how we run things today.</p>
 <div class="follow">
 <span>Follow us on</span>
 <div class="row">
@@ -781,57 +922,47 @@ footer a{padding:10px 0}
 <!-- DISCOVER US -->
 <main id="discover" class="view" hidden>
 <section class="wrap page-hero">
-<p class="eyebrow">Discover Us</p>
+<p class="eyebrow">Blog</p>
 <h1 tabindex="-1">There's more to Anooh than coffee.</h1>
-<p>The people we care for, the makers we work with, and the view that brings everyone up the hill.</p>
-<div class="subnav">
-<a href="#prihatin" class="pill">Anooh Prihatin</a>
-<a href="#artisan-corner" class="pill">Artisan Corner</a>
-<a href="#the-view" class="pill">View</a>
-</div>
+<p>News from the hill: the community we care for, our campaigns, and the exhibitions we take part in.</p>
 </section>
 
-<section id="prihatin" class="feature alt anchor">
-<div class="wrap ph-in">
-<div class="ph-head">
-<div class="ph-intro">
-<p class="eyebrow">Community</p>
-<h2 class="h2">Anooh Prihatin</h2>
-<p class="lead">Prihatin means caring. It's our way of giving back to the community that welcomed us.</p>
-<p class="lead">Bersama membina komuniti. Building our community together.</p>
+<section id="blog" class="blog">
+<div class="wrap bl-in">
+<div class="bl-tabs" role="group" aria-label="Filter posts">
+<button type="button" class="bl-tab" id="blog-all" data-f="all" aria-pressed="true">All</button>
+<button type="button" class="bl-tab" id="prihatin" data-f="care" aria-pressed="false">Anooh Care</button>
+<button type="button" class="bl-tab" id="campaign" data-f="campaign" aria-pressed="false">Campaign</button>
+<button type="button" class="bl-tab" id="exhibition" data-f="exhibition" aria-pressed="false">Exhibition</button>
 </div>
+<div class="bl-note" data-note="care" hidden>
+<p>Anooh Care is our way of giving back to the community that welcomed us. <span lang="ms">Bersama membina komuniti.</span></p>
 <ul class="ph-sdg" aria-label="Supports the UN Sustainable Development Goals">
 <li><a href="https://sdgs.un.org/goals/goal4" target="_blank" rel="noopener"><svg class="sdg-icon" viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" fill="#C5192D"/><text x="7" y="37" font-size="36" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="500" fill="#fff">4</text><text x="30" y="18" font-size="10.5" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="500" fill="#fff" letter-spacing=".3">QUALITY</text><text x="30" y="30" font-size="10.5" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="500" fill="#fff" letter-spacing=".3">EDUCATION</text><path d="M18 50l28 4.5v31L18 81z M54 54.5L74 50v31l-20 4.5z" fill="#fff"/><path d="M81 47h5v31h-5z M81 78h5l-2.5 7z" fill="#fff"/></svg><span><small>SDG 4</small>Quality Education</span><svg class="ext" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a></li>
 <li><a href="https://sdgs.un.org/goals/goal17" target="_blank" rel="noopener"><svg class="sdg-icon" viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" fill="#19486A"/><text x="5" y="37" font-size="36" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="500" fill="#fff">17</text><text x="39" y="18" font-size="9.2" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="500" fill="#fff" letter-spacing=".2">PARTNERSHIPS</text><text x="39" y="30" font-size="9.2" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="500" fill="#fff" letter-spacing=".2">FOR THE GOALS</text><g fill="none" stroke="#fff" stroke-width="2.6"><circle cx="50.0" cy="58.0" r="12.5"/><circle cx="59.5" cy="64.9" r="12.5"/><circle cx="55.9" cy="76.1" r="12.5"/><circle cx="44.1" cy="76.1" r="12.5"/><circle cx="40.5" cy="64.9" r="12.5"/></g></svg><span><small>SDG 17</small>Partnerships for the Goals</span><svg class="ext" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a></li>
 </ul>
 </div>
+<div class="bl-grid" aria-live="polite"></div>
+<p class="bl-empty" hidden></p>
+<div class="bl-store">
 <div class="ph-timeline">
-<ol class="ph-list" id="ph-list" aria-label="Anooh Prihatin activities, newest first">
-<li class="ph-entry" id="ph-jumaat">
+<ol class="ph-list" id="ph-list" aria-label="Anooh Care activities, oldest first">
+<li class="ph-entry" id="ph-rm500">
 <span class="ph-node" aria-hidden="true"></span>
 <article class="ph-post">
-<div class="ph-copy"><p class="ph-date"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"></rect><path d="M8 3v4M16 3v4M3 10h18"></path></svg><time datetime="2026-10-09">9 Oktober 2026</time></p>
-<h3>Kongsi Rezeki Jumaat</h3>
-<p class="ph-place">Masjid Jamek Kundasang</p>
+<div class="ph-copy"><p class="ph-date"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"></rect><path d="M8 3v4M16 3v4M3 10h18"></path></svg><time datetime="2025-09-16">Hari Malaysia, 16 September 2025</time></p>
+<h3>Anooh Prihatin: Bersama Membina Komuniti</h3>
 <div class="ph-text" lang="ms">
-<p>Alhamdulillah, pada Jumaat, 9 Oktober, Anooh Prihatin berkesempatan untuk berkongsi sedikit rezeki bersama jemaah di Masjid Jamek Kundasang.</p>
-<p>Semoga sumbangan kecil ini membawa manfaat dan keberkatan buat semua yang menerimanya. Terima kasih juga kepada semua yang sentiasa menyokong usaha Anooh Prihatin.</p>
+<p>Bersempena dengan sambutan Hari Malaysia, Anooh Coffee berbesar hati memperkenalkan inisiatif Anooh Prihatin - Bersama Membina Komuniti.</p>
+<p>Melalui inisiatif ini, Anooh Coffee memperuntukkan RM500.00 setiap bulan bagi menyokong NGO, pertubuhan, dan organisasi berdaftar yang benar-benar memerlukan. Usaha ini adalah komitmen kami untuk memperkukuh jaringan sokongan serta meningkatkan kesejahteraan masyarakat.</p>
 </div>
-<p class="ph-en"><span>In English</span>On Friday 9 October, Anooh Prihatin shared food with the congregation at Masjid Jamek Kundasang. We hope this small contribution brings benefit and blessings to everyone who received it, and we thank everyone who keeps supporting Anooh Prihatin.</p></div>
-<div class="ph-gallery">
-<ul class="ph-track" tabindex="0" aria-label="Kongsi Rezeki Jumaat photos, swipe or use the thumbnails">
-<li><img src="media/prihatin/jumaat-1.jpg" width="900" height="861" alt="Kongsi Rezeki Jumaat table with baskets of packed food and a sign reading “Daripada Anooh Coffee Kundasang”" loading="lazy"></li>
-<li><img src="media/prihatin/jumaat-2.jpg" width="900" height="863" alt="A boy and worshippers taking packed food from the basket after Friday prayers" loading="lazy"></li>
-<li><img src="media/prihatin/jumaat-3.jpg" width="900" height="862" alt="A line of worshippers collecting food at Masjid Jamek Kundasang" loading="lazy"></li>
-<li><img src="media/prihatin/jumaat-4.jpg" width="900" height="860" alt="Worshippers gathering at the food table on the mosque veranda" loading="lazy"></li>
-</ul>
-<div class="ph-thumbs">
-<button type="button" class="ph-thumb on" data-i="0" aria-label="Show photo 1 of 4" aria-current="true"><img src="media/prihatin/jumaat-1.jpg" alt=""></button>
-<button type="button" class="ph-thumb" data-i="1" aria-label="Show photo 2 of 4"><img src="media/prihatin/jumaat-2.jpg" alt=""></button>
-<button type="button" class="ph-thumb" data-i="2" aria-label="Show photo 3 of 4"><img src="media/prihatin/jumaat-3.jpg" alt=""></button>
-<button type="button" class="ph-thumb" data-i="3" aria-label="Show photo 4 of 4"><img src="media/prihatin/jumaat-4.jpg" alt=""></button>
-</div>
-</div>
+<dl class="ph-facts">
+<div><dt>Dana Sumbangan</dt><dd>RM500.00 setiap bulan</dd></div>
+<div><dt>Untuk</dt><dd>NGO, pertubuhan &amp; organisasi berdaftar</dd></div>
+<div><dt>Cara Memohon</dt><dd>Hubungi <a href="tel:+60178130732">017-813 0732</a><br>atau email <a href="mailto:anoohcare@gmail.com">anoohcare@gmail.com</a></dd></div>
+</dl>
+<p class="ph-en"><span>In English</span>To mark Malaysia Day, Anooh Coffee is proud to introduce Anooh Prihatin: Building the Community Together. Every month, Anooh Coffee sets aside RM500 to support registered NGOs, associations and organisations that truly need it. It is our commitment to strengthening support networks and the wellbeing of the community. To apply, call 017-813 0732 or email anoohcare@gmail.com.</p></div>
+<figure class="ph-poster"><img src="media/care/anooh-care-rm500.jpg" width="900" height="1129" alt="Anooh Prihatin, Bersama Membina Komuniti poster with the Anooh Care badge: Anooh Coffee sets aside RM500.00 every month for registered NGOs and organisations. Apply by calling 017-813 0732 or emailing anoohcare@gmail.com." loading="lazy"></figure>
 </article>
 </li>
 <li class="ph-entry ph-older" id="ph-saito">
@@ -841,6 +972,7 @@ footer a{padding:10px 0}
 <h3>Latihan Industri di Jepun</h3>
 <p class="ph-place">SAITO Kumpulan ke-23 · Universiti Malaysia Sabah</p>
 <div class="ph-text" lang="ms">
+<p><strong>ANOOH CARE Menyokong Pendidikan &amp; Masa Depan Anak Muda Sabah!</strong></p>
 <p>Anooh Care berbesar hati dapat menyumbang kepada Universiti Malaysia Sabah (UMS) bagi menjayakan program Student Aquaculture Industrial Training in Overseas (SAITO) Kumpulan ke-23.</p>
 <dl class="ph-facts">
 <div><dt>Nama Projek</dt><dd>Latihan Industri di Jepun</dd></div>
@@ -853,22 +985,122 @@ footer a{padding:10px 0}
 <p>Pengalaman seperti ini bukan sahaja memperkaya ilmu, malah menjadi bekalan berharga dalam membina masa depan dan kerjaya mereka.</p>
 </div>
 <p class="ph-en"><span>In English</span>Anooh Care is proud to have supported Universiti Malaysia Sabah (UMS) in running the 23rd cohort of SAITO, the Student Aquaculture Industrial Training in Overseas programme. From 8 June to 31 August 2026, 14 final-year aquaculture students trained in Japan at Oribu Suissan in Kagawa, the Tanoura Fisheries Cooperative, Kindai University and Nagasaka Eel Farm in Nagoya. Experience like this builds knowledge and gives them a strong start in their future careers.</p></div>
-<div class="ph-gallery">
+<div class="ph-gallery ph-square" style="--n:6">
 <ul class="ph-track" tabindex="0" aria-label="Latihan Industri di Jepun photos, swipe or use the thumbnails">
-<li><img src="media/prihatin/saito-1.jpg" width="900" height="836" alt="A SAITO student feeding fish in a netted aquaculture pond in Japan" loading="lazy"></li>
-<li><img src="media/prihatin/saito-2.jpg" width="900" height="836" alt="Students and an instructor on a boat beside offshore fish cages" loading="lazy"></li>
-<li><img src="media/prihatin/saito-3.jpg" width="900" height="836" alt="A student mending a net beside a round blue fish tank" loading="lazy"></li>
-<li><img src="media/prihatin/saito-4.jpg" width="900" height="836" alt="A student tossing an octopus from a yellow basket at a fish farm" loading="lazy"></li>
-<li><img src="media/prihatin/saito-5.jpg" width="900" height="836" alt="Two trainees repairing a round net beside a tank" loading="lazy"></li>
-<li><img src="media/prihatin/saito-6.jpg" width="900" height="836" alt="Two students tending trays of seedlings at the training site" loading="lazy"></li>
+<li><img src="media/care/saito-1.jpg" width="900" height="900" alt="A SAITO trainee and a farm worker mending a round net beside a large blue fish tank" loading="lazy"></li>
+<li><img src="media/care/saito-2.jpg" width="900" height="900" alt="A trainee tossing an octopus from a yellow basket into a sea pen at a fishing port" loading="lazy"></li>
+<li><img src="media/care/saito-3.jpg" width="900" height="900" alt="A trainee repairing a net in front of a round blue tank under shade netting" loading="lazy"></li>
+<li><img src="media/care/saito-4.jpg" width="900" height="900" alt="Two trainees tending trays of seedlings at the training site" loading="lazy"></li>
+<li><img src="media/care/saito-5.jpg" width="900" height="900" alt="A trainee feeding fish in a large netted pond, beside a sack of floating feed" loading="lazy"></li>
+<li><img src="media/care/saito-6.jpg" width="900" height="900" alt="Trainees and an instructor on a boat beside offshore fish cages" loading="lazy"></li>
 </ul>
-<div class="ph-thumbs" style="--n:6">
-<button type="button" class="ph-thumb on" data-i="0" aria-label="Show photo 1 of 6" aria-current="true"><img src="media/prihatin/saito-1.jpg" alt="" loading="lazy"></button>
-<button type="button" class="ph-thumb" data-i="1" aria-label="Show photo 2 of 6"><img src="media/prihatin/saito-2.jpg" alt="" loading="lazy"></button>
-<button type="button" class="ph-thumb" data-i="2" aria-label="Show photo 3 of 6"><img src="media/prihatin/saito-3.jpg" alt="" loading="lazy"></button>
-<button type="button" class="ph-thumb" data-i="3" aria-label="Show photo 4 of 6"><img src="media/prihatin/saito-4.jpg" alt="" loading="lazy"></button>
-<button type="button" class="ph-thumb" data-i="4" aria-label="Show photo 5 of 6"><img src="media/prihatin/saito-5.jpg" alt="" loading="lazy"></button>
-<button type="button" class="ph-thumb" data-i="5" aria-label="Show photo 6 of 6"><img src="media/prihatin/saito-6.jpg" alt="" loading="lazy"></button>
+<div class="ph-thumbs">
+<button type="button" class="ph-thumb on" data-i="0" aria-label="Show photo 1 of 6" aria-current="true"><img src="media/care/saito-1.jpg" alt="" loading="lazy"></button>
+<button type="button" class="ph-thumb" data-i="1" aria-label="Show photo 2 of 6"><img src="media/care/saito-2.jpg" alt="" loading="lazy"></button>
+<button type="button" class="ph-thumb" data-i="2" aria-label="Show photo 3 of 6"><img src="media/care/saito-3.jpg" alt="" loading="lazy"></button>
+<button type="button" class="ph-thumb" data-i="3" aria-label="Show photo 4 of 6"><img src="media/care/saito-4.jpg" alt="" loading="lazy"></button>
+<button type="button" class="ph-thumb" data-i="4" aria-label="Show photo 5 of 6"><img src="media/care/saito-5.jpg" alt="" loading="lazy"></button>
+<button type="button" class="ph-thumb" data-i="5" aria-label="Show photo 6 of 6"><img src="media/care/saito-6.jpg" alt="" loading="lazy"></button>
+</div>
+</div>
+</article>
+</li>
+<li class="ph-entry ph-older" id="ph-breakfast">
+<span class="ph-node" aria-hidden="true"></span>
+<article class="ph-post">
+<div class="ph-copy"><p class="ph-date"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"></rect><path d="M8 3v4M16 3v4M3 10h18"></path></svg><time datetime="2026-07-06">6 – 26 Julai 2026</time></p>
+<h3>MPP Care 3.0: Breakfast Jom!</h3>
+<p class="ph-place">Universiti Malaysia Sabah</p>
+<div class="ph-text" lang="ms">
+<p>Anooh Coffee melalui inisiatif Anooh Care berbesar hati menyumbang kepada kejayaan pelaksanaan Program MPP Care 3.0: Breakfast Jom! anjuran Majlis Perwakilan Pelajar Universiti Malaysia Sabah (UMS) yang berlangsung pada 6 hingga 26 Julai 2026 (Isnin hingga Jumaat) di Universiti Malaysia Sabah.</p>
+<p>Sumbangan berupa 100 pek roti putih telah disalurkan kepada Majlis Perwakilan Pelajar Sesi 2025/2026 dan memberi manfaat kepada mahasiswa UMS, sebagai tanda sokongan terhadap inisiatif kebajikan yang membantu pelajar memulakan hari dengan lebih bertenaga serta menggalakkan budaya saling membantu dalam kalangan warga kampus.</p>
+<p>Kami percaya bahawa kesejahteraan mahasiswa memainkan peranan penting dalam menyokong kecemerlangan akademik dan pembangunan sahsiah. Inisiatif seperti MPP Care 3.0: Breakfast Jom! bukan sahaja meringankan beban pelajar, malah mencerminkan semangat keprihatinan, kebersamaan dan nilai kemasyarakatan yang menjadi asas kepada pembentukan komuniti kampus yang penyayang dan inklusif.</p>
+<p>Terima kasih kepada Majlis Perwakilan Pelajar Universiti Malaysia Sabah Sesi 2025/2026, para penganjur serta semua pihak yang telah menjayakan program ini dengan penuh dedikasi. Anooh Care akan terus komited menyokong pelbagai inisiatif berimpak positif yang memperkasa kebajikan mahasiswa, membina komuniti yang prihatin serta menyumbang ke arah pembangunan generasi muda yang cemerlang dan berdaya saing.</p>
+</div>
+<dl class="ph-facts">
+<div><dt>Sumbangan</dt><dd>100 pek roti putih</dd></div>
+<div><dt>Penerima Sumbangan</dt><dd>Majlis Perwakilan Pelajar UMS Sesi 2025/2026</dd></div>
+<div><dt>Penerima Manfaat</dt><dd>Mahasiswa UMS</dd></div>
+</dl>
+<p class="ph-en"><span>In English</span>Through Anooh Care, Anooh Coffee contributed 100 packs of white bread to MPP Care 3.0: Breakfast Jom!, run by the UMS Student Representative Council on weekdays from 6 to 26 July 2026. The programme helps students start the day with energy and encourages a culture of helping one another on campus. Thank you to the 2025/2026 Student Representative Council, the organisers and everyone who made it happen.</p></div>
+<div class="ph-gallery ph-square">
+<ul class="ph-track" tabindex="0" aria-label="Breakfast Jom! photos, swipe or use the thumbnails">
+<li><img src="media/care/breakfast-1.jpg" width="900" height="900" alt="MPP UMS student representatives and a UMS officer holding packs of white bread in front of a table stacked with more bread" loading="lazy"></li>
+<li><img src="media/care/breakfast-2.jpg" width="900" height="900" alt="Students and the supplier beside a tall stack of red crates of bread being unloaded from a lorry" loading="lazy"></li>
+<li><img src="media/care/breakfast-3.jpg" width="900" height="900" alt="Student volunteers handing out bread and bottled water from a table on campus" loading="lazy"></li>
+<li><img src="media/care/breakfast-4.jpg" width="900" height="900" alt="The MPP Care 3.0 Breakfast Jom! team under a blue canopy outside Kompleks Dewan Kuliah Pusat Ke-2, with the programme bunting" loading="lazy"></li>
+</ul>
+<div class="ph-thumbs">
+<button type="button" class="ph-thumb on" data-i="0" aria-label="Show photo 1 of 4" aria-current="true"><img src="media/care/breakfast-1.jpg" alt="" loading="lazy"></button>
+<button type="button" class="ph-thumb" data-i="1" aria-label="Show photo 2 of 4"><img src="media/care/breakfast-2.jpg" alt="" loading="lazy"></button>
+<button type="button" class="ph-thumb" data-i="2" aria-label="Show photo 3 of 4"><img src="media/care/breakfast-3.jpg" alt="" loading="lazy"></button>
+<button type="button" class="ph-thumb" data-i="3" aria-label="Show photo 4 of 4"><img src="media/care/breakfast-4.jpg" alt="" loading="lazy"></button>
+</div>
+</div>
+</article>
+</li>
+<li class="ph-entry ph-older" id="ph-aquaculture">
+<span class="ph-node" aria-hidden="true"></span>
+<article class="ph-post">
+<div class="ph-copy"><p class="ph-date"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"></rect><path d="M8 3v4M16 3v4M3 10h18"></path></svg><time datetime="2026-09-02">2 September 2026</time></p>
+<h3>Aquaculture Day 2026</h3>
+<p class="ph-place">Dewan Auditorium Pascasiswazah, UMS</p>
+<div class="ph-text" lang="ms">
+<p>Pada 2 September 2026, Anooh Care berkesempatan menyumbang dan menyokong kejayaan pelaksanaan Aquaculture Day 2026 yang berlangsung di Dewan Auditorium Pascasiswazah, UMS.</p>
+<p>Inisiatif ini merupakan salah satu usaha kami dalam menyokong SDG 4 (Pendidikan Berkualiti) dan SDG 17 (Kerjasama demi Matlamat), khususnya dalam membina komuniti melalui pendidikan, perkongsian ilmu dan kerjasama yang bermakna.</p>
+<p>Bagi Anooh Care, setiap sumbangan kecil mampu memberi impak yang besar. Semoga usaha seperti ini dapat terus memupuk semangat kerjasama dan memberi manfaat kepada komuniti.</p>
+</div>
+<p class="ph-en"><span>In English</span>On 2 September 2026, Anooh Care contributed to and supported Aquaculture Day 2026 at the UMS Postgraduate Auditorium. It is part of our support for SDG 4 (Quality Education) and SDG 17 (Partnerships for the Goals): building community through education, shared knowledge and meaningful partnerships. For Anooh Care, every small contribution can make a big difference.</p></div>
+<div class="ph-gallery ph-square" style="--n:5">
+<ul class="ph-track" tabindex="0" aria-label="Aquaculture Day 2026 photos, swipe or use the thumbnails">
+<li><img src="media/care/aquaculture-1.jpg" width="900" height="900" alt="Organisers and guests at the Aquaculture Day banner on stage at the opening" loading="lazy"></li>
+<li><img src="media/care/aquaculture-2.jpg" width="900" height="900" alt="Students gathered round a row of aquaculture tanks at an exhibition booth" loading="lazy"></li>
+<li><img src="media/care/aquaculture-3.jpg" width="900" height="900" alt="Guests visiting the exhibition, with a student explaining a display" loading="lazy"></li>
+<li><img src="media/care/aquaculture-4.jpg" width="900" height="900" alt="Forum session on the future of Malaysian aquaculture, with panellists on stage" loading="lazy"></li>
+<li><img src="media/care/aquaculture-5.jpg" width="900" height="900" alt="Group photo of guests, organisers and students in front of the red stage curtain" loading="lazy"></li>
+</ul>
+<div class="ph-thumbs">
+<button type="button" class="ph-thumb on" data-i="0" aria-label="Show photo 1 of 5" aria-current="true"><img src="media/care/aquaculture-1.jpg" alt="" loading="lazy"></button>
+<button type="button" class="ph-thumb" data-i="1" aria-label="Show photo 2 of 5"><img src="media/care/aquaculture-2.jpg" alt="" loading="lazy"></button>
+<button type="button" class="ph-thumb" data-i="2" aria-label="Show photo 3 of 5"><img src="media/care/aquaculture-3.jpg" alt="" loading="lazy"></button>
+<button type="button" class="ph-thumb" data-i="3" aria-label="Show photo 4 of 5"><img src="media/care/aquaculture-4.jpg" alt="" loading="lazy"></button>
+<button type="button" class="ph-thumb" data-i="4" aria-label="Show photo 5 of 5"><img src="media/care/aquaculture-5.jpg" alt="" loading="lazy"></button>
+</div>
+</div>
+</article>
+</li>
+<li class="ph-entry ph-older" id="ph-tvet" data-cat="campaign">
+<span class="ph-node" aria-hidden="true"></span>
+<article class="ph-post">
+<div class="ph-copy"><p class="ph-date"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"></rect><path d="M8 3v4M16 3v4M3 10h18"></path></svg><time datetime="2026-10-12">12 Oktober 2026</time></p>
+<h3>Program Outreach TVET'26 Bersama Komuniti di Anooh Coffee</h3>
+<p class="ph-place">Anooh Coffee, Kundasang · bersama ADTEC Sandakan (JTM SERASI)</p>
+<div class="ph-text" lang="ms">
+<p>Pada 12 Oktober 2026, Anooh Coffee berbesar hati menjadi lokasi rasmi serta Rakan Strategik Komuniti ADTEC Sandakan bagi menjayakan Program Outreach dan Promosi TVET Bersama Komuniti di bawah penjenamaan JTM SERASI.</p>
+<p>Program ini dilangsungkan dalam suasana yang santai dan selesa di premis kami. Pihak ADTEC Sandakan telah mengadakan sesi ramah mesra, mengedarkan risalah kursus kemahiran, serta membuka sudut info ringkas untuk pendedahan laluan kerjaya teknikal kepada pengunjung dan masyarakat setempat.</p>
+<p>Sebagai simbolik jalinan kerjasama dan tanda apresiasi, pihak delegasi ADTEC Sandakan turut menyempurnakan penyerahan cenderamata istimewa hasil cetakan 3D khas kepada pihak pengurusan Anooh Coffee.</p>
+<p>Setinggi-tinggi penghargaan kepada pengurusan ADTEC Sandakan atas kepercayaan ini. Semoga kerjasama seperti ini dapat terus menterjemahkan kebersamaan institusi bersama komuniti!</p>
+</div>
+<p class="ph-en"><span>In English</span>On 12 October 2026, Anooh Coffee was proud to be the official venue and Community Strategic Partner of ADTEC Sandakan for its TVET Outreach and Promotion Programme with the Community, under the JTM SERASI banner. In a relaxed setting at our café, the ADTEC Sandakan team chatted with visitors, handed out skills-course leaflets and ran a small info corner on technical career paths. As a token of the partnership, the delegation presented Anooh Coffee's management with a special 3D-printed souvenir. Our sincere thanks to ADTEC Sandakan for their trust.</p>
+</div>
+<div class="ph-gallery ph-portrait" style="--n:7">
+<ul class="ph-track" tabindex="0" aria-label="TVET outreach photos, swipe or use the thumbnails">
+<li><img src="media/care/tvet-1.jpg" width="900" height="1270" alt="Participants seated at the long tables on the terrace while an ADTEC officer speaks beside the JTM banners" loading="lazy"></li>
+<li><img src="media/care/tvet-2.jpg" width="900" height="1270" alt="An Anooh barista showing a course leaflet to two customers at a table" loading="lazy"></li>
+<li><img src="media/care/tvet-3.jpg" width="900" height="1270" alt="A staff member handing a TVET leaflet to a visitor beside a parked car" loading="lazy"></li>
+<li><img src="media/care/tvet-4.jpg" width="900" height="1270" alt="An ADTEC officer talking to visitors in front of the JTM banners at the Artisan Corner" loading="lazy"></li>
+<li><img src="media/care/tvet-5.jpg" width="900" height="1270" alt="A visitor reading a leaflet at the counter while the cashier serves him" loading="lazy"></li>
+<li><img src="media/care/tvet-6.jpg" width="900" height="1270" alt="An ADTEC officer briefing visitors on the courses offered, with the JTM banners behind him" loading="lazy"></li>
+<li><img src="media/care/tvet-7.jpg" width="900" height="1270" alt="ADTEC Sandakan presenting a 3D-printed souvenir to Anooh Coffee's management" loading="lazy"></li>
+</ul>
+<div class="ph-thumbs">
+<button type="button" class="ph-thumb on" data-i="0" aria-label="Show photo 1 of 7" aria-current="true"><img src="media/care/tvet-1.jpg" alt="" loading="lazy"></button>
+<button type="button" class="ph-thumb" data-i="1" aria-label="Show photo 2 of 7"><img src="media/care/tvet-2.jpg" alt="" loading="lazy"></button>
+<button type="button" class="ph-thumb" data-i="2" aria-label="Show photo 3 of 7"><img src="media/care/tvet-3.jpg" alt="" loading="lazy"></button>
+<button type="button" class="ph-thumb" data-i="3" aria-label="Show photo 4 of 7"><img src="media/care/tvet-4.jpg" alt="" loading="lazy"></button>
+<button type="button" class="ph-thumb" data-i="4" aria-label="Show photo 5 of 7"><img src="media/care/tvet-5.jpg" alt="" loading="lazy"></button>
+<button type="button" class="ph-thumb" data-i="5" aria-label="Show photo 6 of 7"><img src="media/care/tvet-6.jpg" alt="" loading="lazy"></button>
+<button type="button" class="ph-thumb" data-i="6" aria-label="Show photo 7 of 7"><img src="media/care/tvet-7.jpg" alt="" loading="lazy"></button>
 </div>
 </div>
 </article>
@@ -876,50 +1108,16 @@ footer a{padding:10px 0}
 </ol>
 <div class="ph-more-row" hidden>
 <span class="ph-node" aria-hidden="true"></span>
-<button type="button" class="ph-expand" aria-expanded="false" aria-controls="ph-list"><span class="ph-x-label">Expand</span><small class="ph-x-note">1 earlier activity</small><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></button>
+<button type="button" class="ph-expand" aria-expanded="false" aria-controls="ph-list"><span class="ph-x-label">Expand</span><small class="ph-x-note">1 later activity</small><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></button>
 </div>
 </div>
-</div>
-</section>
-
-<section id="artisan-corner" class="feature anchor">
-<div class="wrap feature-in">
-<div class="feature-copy" id="whos-playing">
-<p class="eyebrow">Live music</p>
-<h2 class="h2">Artisan Corner</h2>
-<ul class="ac-tags">
-<li>Every weekend &amp; public holiday</li>
-<li>Live buskers</li>
-<li>Open mic</li>
-</ul>
-<div class="ac-text" lang="ms">
-<p>Hujung minggu dan cuti umum lebih istimewa sambil layan kopi panas, dengar busker live, sambil menikmati pemandangan Gunung Kinabalu yang memukau.</p>
-<p>Suasana chill, muzik yang menenangkan, dan view yang tak pernah mengecewakan memang perfect untuk recharge mood anda.</p>
-<p><b>Setiap hujung minggu &amp; cuti umum di Anooh Coffee.</b> Jom singgah dan nikmati pengalaman terbaik di Kundasang!</p>
-</div>
-<p class="ac-en"><span>In English</span>Weekends and public holidays are better with a hot coffee, live buskers and a stunning view of Mount Kinabalu. Easy vibes, calming music and a view that never disappoints: the perfect way to recharge. Every weekend and public holiday at Anooh Coffee, so drop by for the best of Kundasang.</p>
-<button type="button" class="ac-lineup-btn" id="ac-lineup-btn" aria-haspopup="dialog" aria-controls="ac-dialog"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>See who's playing this weekend</button>
-</div>
-<div class="feature-media ac-media">
-<figure class="sv-video">
-<video src="media/artisan-corner.mp4" poster="media/artisan-corner-poster.jpg" muted loop playsinline preload="metadata" aria-label="Artisan Corner at Anooh Coffee: musicians playing traditional instruments and guitar on the wooden stage, an open mic sign, and guests enjoying the mountain view"></video>
-<button type="button" class="sv-toggle" aria-label="Play video"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-play" d="M8 5.5v13l10.5-6.5z" fill="currentColor"></path><path class="i-pause" d="M8 5h3v14H8zM13 5h3v14h-3z" fill="currentColor"></path></svg></button>
-</figure>
 </div>
 </div>
 </section>
-
-<section id="the-view" class="feature alt anchor">
-<div class="wrap feature-in">
-<div class="feature-copy">
-<p class="eyebrow">From our windows</p>
-<h2 class="h2">The view</h2>
-<p class="lead">Kundasang sits high in the hills below Mount Kinabalu. Come early on a clear morning for the best of it, before the afternoon mist rolls in.</p>
-<p class="lead">Grab a window seat or a table outside, order something warm, and take your time.</p>
-</div>
-<div class="feature-media"><div class="tile" style="background:#B5834F;color:#2B2017">[Photo: the view]</div></div>
-</div>
-</section>
+<dialog class="bl-dialog" id="bl-dialog" aria-label="Blog post">
+<div class="bl-d-bar"><span class="bl-d-tag"></span><button type="button" class="bl-d-close" aria-label="Close post"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+<div class="bl-d-body"></div>
+</dialog>
 </main>
 
 <!-- SHOP -->
@@ -1069,7 +1267,6 @@ footer a{padding:10px 0}
 <div class="subnav">
 <a href="#drinks" class="pill">Drinks</a>
 <a href="#foods" class="pill">Foods</a>
-<a href="#menu-book" class="pill">Flip the menu book</a>
 </div>
 </section>
 
@@ -1537,6 +1734,7 @@ footer a{padding:10px 0}
       var a = Math.max(0, Math.min(1, f - i));
       var z = a > 0 && a < 1 ? 60 : a >= 1 ? 20 + i : 20 + (n - i);
       el.style.transform = 'rotateY(' + Math.round(-180 * a * 10) / 10 + 'deg)';
+      el.style.setProperty('--k', Math.sin(Math.PI * a).toFixed(3));
       el.style.zIndex = z;
       // only the visible face of each spread should be reachable by keyboard
       var shown = i === Math.round(f) || i === Math.round(f) - 1;
@@ -1601,8 +1799,10 @@ footer a{padding:10px 0}
   var home = document.getElementById('home');
 
   function setItem(item, open) {
+    var t = item.querySelector('.nav-toggle');
+    if (!t) return;
     item.classList.toggle('open', open);
-    item.querySelector('.nav-toggle').setAttribute('aria-expanded', open ? 'true' : 'false');
+    t.setAttribute('aria-expanded', open ? 'true' : 'false');
   }
   function closeDropdowns(except) {
     items.forEach(function (it) { if (it !== except) setItem(it, false); });
@@ -1615,6 +1815,7 @@ footer a{padding:10px 0}
   }
 
   items.forEach(function (it) {
+    if (!it.querySelector('.nav-toggle')) return;
     it.querySelector('.nav-toggle').addEventListener('click', function (e) {
       e.stopPropagation();
       var open = !it.classList.contains('open');
@@ -1718,12 +1919,41 @@ footer a{padding:10px 0}
     });
   });
 
+  // Anooh Care programme tree: branches act as tabs (click, or arrow keys) and swap the poster beside them
+  document.querySelectorAll('[data-pt]').forEach(function (pt) {
+    var tabs = Array.prototype.slice.call(pt.querySelectorAll('.pt-node'));
+    function pick(tab, focus) {
+      tabs.forEach(function (t) {
+        var on = t === tab, panel = document.getElementById(t.getAttribute('aria-controls'));
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+        t.tabIndex = on ? 0 : -1;
+        panel.hidden = !on;
+        panel.classList.remove('pt-in');
+        if (on) { void panel.offsetWidth; panel.classList.add('pt-in'); }
+      });
+      if (focus) tab.focus();
+    }
+    tabs.forEach(function (t, i) {
+      t.addEventListener('click', function () {
+        pick(t);
+        // on phones the poster sits under the tree, so bring it into view
+        if (window.matchMedia && window.matchMedia('(max-width: 860px)').matches) document.getElementById(t.getAttribute('aria-controls')).scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+      });
+      t.addEventListener('keydown', function (e) {
+        var j = { ArrowDown: i + 1, ArrowRight: i + 1, ArrowUp: i - 1, ArrowLeft: i - 1, Home: 0, End: tabs.length - 1 }[e.key];
+        if (j === undefined) return;
+        e.preventDefault();
+        pick(tabs[(j + tabs.length) % tabs.length], true);
+      });
+    });
+  });
+
   // Prihatin timeline: only the latest activity shows until "Expand" (everything shows when scripts don't run)
   var phOlder = Array.prototype.slice.call(document.querySelectorAll('.ph-list > .ph-older'));
   var phRow = document.querySelector('.ph-more-row');
   if (phOlder.length && phRow) {
     var phBtn = phRow.querySelector('.ph-expand');
-    var phNote = phOlder.length + (phOlder.length === 1 ? ' earlier activity' : ' earlier activities');
+    var phNote = phOlder.length + (phOlder.length === 1 ? ' later activity' : ' later activities');
     function phSet(open, animate) {
       phOlder.forEach(function (li) { li.hidden = !open; li.classList.toggle('ph-reveal', open && animate); });
       phBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
@@ -1860,9 +2090,145 @@ footer a{padding:10px 0}
       }, { threshold: 0.35 }).observe(v);
     }
   });
+  // bouncy reveal: tag the main blocks and let them spring in the first time they scroll into view
+  (function () {
+    if (!('IntersectionObserver' in window) || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+    var sel = '.h2, .page-hero > *, .stage-head, .promo-head, .tile, .product, .kc-card, .mn-cat, .ph-intro, .ph-post, .feature-copy, .story-media, .story-copy, .sv-video, .sv-copy, .visit > *, .cta > *';
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        var el = e.target, sibs = el.parentNode ? Array.prototype.filter.call(el.parentNode.children, function (c) { return c.classList.contains('bnc'); }) : [];
+        el.style.transitionDelay = Math.min(sibs.indexOf(el), 5) * 60 + 'ms';
+        el.classList.add('in');
+        io.unobserve(el);
+        setTimeout(function () { el.style.transitionDelay = ''; }, 1400);
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll(sel).forEach(function (el) {
+      if (el.closest('.book, dialog, header, footer, .pm-marquee, .bl-store')) return;
+      el.classList.add('bnc'); io.observe(el);
+    });
+    document.documentElement.classList.add('bouncy');
+  })();
+  // Blog: build a card per post, filter by category, and open a post full screen in a dialog
+  (function () {
+    var blog = document.getElementById('blog');
+    var dlg = document.getElementById('bl-dialog');
+    if (!blog || !dlg || typeof dlg.showModal !== 'function') return;
+    var grid = blog.querySelector('.bl-grid'), empty = blog.querySelector('.bl-empty');
+    var tabs = Array.prototype.slice.call(blog.querySelectorAll('.bl-tab'));
+    var notes = Array.prototype.slice.call(blog.querySelectorAll('.bl-note'));
+    var names = { care: 'Anooh Care', campaign: 'Campaign', exhibition: 'Exhibition' };
+    var body = dlg.querySelector('.bl-d-body'), tag = dlg.querySelector('.bl-d-tag');
+    var open = null, opener = null;
+    var cards = Array.prototype.slice.call(blog.querySelectorAll('.bl-store .ph-entry')).map(function (li) {
+      var art = li.querySelector('article'), cat = li.getAttribute('data-cat') || 'care';
+      var img = art.querySelector('.ph-track img, .ph-poster img, .pt-panel img');
+      var h3 = art.querySelector('h3'), when = art.querySelector('.ph-date');
+      var card = document.createElement('button');
+      card.type = 'button';
+      card.className = 'bl-card';
+      card.setAttribute('data-cat', cat);
+      card.innerHTML = '<span class="bl-media">' + (img ? '<img src="' + img.getAttribute('src') + '" alt="" loading="lazy">' : '') + '<span class="bl-tag"></span></span><span class="bl-title"></span><span class="bl-date"></span>';
+      card.querySelector('.bl-tag').textContent = names[cat];
+      card.querySelector('.bl-title').textContent = h3 ? h3.textContent : '';
+      card.querySelector('.bl-date').textContent = when ? when.textContent.trim() : '';
+      card.addEventListener('click', function () { show(li, card); });
+      grid.appendChild(card);
+      li.blCard = card;
+      return card;
+    });
+    blog.classList.add('js');
+    function filter(f) {
+      tabs.forEach(function (t) { t.setAttribute('aria-pressed', t.getAttribute('data-f') === f ? 'true' : 'false'); });
+      notes.forEach(function (n) { n.hidden = n.getAttribute('data-note') !== f; });
+      var shown = 0;
+      cards.forEach(function (c) { var on = f === 'all' || c.getAttribute('data-cat') === f; c.hidden = !on; if (on) shown++; });
+      empty.hidden = shown > 0;
+      if (!shown) empty.textContent = 'No ' + names[f].toLowerCase() + ' posts yet. Check back soon.';
+    }
+    function show(li, card) {
+      var art = li.querySelector('article');
+      open = li; opener = card;
+      tag.textContent = names[li.getAttribute('data-cat') || 'care'];
+      dlg.setAttribute('aria-label', (art.querySelector('h3') || {}).textContent || 'Blog post');
+      body.appendChild(art);
+      dlg.scrollTop = 0;
+      dlg.showModal();
+      dlg.querySelector('.bl-d-close').focus();
+    }
+    dlg.addEventListener('close', function () {
+      if (open) { var art = body.querySelector('article'); if (art) open.appendChild(art); }
+      if (opener) opener.focus();
+      open = opener = null;
+    });
+    dlg.querySelector('.bl-d-close').addEventListener('click', function () { dlg.close(); });
+    tabs.forEach(function (t) { t.addEventListener('click', function () { filter(t.getAttribute('data-f')); }); });
+    // menu links (#prihatin, #campaign, #exhibition) pick a filter; a post's own id opens it
+    function fromHash() {
+      var id = location.hash.slice(1), t = id && document.getElementById(id);
+      if (!t) return;
+      if (t.classList.contains('bl-tab')) filter(t.getAttribute('data-f'));
+      else { var li = t.closest('.bl-store .ph-entry'); if (li && li.blCard) { filter('all'); show(li, li.blCard); } }
+    }
+    window.addEventListener('hashchange', fromHash);
+    filter('all');
+    fromHash();
+  })();
+
+  // edge bounce: pulling past the top or bottom stretches the page a little, then it springs back
+  (function () {
+    var site = document.querySelector('.site');
+    if (!site || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+    document.documentElement.classList.add('edgy');
+    var pull = 0, MAX = 60, timer = null, lastY = null, tracking = false;
+    var root = document.documentElement;
+    function atTop() { return window.scrollY <= 0; }
+    function atBottom() { return window.innerHeight + window.scrollY >= root.scrollHeight - 1; }
+    function skip(t) { return t && t.closest && t.closest('dialog, #main-nav, .ph-track, .kc-d-inner, .pm-marquee'); }
+    function stretch(d) {
+      // the further it is pulled, the harder it resists
+      pull = Math.max(-MAX, Math.min(MAX, pull + d * (1 - Math.abs(pull) / MAX)));
+      site.style.transition = 'none';
+      site.style.translate = '0 ' + pull.toFixed(1) + 'px';
+    }
+    function release() {
+      if (!pull) return;
+      pull = 0;
+      site.style.transition = 'translate .38s cubic-bezier(.34,1.56,.64,1)';
+      site.style.translate = '0 0';
+      setTimeout(function () { if (!pull) { site.style.transition = ''; site.style.translate = ''; } }, 420);
+    }
+    window.addEventListener('wheel', function (e) {
+      if (e.ctrlKey || skip(e.target) || !e.deltaY) return;
+      var up = e.deltaY < 0;
+      if ((up && atTop() && pull >= 0) || (!up && atBottom() && pull <= 0)) {
+        stretch(-e.deltaY * 0.2);
+        clearTimeout(timer);
+        timer = setTimeout(release, 70);
+      } else if (pull) { release(); }
+    }, { passive: true });
+    window.addEventListener('touchstart', function (e) {
+      tracking = e.touches.length === 1 && !skip(e.target);
+      lastY = tracking ? e.touches[0].clientY : null;
+    }, { passive: true });
+    window.addEventListener('touchmove', function (e) {
+      if (!tracking || lastY === null) return;
+      var y = e.touches[0].clientY, dy = y - lastY;
+      lastY = y;
+      var starting = pull === 0 && ((dy > 0 && atTop()) || (dy < 0 && atBottom()));
+      if (!pull && !starting) return;
+      e.preventDefault();
+      var was = pull;
+      stretch(dy * 0.35);
+      // pushing back past the resting point hands control back to normal scrolling
+      if ((was > 0 && pull < 0) || (was < 0 && pull > 0)) { pull = 0; site.style.translate = ''; }
+    }, { passive: false });
+    window.addEventListener('touchend', function () { tracking = false; lastY = null; release(); }, { passive: true });
+    window.addEventListener('touchcancel', function () { tracking = false; lastY = null; release(); }, { passive: true });
+  })();
   route(false);
 })();
 </script>
-
 </body>
 </html>
