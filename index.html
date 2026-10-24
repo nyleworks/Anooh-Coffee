@@ -474,7 +474,7 @@ header.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45d
 .mc-stick{position:sticky;top:var(--hh,0px);height:calc(100vh - var(--hh,0px));height:calc(100svh - var(--hh,0px));overflow:hidden;display:flex;align-items:center}
 .mc-in{flex:1;min-width:0;padding-block:clamp(16px,3vh,40px);display:flex;flex-direction:column;align-items:center;gap:clamp(14px,2.6vh,28px)}
 .mc-view{align-self:stretch;margin-inline:-16px;overflow:visible}
-.mc-track{list-style:none;margin:0;padding:12px 16px 20px;display:flex;gap:clamp(14px,2vw,24px);width:max-content;will-change:transform}
+.mc-track{list-style:none;margin:0;padding:12px 16px 20px;display:flex;gap:clamp(14px,2vw,24px);width:max-content}
 .mc-card{flex:0 0 clamp(240px,27vw,300px);box-sizing:border-box;padding:22px 22px 24px;border-radius:24px;background:var(--paper);box-shadow:0 14px 34px rgba(58,40,25,.1);display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;user-select:none}
 .mc-cup{position:relative;width:100%;height:clamp(150px,min(22vw,26vh),240px);display:flex;justify-content:center;align-items:flex-end;margin-bottom:10px}
 .mc-cup img{height:100%;width:auto;max-width:90%;object-fit:contain;filter:drop-shadow(0 12px 14px rgba(58,40,25,.25));pointer-events:none;transition:translate .5s var(--spring,ease)}
@@ -653,6 +653,7 @@ button.badge:focus-visible{outline:3px solid var(--espresso);outline-offset:4px}
 .promo-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px}
 .promos{overflow:hidden}
 .promos .wrap{padding-bottom:0}
+.mc + .promos .wrap{padding-top:clamp(40px,7vh,72px)}
 /* promotions drift slowly right to left; JS clones the cards so the loop is seamless, and hover, focus or the button pauses it */
 .pm-toggle{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 20px;border-radius:999px;border:1.5px solid var(--wall);background:transparent;color:var(--wall);font:inherit;font-weight:700;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .pm-toggle svg{width:16px;height:16px}
@@ -925,15 +926,15 @@ html.bouncy .kc-card.in:hover,html.bouncy .product.in:hover,html.bouncy .tile.in
 </div>
 <div class="mc-view">
 <ul class="mc-track" id="mc-track" aria-label="Our coffees, one card each">
-<li class="mc-card"><div class="mc-cup"><span class="mc-tag">Our signature</span><img src="media/book/cups/anooh-kupi.webp" width="300" height="400" alt="Anooh Kupi in an Anooh Coffee takeaway cup" loading="lazy"></div><h3>Anooh Kupi</h3><p class="mc-d">Our signature drink blends coffee and tea, perfectly balancing sweet and bitter notes.</p><p class="mc-price"><span>Hot <b>RM 10.00</b></span><span>Iced <b>RM 12.00</b></span></p></li>
-<li class="mc-card"><div class="mc-cup"><img src="media/book/cups/espresso.webp" width="300" height="400" alt="Espresso in an Anooh Coffee takeaway cup" loading="lazy"></div><h3>Espresso</h3><p class="mc-d">A concentrated coffee beverage brewed by forcing hot water through finely-ground coffee beans under high pressure. 30ml.</p></li>
-<li class="mc-card"><div class="mc-cup"><img src="media/book/cups/americano.webp" width="300" height="400" alt="Americano in an Anooh Coffee takeaway cup" loading="lazy"></div><h3>Americano</h3><p class="mc-d">A simple coffee drink made with espresso and hot water.</p></li>
-<li class="mc-card"><div class="mc-cup"><img src="media/book/cups/cappuccino.webp" width="300" height="400" alt="Cappuccino in an Anooh Coffee takeaway cup" loading="lazy"></div><h3>Cappuccino</h3><p class="mc-d">A classic Italian coffee drink made with espresso, steamed milk, and milk foam. Featuring both the richness of espresso and the sweetness of milk, with a frothy texture.</p></li>
-<li class="mc-card"><div class="mc-cup"><img src="media/book/cups/cafe-latte.webp" width="300" height="400" alt="Cafe Latte in an Anooh Coffee takeaway cup" loading="lazy"></div><h3>Cafe Latte</h3><p class="mc-d">Made with espresso and steamed milk, usually topped with a thin layer of foam.</p><p class="mc-price"><span>Hot <b>RM 12.00</b></span><span>Iced <b>RM 14.00</b></span></p></li>
-<li class="mc-card"><div class="mc-cup"><img src="media/book/cups/caffe-mocha.webp" width="300" height="400" alt="Caffe Mocha in an Anooh Coffee takeaway cup" loading="lazy"></div><h3>Caffe Mocha</h3><p class="mc-d">A chocolate-flavoured variation of a latte, combining espresso, steamed milk, and chocolate flavouring: chocolate syrup and cocoa powder.</p></li>
-<li class="mc-card"><div class="mc-cup"><img src="media/book/cups/caramel-macchiato.webp" width="300" height="400" alt="Caramel Macchiato in an Anooh Coffee takeaway cup" loading="lazy"></div><h3>Caramel Macchiato</h3><p class="mc-d">A coffee beverage that features steamed milk, vanilla syrup, espresso, and caramel sauce.</p><p class="mc-price"><span>Hot <b>RM 16.00</b></span><span>Iced <b>RM 18.00</b></span></p></li>
-<li class="mc-card"><div class="mc-cup"><img src="media/book/cups/vanilla-latte.webp" width="300" height="400" alt="Vanilla Latte in an Anooh Coffee takeaway cup" loading="lazy"></div><h3>Vanilla Latte</h3><p class="mc-d">Combines the rich, bold flavour of espresso with the creamy texture of steamed milk, enhanced by the sweet and aromatic flavour of vanilla.</p></li>
-<li class="mc-card"><div class="mc-cup"><img src="media/book/cups/hazelnut-latte.webp" width="300" height="400" alt="Hazelnut Latte in an Anooh Coffee takeaway cup" loading="lazy"></div><h3>Hazelnut Latte</h3><p class="mc-d">Made with espresso, steamed milk, and hazelnut syrup. Combines the rich, bold flavour of espresso with the sweet, nutty taste of hazelnut.</p></li>
+<li class="mc-card"><div class="mc-cup"><span class="mc-tag">Our signature</span><img src="media/book/cups/anooh-kupi.webp" width="300" height="400" alt="Anooh Kupi in an Anooh Coffee takeaway cup" decoding="async"></div><h3>Anooh Kupi</h3><p class="mc-d">Our signature drink blends coffee and tea, perfectly balancing sweet and bitter notes.</p><p class="mc-price"><span>Hot <b>RM 10.00</b></span><span>Iced <b>RM 12.00</b></span></p></li>
+<li class="mc-card"><div class="mc-cup"><img src="media/book/cups/espresso.webp" width="300" height="400" alt="Espresso in an Anooh Coffee takeaway cup" decoding="async"></div><h3>Espresso</h3><p class="mc-d">A concentrated coffee beverage brewed by forcing hot water through finely-ground coffee beans under high pressure. 30ml.</p></li>
+<li class="mc-card"><div class="mc-cup"><img src="media/book/cups/americano.webp" width="300" height="400" alt="Americano in an Anooh Coffee takeaway cup" decoding="async"></div><h3>Americano</h3><p class="mc-d">A simple coffee drink made with espresso and hot water.</p></li>
+<li class="mc-card"><div class="mc-cup"><img src="media/book/cups/cappuccino.webp" width="300" height="400" alt="Cappuccino in an Anooh Coffee takeaway cup" decoding="async"></div><h3>Cappuccino</h3><p class="mc-d">A classic Italian coffee drink made with espresso, steamed milk, and milk foam. Featuring both the richness of espresso and the sweetness of milk, with a frothy texture.</p></li>
+<li class="mc-card"><div class="mc-cup"><img src="media/book/cups/cafe-latte.webp" width="300" height="400" alt="Cafe Latte in an Anooh Coffee takeaway cup" decoding="async"></div><h3>Cafe Latte</h3><p class="mc-d">Made with espresso and steamed milk, usually topped with a thin layer of foam.</p><p class="mc-price"><span>Hot <b>RM 12.00</b></span><span>Iced <b>RM 14.00</b></span></p></li>
+<li class="mc-card"><div class="mc-cup"><img src="media/book/cups/caffe-mocha.webp" width="300" height="400" alt="Caffe Mocha in an Anooh Coffee takeaway cup" decoding="async"></div><h3>Caffe Mocha</h3><p class="mc-d">A chocolate-flavoured variation of a latte, combining espresso, steamed milk, and chocolate flavouring: chocolate syrup and cocoa powder.</p></li>
+<li class="mc-card"><div class="mc-cup"><img src="media/book/cups/caramel-macchiato.webp" width="300" height="400" alt="Caramel Macchiato in an Anooh Coffee takeaway cup" decoding="async"></div><h3>Caramel Macchiato</h3><p class="mc-d">A coffee beverage that features steamed milk, vanilla syrup, espresso, and caramel sauce.</p><p class="mc-price"><span>Hot <b>RM 16.00</b></span><span>Iced <b>RM 18.00</b></span></p></li>
+<li class="mc-card"><div class="mc-cup"><img src="media/book/cups/vanilla-latte.webp" width="300" height="400" alt="Vanilla Latte in an Anooh Coffee takeaway cup" decoding="async"></div><h3>Vanilla Latte</h3><p class="mc-d">Combines the rich, bold flavour of espresso with the creamy texture of steamed milk, enhanced by the sweet and aromatic flavour of vanilla.</p></li>
+<li class="mc-card"><div class="mc-cup"><img src="media/book/cups/hazelnut-latte.webp" width="300" height="400" alt="Hazelnut Latte in an Anooh Coffee takeaway cup" decoding="async"></div><h3>Hazelnut Latte</h3><p class="mc-d">Made with espresso, steamed milk, and hazelnut syrup. Combines the rich, bold flavour of espresso with the sweet, nutty taste of hazelnut.</p></li>
 </ul>
 </div>
 <div class="mc-foot">
@@ -2017,28 +2018,40 @@ document.getElementById('yr').textContent = new Date().getFullYear();
   var fill = document.getElementById('mc-fill'), pop = document.getElementById('mc-pop'), foot = pop.parentNode;
   var inner = band.querySelector('.mc-in'), hint = band.querySelector('.stage-head p');
   var hintText = hint ? hint.textContent : '';
-  var dist = 0, raf = null, free = false;
+  var dist = 0, len = 0, raf = null, free = false, key = '';
+  // a fixed 100svh probe gives the stage height without collapsing the band (iOS changes innerHeight as its toolbar slides)
+  var probe = document.createElement('div');
+  probe.style.cssText = 'position:fixed;top:0;left:0;width:0;height:100vh;height:100svh;visibility:hidden;pointer-events:none';
+  document.body.appendChild(probe);
   function measure() {
     if (!band.offsetParent) return;
-    // when the stage is taller than the screen, pinning it would hide the cards, so fall back to swiping
-    band.classList.remove('mc-free'); band.style.height = '';
+    var hh = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--hh')) || 0;
+    var avail = probe.offsetHeight - hh;
     var cs = getComputedStyle(inner);
-    free = inner.offsetHeight - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom) > stick.clientHeight + 1;
+    var need = inner.offsetHeight - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom);
+    var k = window.innerWidth + 'x' + Math.round(avail) + 'x' + Math.round(need) + 'x' + track.scrollWidth;
+    if (k === key) { render(); return; }
+    key = k;
+    // when the stage is taller than the screen, pinning it would hide the cards, so fall back to swiping
+    free = need > avail + 1;
     band.classList.toggle('mc-free', free);
     if (hint) hint.textContent = free ? hintText.replace('Keep scrolling', 'Swipe') : hintText;
     dist = Math.max(0, track.scrollWidth - view.clientWidth);
-    if (free) { track.style.transform = ''; render(); return; }
-    // the band is as tall as the sticky stage plus one pixel of scroll per pixel of slide, and a short pause at the end
-    band.style.height = (stick.offsetHeight + dist + Math.round(window.innerHeight * 0.35)) + 'px';
+    if (free) { band.style.height = ''; track.style.transform = ''; render(); return; }
+    // on phones the cards slide two pixels for every pixel scrolled, so the run is not too long
+    len = Math.round(dist * (window.innerWidth < 700 ? 0.6 : 0.8));
+    // no pause at the end: the next section follows straight after the last card
+    band.style.height = Math.round(avail + len) + 'px';
     render();
   }
   function render() {
     raf = null;
     var y = free ? view.scrollLeft : -band.getBoundingClientRect().top;
-    var p = dist ? Math.max(0, Math.min(1, y / dist)) : 1;
+    var span = free ? dist : len;
+    var p = span ? Math.max(0, Math.min(1, y / span)) : 1;
     if (!free) track.style.transform = 'translate3d(' + (-p * dist).toFixed(1) + 'px,0,0)';
     fill.style.setProperty('--p', (Math.max(0.1, p) * 100).toFixed(1) + '%');
-    var end = p >= 0.995;
+    var end = p >= 0.9;
     if (end !== !pop.hidden) { pop.hidden = !end; foot.classList.toggle('done', end); }
   }
   function onScroll() { if (!raf) raf = requestAnimationFrame(render); }
