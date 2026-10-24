@@ -34,7 +34,7 @@
   --sans:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;
   color-scheme:light;
 }
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 body{margin:0;font-family:var(--sans);background:var(--wall);color:var(--ink)}
 a{color:inherit}
 a:hover{opacity:.8}
@@ -129,11 +129,11 @@ header.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45d
 @media (max-width:480px){.bl-tabs{gap:2px;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}.bl-tab{flex:none;padding:0 11px;font-size:14.5px}}
 .bl-empty{margin:0;padding:48px 16px;text-align:center;font-size:17px;color:var(--muted)}
 .blog.js .bl-store{display:none}
-.bl-dialog{margin:0;padding:0;border:0;width:100vw;max-width:100vw;height:100vh;height:100dvh;max-height:none;background:var(--wall);color:var(--ink);overflow-y:auto;overscroll-behavior:contain}
+.bl-dialog{margin:0;padding:0;border:0;width:100%;max-width:100%;height:100vh;height:100dvh;max-height:none;background:var(--wall);color:var(--ink);overflow-y:auto;overscroll-behavior:contain}
 .bl-dialog::backdrop{background:rgba(43,32,23,.55)}
 .bl-dialog[open]{animation:bl-in .5s var(--spring,ease) both}
 @keyframes bl-in{from{opacity:0;translate:0 40px;scale:.98}to{opacity:1;translate:0 0;scale:1}}
-.bl-d-bar{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px max(16px,calc((100vw - 1180px) / 2));background:var(--wall);border-bottom:1px solid var(--rule)}
+.bl-d-bar{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px max(16px,calc((100% - 1180px) / 2));background:var(--wall);border-bottom:1px solid var(--rule)}
 .bl-d-tag{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--mocha)}
 .bl-d-close{width:48px;height:48px;border-radius:50%;border:1.5px solid var(--espresso);background:transparent;color:var(--espresso);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background-color .2s ease,scale .45s var(--spring,ease)}
 .bl-d-close:hover{background:var(--sand);scale:1.06}
@@ -150,16 +150,19 @@ header.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45d
   .nav-list{justify-content:center;gap:4px 40px}
   .nav-home .nav-home-text{display:none}
   .nav-social{position:absolute;right:0;top:50%;translate:0 -50%}
-  .nav-home .brand{flex-direction:column;gap:8px;padding:8px 6px}
-  .nav-home .brand-text{align-items:center}
+  .nav-home .brand{flex-direction:column;gap:5px;padding:2px 6px}
+  .nav-home .brand-text{align-items:center;gap:4px}
+  .nav-home .brand .logo-badge{width:40px;height:40px}
+  .nav-home .brand .logo-word{height:14px}
+  .nav-home .brand small{font-size:7.5px;letter-spacing:1.8px}
 }
 @media (min-width:901px) and (max-width:1180px){
   .nav-list{gap:4px 22px}
-  .nav-home .brand .logo-badge{width:52px;height:52px}
   .nav-social{padding-left:10px}
   .nav-social .soc-icon{width:38px;height:38px}
 }
-@media (max-width:900px){.nav-home .brand{display:none}}
+@media (max-width:900px){.nav-home .brand{display:none}header .wrap{column-gap:12px}.burger{margin-left:auto}}
+@media (max-width:340px){.brand{gap:10px}.brand .logo-badge{width:42px;height:42px}.brand .logo-word{height:14px}.brand small{font-size:7.5px;letter-spacing:1.4px}}
 
 /* phones and small tablets: hamburger opens a full-width panel; each section expands like an accordion */
 @media (max-width:900px){
@@ -224,7 +227,6 @@ header.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45d
 .mn-t tr.mn-sub + tr > *{border-top:0}
 .mn-note{margin:8px 0 0;font-size:13.5px;font-style:italic;color:var(--muted)}
 @media (max-width:520px){.mn-cat{margin-bottom:36px}.mn-tag{font-size:23px}}
-.foot-links{display:flex;flex-wrap:wrap;gap:4px 24px}
 /* Anooh Prihatin: activity post with a swipeable photo strip; thumbnails jump to a photo */
 .ph-sdg{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
 .ph-sdg a{display:flex;align-items:center;gap:12px;height:100%;box-sizing:border-box;padding:8px 14px 8px 8px;border-radius:14px;background:var(--paper);text-decoration:none;color:var(--espresso);box-shadow:0 6px 18px rgba(58,40,25,.06);transition:box-shadow .2s ease,transform .2s ease}
@@ -339,6 +341,9 @@ header.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45d
 .ac-text{display:flex;flex-direction:column;gap:12px}
 .ac-text p{margin:0;font-size:17px;line-height:1.7;color:var(--ink)}
 .ac-text b{color:var(--espresso)}
+.ac-tiktok{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;min-height:44px;font-size:16px;font-weight:700;color:var(--espresso);text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--accent)}
+.ac-tiktok svg{width:20px;height:20px;color:var(--accent)}
+.ac-tiktok:hover{color:var(--accent)}
 .ac-en{margin:0;padding-top:14px;border-top:1px solid var(--rule);font-size:15px;line-height:1.65;color:var(--body);max-width:62ch}
 .ac-en span{display:block;margin-bottom:2px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
 .ac-media{display:flex;justify-content:center}
@@ -374,7 +379,7 @@ header.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45d
 .ac-d-foot{margin:0;font-size:13.5px;line-height:1.6;color:var(--muted)}
 .ac-d-foot a{color:var(--espresso);font-weight:700}
 @media (max-width:640px){
-  .ac-dialog{width:100vw;max-width:100vw;margin:auto 0 0;border-radius:22px 22px 0 0;max-height:90dvh}
+  .ac-dialog{width:100%;max-width:100%;margin:auto 0 0;border-radius:22px 22px 0 0;max-height:90dvh}
   .ac-dialog[open]{animation:kc-up .25s ease-out}
   .ac-d-band{padding:26px 20px 22px}
   .ac-d-body{padding:20px 20px calc(24px + env(safe-area-inset-bottom,0px))}
@@ -411,7 +416,7 @@ header.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45d
 .kc-d-close{position:absolute;top:12px;right:12px;z-index:2;width:44px;height:44px;border-radius:50%;border:0;background:var(--paper);color:var(--espresso);display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 14px rgba(58,40,25,.18);padding:0}
 .kc-d-close svg{width:20px;height:20px}
 @media (max-width:640px){
-  .kc-dialog{width:100vw;max-width:100vw;margin:auto 0 0;border-radius:20px 20px 0 0;max-height:88vh;max-height:88dvh}
+  .kc-dialog{width:100%;max-width:100%;margin:auto 0 0;border-radius:20px 20px 0 0;max-height:88vh;max-height:88dvh}
   .kc-dialog[open]{animation:kc-up .25s ease-out}
   .kc-d-inner{grid-template-columns:1fr;max-height:88vh;max-height:88dvh;overflow-y:auto;overscroll-behavior:contain}
   .kc-d-img{height:auto;aspect-ratio:4/3;min-height:0}
@@ -465,7 +470,64 @@ header.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45d
 @media (max-width:520px){.hero-art{min-height:0}.badge{width:96px;height:96px}.badge svg.spin{width:96px;height:96px}.badge .arrow{top:30px;left:30px;width:36px;height:36px}}
 
 /* menu book */
-#menu-book{position:relative;height:2300px;background:var(--sand)}
+#menu-book{position:relative;background:var(--sand)}
+.mc-stick{position:sticky;top:var(--hh,0px);height:calc(100vh - var(--hh,0px));height:calc(100svh - var(--hh,0px));overflow:hidden;display:flex;align-items:center}
+.mc-in{flex:1;min-width:0;padding-block:clamp(16px,3vh,40px);display:flex;flex-direction:column;align-items:center;gap:clamp(14px,2.6vh,28px)}
+.mc-view{align-self:stretch;margin-inline:-16px;overflow:visible}
+.mc-track{list-style:none;margin:0;padding:12px 16px 20px;display:flex;gap:clamp(14px,2vw,24px);width:max-content;will-change:transform}
+.mc-card{flex:0 0 clamp(240px,27vw,300px);box-sizing:border-box;padding:22px 22px 24px;border-radius:24px;background:var(--paper);box-shadow:0 14px 34px rgba(58,40,25,.1);display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;user-select:none}
+.mc-cup{position:relative;width:100%;height:clamp(150px,min(22vw,26vh),240px);display:flex;justify-content:center;align-items:flex-end;margin-bottom:10px}
+.mc-cup img{height:100%;width:auto;max-width:90%;object-fit:contain;filter:drop-shadow(0 12px 14px rgba(58,40,25,.25));pointer-events:none;transition:translate .5s var(--spring,ease)}
+.mc-card:hover .mc-cup img{translate:0 -6px}
+.mc-tag{position:absolute;z-index:1;top:0;right:4px;padding:5px 11px;border-radius:999px;background:var(--espresso);color:var(--paper);font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;rotate:6deg}
+.mc-num{margin:0;font-size:12px;font-weight:700;letter-spacing:2px;color:var(--mocha)}
+.mc-card h3{margin:0;font-family:var(--display);font-weight:400;font-size:clamp(24px,2.4vw,30px);line-height:1.05;color:var(--espresso)}
+.mc-d{margin:2px 0 0;font-size:14.5px;line-height:1.5;color:var(--body)}
+.mc-price{margin:auto 0 0;padding-top:8px;display:flex;gap:16px;font-size:13px;color:var(--muted)}
+.mc-price b{color:var(--espresso);font-variant-numeric:tabular-nums}
+button.badge{border:0;padding:0;background:none;cursor:pointer;border-radius:50%;z-index:3;transition:scale .45s var(--spring,ease)}
+button.badge:hover{scale:1.06}
+button.badge:active{scale:.94}
+button.badge:focus-visible{outline:3px solid var(--espresso);outline-offset:4px}
+.pc-pop{position:absolute;left:0;bottom:6%;z-index:2;width:min(58%,300px);pointer-events:none}
+.pc-pop[hidden]{display:none}
+.pc-card{position:relative;width:100%;aspect-ratio:3/2;pointer-events:auto;rotate:-3deg;filter:drop-shadow(0 14px 22px rgba(40,26,14,.35));transform-origin:30% 70%}
+.pc-face,.pc-face svg{display:block;width:100%;height:100%}
+.pc-stamp{position:absolute;top:8.5%;right:6%;width:14.6%;height:auto;filter:drop-shadow(0 2px 2px rgba(40,26,14,.25));opacity:0}
+.pc-mark{position:absolute;top:5%;right:3%;width:36%;height:auto;opacity:0;mix-blend-mode:multiply}
+.pc-pop.go .pc-card{animation:pc-in .7s cubic-bezier(.34,1.56,.64,1) both,pc-thud .35s ease-out 1.35s}
+.pc-pop.go .pc-stamp{animation:pc-stick .45s cubic-bezier(.34,1.56,.64,1) .7s both}
+.pc-pop.go .pc-mark{animation:pc-slam .42s cubic-bezier(.2,.9,.3,1.2) 1.2s both}
+@keyframes pc-in{from{opacity:0;scale:.3;rotate:-14deg;translate:0 30px}to{opacity:1;scale:1;rotate:-3deg;translate:0 0}}
+@keyframes pc-stick{from{opacity:0;scale:1.6;rotate:12deg;translate:20px -30px}to{opacity:1;scale:1;rotate:2deg;translate:0 0}}
+@keyframes pc-slam{0%{opacity:0;scale:2.4;rotate:-34deg}70%{opacity:.9;scale:.94;rotate:-14deg}100%{opacity:.9;scale:1;rotate:-12deg}}
+@keyframes pc-thud{0%{scale:1}35%{scale:.975}100%{scale:1}}
+@keyframes pc-fade{from{opacity:0;translate:0 8px}to{opacity:1;translate:0 0}}
+@media (prefers-reduced-motion: reduce){.pc-pop.go .pc-card,.pc-pop.go .pc-stamp,.pc-pop.go .pc-mark{animation:none}.pc-stamp{opacity:1}.pc-mark{opacity:.82;rotate:-12deg}}
+/* shorter screens: tighten the stage so the pinned carousel still fits */
+@media (max-height:780px){.mc-in{gap:10px;padding-block:8px}.mc .stage-head h2{font-size:clamp(26px,4.4vh,40px)}.mc-cup{height:clamp(104px,20vh,200px);margin-bottom:4px}.mc-card{padding:16px 18px 18px}.mc-d{font-size:13.5px;line-height:1.45}.mc-track{padding-block:8px 12px}.mc-foot{min-height:56px}}
+/* short screens (a phone turned sideways): the stage can't fit, so the cards become a normal swipeable row */
+.mc.mc-free .mc-stick{position:static;height:auto;overflow:visible}
+.mc.mc-free .mc-view{overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.mc.mc-free .mc-view::-webkit-scrollbar{display:none}
+.mc.mc-free .mc-card{scroll-snap-align:center}
+.mc-foot{position:relative;min-height:64px;display:flex;align-items:center;justify-content:center}
+.mc-foot .mc-pop{position:absolute;top:50%;left:50%;translate:-50% -50%;width:max-content;max-width:calc(100vw - 32px);box-sizing:border-box}
+
+.mc-btn{width:48px;height:48px;border-radius:50%;border:2px solid var(--espresso);background:transparent;color:var(--espresso);cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0}
+.mc-btn.fwd{background:var(--espresso);color:var(--paper)}
+.mc-btn:disabled{opacity:.35;cursor:default}
+.mc-btn svg{width:22px;height:22px}
+.mc-bar{width:clamp(160px,30vw,300px);transition:opacity .25s ease;height:4px;border-radius:4px;background:rgba(74,54,38,.15);overflow:hidden}
+.mc-bar i{display:block;height:100%;width:var(--p,10%);border-radius:inherit;background:var(--espresso);transition:width .3s ease}
+.mc-pop{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 16px;padding:12px 12px 12px 22px;border-radius:999px;background:var(--espresso);color:var(--wall);box-shadow:0 14px 30px rgba(58,40,25,.25);font-size:15px;animation:mc-pop .6s var(--spring,ease) both}
+.mc-pop[hidden]{display:none}
+.mc-foot.done .mc-bar{opacity:0}
+.mc-pop a{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:999px;background:var(--paper);color:var(--espresso);text-decoration:none;font-weight:700}
+.mc-pop a svg{width:18px;height:18px}
+@keyframes mc-pop{from{opacity:0;scale:.85}to{opacity:1;scale:1}}
+@media (max-width:520px){.mc-pop{border-radius:22px;padding:14px 16px;text-align:center}}
+@media (prefers-reduced-motion: reduce){.mc-pop{animation:none}.mc-track{scroll-behavior:auto}.mc-cup img{transition:none}}
 .stage{position:sticky;top:var(--hh,0px);height:min(860px,calc(100vh - var(--hh,0px)));box-sizing:border-box;padding-block:32px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;overflow:hidden}
 .stage-head{text-align:center;display:flex;flex-direction:column;gap:8px;max-width:720px}
 .stage-head h2{margin:0;font-family:var(--display);font-weight:400;font-size:clamp(30px,4vw,48px);line-height:1.1;color:var(--espresso)}
@@ -511,6 +573,44 @@ header.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45d
 .bk-v{display:block;font-family:var(--sans);font-size:.72em;color:var(--muted);margin-top:1px}
 .bk-p{text-align:right;font-size:clamp(9.5px,1.15vw,14px);font-weight:600;color:var(--espresso);font-variant-numeric:tabular-nums}
 .bk-p i{font-style:normal;color:var(--rule)}
+.cv-cup{width:46%;height:auto}
+.cv-word{width:80%;height:auto}
+.cover.cv-shop{--pl:clamp(13px,2.3vw,26px);padding:0;align-items:center;justify-content:space-between;color:var(--espresso);isolation:isolate;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.006 0.55' numOctaves='3' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 0.3 0 0 0 0 0.2 0 0 0 0 0.12 0 0 0 0.9 -0.2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E"),repeating-linear-gradient(to bottom,transparent 0 calc(var(--pl) - 3px),rgba(70,48,30,.45) calc(var(--pl) - 3px) calc(var(--pl) - 1px),rgba(255,255,255,.5) calc(var(--pl) - 1px) var(--pl)),linear-gradient(100deg,#E9E1D1,#DCD1BD 45%,#E6DCCA 70%,#D6CAB4);background-size:300px 300px,auto,auto}
+.cover.cv-shop::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 50% 45%,transparent 45%,rgba(60,40,22,.35)),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='5'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1.4 -0.75'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:auto,200px 200px;opacity:.9}
+.cover.cv-shop>*{position:relative}
+.cv-eave{align-self:stretch;height:5%;flex:none;background:linear-gradient(rgba(120,70,35,.35),transparent 60%,rgba(0,0,0,.25)),repeating-linear-gradient(90deg,#6E6A60 0 6px,#8C877B 6px 11px,#5E5A52 11px 14px);box-shadow:0 5px 8px rgba(40,28,18,.35)}
+.cv-sign{width:50%;aspect-ratio:1;flex:none;margin-top:6%;border-radius:50%;box-sizing:border-box;padding:7% 6% 6%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4%;color:#F7EAD6;border:clamp(3px,.5vw,6px) solid #5A3218;background:radial-gradient(circle at 38% 30%,rgba(255,215,160,.22),transparent 55%),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.55 0.006' numOctaves='3' seed='3'/%3E%3CfeColorMatrix values='0 0 0 0 0.3 0 0 0 0 0.2 0 0 0 0 0.12 0 0 0 0.9 -0.2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E"),repeating-radial-gradient(circle at 44% 56%,#9A5B30 0 2px,#AD6C3E 2px 5px,#8E512A 5px 8px,#A86638 8px 12px);background-size:auto,220px 220px,auto;box-shadow:0 12px 18px rgba(40,24,12,.45),inset 0 0 18px rgba(50,25,10,.55);rotate:-2deg}
+.cv-sign::before,.cv-sign::after{content:"";position:absolute;bottom:96%;width:2px;height:clamp(20px,4vw,48px);background:repeating-linear-gradient(to bottom,#8B6B47 0 3px,#6E5234 3px 6px);transform-origin:bottom}
+.cv-sign::before{left:30%;rotate:18deg}
+.cv-sign::after{right:30%;rotate:-18deg}
+.cv-win{width:80%;flex:none;box-sizing:border-box;padding:clamp(5px,1vw,11px);background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.006 0.55' numOctaves='3' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 0.3 0 0 0 0 0.2 0 0 0 0 0.12 0 0 0 0.9 -0.2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E"),linear-gradient(90deg,#6B3F22,#8A5530 30%,#6F4224 60%,#86512D);background-size:180px 180px,auto;box-shadow:0 8px 14px rgba(40,24,12,.4),inset 0 0 0 1px rgba(0,0,0,.3);rotate:.6deg}
+.cv-board{padding:clamp(8px,1.6vw,20px) clamp(8px,1.4vw,16px);text-align:center;color:#EFE9DF;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='5'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1.4 -0.75'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),radial-gradient(ellipse at 40% 35%,#3C3F38,#2A2C27 70%,#222420);background-size:140px 140px,auto;box-shadow:inset 0 0 14px rgba(0,0,0,.6)}
+.cv-t{margin:0;font-family:var(--display);font-style:italic;font-weight:400;font-size:clamp(20px,3.4vw,42px);line-height:1;color:#F3EEE6;text-shadow:0 0 1px rgba(255,255,255,.6),1px 1px 0 rgba(255,255,255,.08);opacity:.93}
+.cv-k{margin:clamp(6px,1vw,12px) 0 clamp(2px,.4vw,5px);font-size:clamp(7px,.9vw,10.5px);font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#E8C88E;opacity:.9}
+.cv-picks{margin:0;padding:0;list-style:none;font-family:var(--display);font-size:clamp(10px,1.3vw,15px);line-height:1.35;opacity:.9}
+.cv-floor{align-self:stretch;height:7%;flex:none;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.006 0.55' numOctaves='3' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 0.3 0 0 0 0 0.2 0 0 0 0 0.12 0 0 0 0.9 -0.2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E"),repeating-linear-gradient(90deg,#5C3A22 0 1px,transparent 1px 22%),linear-gradient(#7A4C2C,#5E3920);background-size:160px 160px,auto,auto;box-shadow:0 -3px 6px rgba(30,18,8,.35)}
+.cv-sign{container-type:inline-size}
+.cv-sign small{font-size:6.4cqw;white-space:nowrap;letter-spacing:.02em;opacity:.9}
+.cv-soc{display:flex;gap:6%;width:20%;justify-content:center}
+.cv-soc i{width:clamp(4px,.7vw,8px);aspect-ratio:1;border-radius:50%;background:#FBF1E4}
+.cf-page{align-items:center;text-align:center;gap:clamp(4px,1vw,12px)}
+.cf-num{margin:0;align-self:flex-start;font-size:clamp(9px,1vw,12px);font-weight:700;letter-spacing:2px;color:var(--mocha)}
+.cf-num span{color:var(--muted);font-weight:600}
+.cf-cup{position:relative;flex:1;min-height:0;width:100%;display:flex;justify-content:center;align-items:flex-end}
+.cf-cup img{height:100%;width:auto;max-width:80%;object-fit:contain;filter:drop-shadow(0 12px 14px rgba(58,40,25,.25))}
+.cf-tag{position:absolute;z-index:1;top:4%;right:4%;padding:clamp(3px,.5vw,6px) clamp(6px,1vw,12px);border-radius:999px;background:var(--espresso);color:var(--paper);font-size:clamp(7px,.9vw,11px);font-weight:700;letter-spacing:1px;text-transform:uppercase;rotate:6deg}
+.cf-cap{flex:none;max-width:34ch}
+.cf-cap h3{margin:0;font-family:var(--display);font-weight:400;font-size:clamp(17px,2.6vw,32px);line-height:1.05;color:var(--espresso)}
+.cf-cap p{margin:clamp(3px,.6vw,8px) 0 0;font-size:clamp(8.5px,1.05vw,13.5px);line-height:1.45;color:var(--body)}
+.cf-cap .cf-price{display:flex;justify-content:center;gap:clamp(8px,1.6vw,20px);font-size:clamp(8px,.95vw,12px);color:var(--muted)}
+.cf-price b{color:var(--espresso);font-variant-numeric:tabular-nums}
+.bk-list img.bk-cup{mix-blend-mode:normal;aspect-ratio:3/4;object-fit:contain;filter:drop-shadow(0 3px 4px rgba(58,40,25,.25))}
+.bk-cups{flex:1;min-height:0;margin:clamp(6px,1vw,12px) 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:minmax(0,1fr);gap:clamp(4px,1vw,12px)}
+.bk-cups li{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;min-height:0;text-align:center}
+.bk-cups img{flex:1;min-height:0;width:auto;max-width:100%;object-fit:contain;filter:drop-shadow(0 5px 6px rgba(58,40,25,.22))}
+.bk-cups b{margin-top:clamp(2px,.4vw,6px);font-family:var(--display);font-weight:400;font-size:clamp(10px,1.4vw,17px);line-height:1.1;color:var(--espresso)}
+.bk-cups small{font-size:clamp(7px,.9vw,11px);line-height:1.2;color:var(--muted)}
+.bk-also{margin-top:clamp(8px,1.4vw,16px);font-size:clamp(9px,1.1vw,13px)}
 .bk-more{margin:0;padding:0;list-style:none;flex:1;display:flex;flex-direction:column;justify-content:space-evenly}
 .bk-more li{font-family:var(--display);font-size:clamp(11px,1.5vw,18px);line-height:1.3;color:var(--espresso);padding-block:clamp(4px,.8vw,10px)}
 .bk-more li + li{border-top:1px solid rgba(74,54,38,.1)}
@@ -597,9 +697,24 @@ header.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45d
 .hours dd{margin:0}
 
 footer{background:var(--espresso);color:var(--latte)}
-footer .wrap{padding-block:32px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 32px;font-size:14px}
-footer b{font-family:var(--display);font-weight:400;font-size:24px;color:var(--wall)}
-footer a{padding:10px 0}
+.ft{padding-block:56px 36px;display:grid;grid-template-columns:1.3fr repeat(3,1fr);gap:32px}
+@media (max-width:900px){.ft{grid-template-columns:repeat(2,minmax(0,1fr))}.ft-brand{grid-column:1/-1}}
+@media (max-width:520px){.ft{grid-template-columns:minmax(0,1fr);gap:28px;padding-block:44px 28px}}
+.ft-brand{display:flex;flex-direction:column;gap:8px;font-size:14px;line-height:1.6;max-width:28ch}
+.ft-brand b{font-family:var(--display);font-weight:400;font-size:30px;color:var(--wall)}
+.ft-col h3{margin:0 0 12px;font-size:12px;font-weight:700;letter-spacing:2.4px;text-transform:uppercase;color:var(--wall)}
+.ft-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px}
+.ft-col address{font-style:normal;font-size:14.5px;line-height:1.6;margin-bottom:6px}
+.ft-col a{display:inline-flex;align-items:center;gap:10px;min-height:40px;font-size:14.5px;color:var(--latte);text-decoration:none}
+.ft-col a:hover{color:var(--wall);text-decoration:underline;text-underline-offset:4px;opacity:1}
+.ft-col a svg{width:18px;height:18px;flex:none;opacity:.8}
+.ft-bottom{padding-block:22px 30px;border-top:1px solid rgba(236,231,222,.16);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 24px}
+.ft-follow{display:flex;align-items:center;gap:10px}
+.ft-follow span{margin-right:6px;font-size:12px;font-weight:700;letter-spacing:2.4px;text-transform:uppercase;color:var(--wall)}
+.ft-soc{width:44px;height:44px;border-radius:50%;border:1.5px solid rgba(236,231,222,.4);display:flex;align-items:center;justify-content:center;color:var(--wall);transition:background-color .2s ease,color .2s ease,scale .45s var(--spring,ease)}
+.ft-soc:hover{background:var(--wall);color:var(--espresso);scale:1.08;opacity:1}
+.ft-soc svg{width:20px;height:20px}
+.ft-bottom small{font-size:13px;color:var(--latte)}
 /* bouncy motion: blocks spring up as they scroll into view; buttons and cards spring on hover and press */
 :root{--spring:cubic-bezier(.34,1.56,.64,1)}
 html.edgy,html.edgy body{overscroll-behavior-y:none}
@@ -655,10 +770,6 @@ html.bouncy .kc-card.in:hover,html.bouncy .product.in:hover,html.bouncy .tile.in
 <div class="nav-row"><a class="nav-link" href="#shop">Shop</a></div>
 </li>
 </ul>
-<div class="nav-social">
-<a href="https://www.instagram.com/anooh_coffee/" class="soc-icon" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.3" cy="6.7" r="0.6" fill="currentColor"></circle></svg></a>
-<a href="https://www.facebook.com/anoohcoffee/" class="soc-icon" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"></rect><path d="M16 7.5h-1.8a2.7 2.7 0 0 0-2.7 2.7V21M9.2 12.6h6"></path></svg></a>
-</div>
 </nav>
 </div>
 </header>
@@ -671,114 +782,167 @@ html.bouncy .kc-card.in:hover,html.bouncy .product.in:hover,html.bouncy .tile.in
 </div>
 <div class="hero-art">
 <figure class="hero-photo drift"><img src="images/hero.jpg" width="1200" height="799" alt="A takeaway Anooh Coffee cup on a wooden ledge, with visitors and Mount Kinabalu in the background"></figure>
-<a href="#menu-book" class="badge" aria-label="Scroll to open the menu">
+<button type="button" class="badge" id="pc-open" aria-label="Click me for a postcard from Kundasang" aria-controls="pc-pop" aria-expanded="false">
 <svg class="spin" viewBox="0 0 124 124" aria-hidden="true">
 <defs><path id="ring" d="M62 62 m-44 0 a44 44 0 1 1 88 0 a44 44 0 1 1 -88 0"></path></defs>
 <circle cx="62" cy="62" r="60" fill="#4A3626"></circle>
-<text font-family="Manrope, sans-serif" font-size="12" font-weight="700" letter-spacing="3" fill="#ECE7DE"><textPath href="#ring">SCROLL TO OPEN THE MENU ·</textPath></text>
+<text font-family="Manrope, sans-serif" font-size="12" font-weight="700" letter-spacing="3" fill="#ECE7DE"><textPath href="#ring" textLength="272" lengthAdjust="spacing">CLICK ME · CLICK ME · CLICK ME ·</textPath></text>
 </svg>
-<svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#ECE7DE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"></path></svg>
-</a>
+<svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#ECE7DE" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="1.5"></rect><path d="M12 8v8M14.5 9.5h4M14.5 12h4"></path><rect x="15" y="13.5" width="3" height="2.5" stroke-width="1.2"></rect></svg>
+</button>
+<div class="pc-pop" id="pc-pop" hidden>
+<div class="pc-card" role="dialog" aria-label="A postcard from Anooh Coffee">
+<div class="pc-face"></div>
+<svg class="pc-stamp" viewBox="0 0 88 104" aria-hidden="true">
+<defs><mask id="pc-perf"><rect width="88" height="104" fill="#fff"/><circle cx="4" cy="0" r="3" fill="#000"/><circle cx="4" cy="104" r="3" fill="#000"/><circle cx="12" cy="0" r="3" fill="#000"/><circle cx="12" cy="104" r="3" fill="#000"/><circle cx="20" cy="0" r="3" fill="#000"/><circle cx="20" cy="104" r="3" fill="#000"/><circle cx="28" cy="0" r="3" fill="#000"/><circle cx="28" cy="104" r="3" fill="#000"/><circle cx="36" cy="0" r="3" fill="#000"/><circle cx="36" cy="104" r="3" fill="#000"/><circle cx="44" cy="0" r="3" fill="#000"/><circle cx="44" cy="104" r="3" fill="#000"/><circle cx="52" cy="0" r="3" fill="#000"/><circle cx="52" cy="104" r="3" fill="#000"/><circle cx="60" cy="0" r="3" fill="#000"/><circle cx="60" cy="104" r="3" fill="#000"/><circle cx="68" cy="0" r="3" fill="#000"/><circle cx="68" cy="104" r="3" fill="#000"/><circle cx="76" cy="0" r="3" fill="#000"/><circle cx="76" cy="104" r="3" fill="#000"/><circle cx="84" cy="0" r="3" fill="#000"/><circle cx="84" cy="104" r="3" fill="#000"/><circle cx="0" cy="4" r="3" fill="#000"/><circle cx="88" cy="4" r="3" fill="#000"/><circle cx="0" cy="12" r="3" fill="#000"/><circle cx="88" cy="12" r="3" fill="#000"/><circle cx="0" cy="20" r="3" fill="#000"/><circle cx="88" cy="20" r="3" fill="#000"/><circle cx="0" cy="28" r="3" fill="#000"/><circle cx="88" cy="28" r="3" fill="#000"/><circle cx="0" cy="36" r="3" fill="#000"/><circle cx="88" cy="36" r="3" fill="#000"/><circle cx="0" cy="44" r="3" fill="#000"/><circle cx="88" cy="44" r="3" fill="#000"/><circle cx="0" cy="52" r="3" fill="#000"/><circle cx="88" cy="52" r="3" fill="#000"/><circle cx="0" cy="60" r="3" fill="#000"/><circle cx="88" cy="60" r="3" fill="#000"/><circle cx="0" cy="68" r="3" fill="#000"/><circle cx="88" cy="68" r="3" fill="#000"/><circle cx="0" cy="76" r="3" fill="#000"/><circle cx="88" cy="76" r="3" fill="#000"/><circle cx="0" cy="84" r="3" fill="#000"/><circle cx="88" cy="84" r="3" fill="#000"/><circle cx="0" cy="92" r="3" fill="#000"/><circle cx="88" cy="92" r="3" fill="#000"/><circle cx="0" cy="100" r="3" fill="#000"/><circle cx="88" cy="100" r="3" fill="#000"/></mask></defs>
+<g mask="url(#pc-perf)"><rect width="88" height="104" fill="#FBF6EC"/><rect x="7" y="7" width="74" height="90" fill="#D9C2A0"/>
+<g fill="none" stroke="#4A3626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M27 46h34c-1 14-5 24-10 29H37c-5-5-9-15-10-29z"/><path d="M61 48c6-1 9 1 9 5 0 5-4 8-10 8"/><path d="M34 70l10-12 9 5 4 8"/><path d="M37 30c-2 4 2 6 0 10M44 30c-2 4 2 6 0 10M51 30c-2 4 2 6 0 10" stroke-width="1.5"/></g>
+<text x="44" y="22" text-anchor="middle" font-family="Manrope, sans-serif" font-size="8" font-weight="800" letter-spacing="1.5" fill="#4A3626">ANOOH</text>
+<text x="44" y="90" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="10" fill="#4A3626">Sabah</text></g>
+</svg>
+<svg class="pc-mark" viewBox="0 0 200 120" aria-hidden="true">
+<defs><path id="pc-ring" d="M60 60 m-42 0 a42 42 0 1 1 84 0 a42 42 0 1 1 -84 0"/>
+<filter id="pc-ink"><feTurbulence type="fractalNoise" baseFrequency="1.4" numOctaves="1" seed="4"/><feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -1.6 1.25"/><feComposite in="SourceGraphic" operator="in"/></filter></defs>
+<g fill="none" stroke="#A3483D" filter="url(#pc-ink)">
+<circle cx="60" cy="60" r="54" stroke-width="3.5"/><circle cx="60" cy="60" r="31" stroke-width="2"/>
+<path d="M118 38 q10 -8 20 0 t20 0 t20 0 M118 54 q10 -8 20 0 t20 0 t20 0 M118 70 q10 -8 20 0 t20 0 t20 0 M118 86 q10 -8 20 0 t20 0 t20 0" stroke-width="3"/>
+<text fill="#A3483D" stroke="none" font-family="Manrope, sans-serif" font-size="9.5" font-weight="800"><textPath href="#pc-ring" textLength="258" lengthAdjust="spacing">ANOOH COFFEE · KUNDASANG · SABAH ·</textPath></text>
+<text class="pc-date" x="60" y="57" text-anchor="middle" fill="#A3483D" stroke="none" font-family="Manrope, sans-serif" font-size="12" font-weight="800">24 OCT</text>
+<text class="pc-year" x="60" y="72" text-anchor="middle" fill="#A3483D" stroke="none" font-family="Manrope, sans-serif" font-size="11" font-weight="700">2026</text>
+</g></svg>
+</div>
+</div>
+<template class="pc-tpl"><svg class="pc-art" viewBox="0 0 600 400" role="img" aria-label="Postcard: Greetings from the Highlands">
+<rect x="0" y="0" width="600" height="400" fill="#F6EFE2"/>
+<rect x="14" y="14" width="572" height="372" fill="none" stroke="#4A3626" stroke-width="1.5" opacity=".55"/>
+<rect x="20" y="20" width="560" height="360" fill="none" stroke="#4A3626" stroke-width=".8" stroke-dasharray="1 4" opacity=".5"/>
+<g fill="none" stroke="#4A3626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+
+<circle cx="110" cy="92" r="22"/>
+<path d="M110 56v-10M110 138v-10M74 92h-10M156 92h-10M85 67l-7-7M142 124l-7-7M135 67l7-7M78 124l7-7" stroke-width="1.5"/>
+<path d="M30 205 C 110 160 190 190 260 165 S 420 128 570 175"/>
+<path d="M34 209 C 110 168 185 196 262 171" stroke-width=".8" opacity=".45"/>
+<path d="M30 250 C 150 212 300 244 400 226 S 520 214 570 232"/>
+<path d="M40 272 C 160 240 300 266 420 252 S 540 244 570 252" stroke-dasharray="2 9"/>
+<path d="M36 288 C 160 258 300 284 420 270 S 540 262 570 270" stroke-dasharray="2 9"/>
+<path d="M32 304 C 160 276 300 300 420 288 S 540 280 570 288" stroke-dasharray="2 9"/>
+<path d="M390 198 h76 v42 h-76 z"/>
+<path d="M380 200 L428 168 L476 200"/>
+<path d="M384 196 L428 166" stroke-width=".8" opacity=".5"/>
+<path d="M420 240 v-24 h14 v24"/>
+<path d="M398 210 h14 v12 h-14 z M405 210 v12 M398 216 h14" stroke-width="1.4"/>
+<path d="M448 210 h12 v12 h-12 z" stroke-width="1.4"/>
+<path d="M452 180 v-14 h8 v20" stroke-width="1.5"/>
+<path d="M454 160 c-4 -8 6 -10 2 -18" stroke-width="1.2" opacity=".6"/>
+<path d="M180 196 L192 170 L204 196 Z M184 182 L192 160 L200 182 M192 196 v8"/>
+<path d="M212 190 L222 168 L232 190 Z M215 178 L222 158 L229 178 M222 190 v8"/>
+<path d="M520 182 L530 160 L540 182 Z M523 170 L530 150 L537 170"/>
+<path d="M60 316 v-26 M110 314 v-26 M160 316 v-26 M210 315 v-26" stroke-width="2.4"/>
+<path d="M54 298 C 120 294 170 300 216 296 M54 308 C 120 304 170 310 216 306" stroke-width="1.5"/>
+<path d="M300 110 q8 -6 16 0 q8 -6 16 0 M340 92 q6 -5 12 0 q6 -5 12 0" stroke-width="1.4"/>
+
+<path d="M30 322 C 200 318 400 326 570 320" stroke-width="1.6"/>
+<path d="M32 327 C 210 324 380 330 568 325" stroke-width=".8" opacity=".5"/>
+</g>
+<rect x="476" y="34" width="88" height="104" rx="2" fill="none" stroke="#4A3626" stroke-width="1.2" stroke-dasharray="4 4" opacity=".45"/>
+<text x="40" y="360" font-family="Fraunces, Georgia, serif" font-style="italic" font-size="26" fill="#4A3626">Greetings from the Highlands</text>
+<text x="560" y="358" text-anchor="end" font-family="Manrope, sans-serif" font-size="10" font-weight="700" letter-spacing="2.5" fill="#4A3626" opacity=".7">HIGHLANDS · SABAH</text>
+</svg></template>
+<template class="pc-tpl"><svg class="pc-art" viewBox="0 0 600 400" role="img" aria-label="Postcard: Mount Kinabalu, 4,095 m">
+<rect x="0" y="0" width="600" height="400" fill="#F6EFE2"/>
+<rect x="14" y="14" width="572" height="372" fill="none" stroke="#4A3626" stroke-width="1.5" opacity=".55"/>
+<rect x="20" y="20" width="560" height="360" fill="none" stroke="#4A3626" stroke-width=".8" stroke-dasharray="1 4" opacity=".5"/>
+<g fill="none" stroke="#4A3626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+
+<path d="M70 120 c-14 0 -18 -18 -4 -22 c2 -16 26 -18 32 -6 c10 -10 30 -2 26 12 c12 2 10 16 -2 16 z" stroke-width="1.6"/>
+<path d="M420 96 c-12 0 -14 -15 -2 -18 c2 -13 22 -15 27 -5 c8 -8 25 -2 22 10 c10 2 8 13 -2 13 z" stroke-width="1.6"/>
+<path d="M30 300 L120 252 L180 214 L226 182 L246 140 L258 158 L272 108 L288 146 L304 96 L318 136 L332 112 L346 148 L362 130 L382 172 L420 200 L480 240 L570 296"/>
+<path d="M246 140 L240 176 M272 108 L266 160 M304 96 L298 150 M332 112 L326 158 M362 130 L356 172" stroke-width="1.1" opacity=".6"/>
+<path d="M226 182 C 250 192 280 178 300 190 S 350 182 382 172" stroke-width="1.2" stroke-dasharray="3 6" opacity=".7"/>
+<path d="M150 236 l10 6 M190 214 l12 4 M420 214 l-12 6 M450 230 l-10 6" stroke-width="1.1" opacity=".6"/>
+<path d="M30 300 C 140 280 240 296 330 284 S 480 276 570 296" stroke-width="1.6"/>
+<path d="M60 316 L72 286 L84 316 Z M66 300 L72 280 L78 300"/>
+<path d="M96 314 L106 290 L116 314 Z M100 300 L106 284 L112 300"/>
+<path d="M500 316 L512 284 L524 316 Z M506 300 L512 276 L518 300"/>
+<path d="M534 314 L543 292 L552 314 Z"/>
+<path d="M190 72 q7 -7 14 0 q7 -7 14 0 M222 58 q5 -5 10 0 q5 -5 10 0 M370 70 q6 -6 12 0 q6 -6 12 0" stroke-width="1.4"/>
+<path d="M140 304 c40 -6 80 -2 120 -6 M360 300 c40 -4 70 0 110 -4" stroke-width="1" opacity=".5"/>
+
+<path d="M30 322 C 200 318 400 326 570 320" stroke-width="1.6"/>
+<path d="M32 327 C 210 324 380 330 568 325" stroke-width=".8" opacity=".5"/>
+</g>
+<rect x="476" y="34" width="88" height="104" rx="2" fill="none" stroke="#4A3626" stroke-width="1.2" stroke-dasharray="4 4" opacity=".45"/>
+<text x="40" y="360" font-family="Fraunces, Georgia, serif" font-style="italic" font-size="26" fill="#4A3626">Mount Kinabalu, 4,095 m</text>
+<text x="560" y="358" text-anchor="end" font-family="Manrope, sans-serif" font-size="10" font-weight="700" letter-spacing="2.5" fill="#4A3626" opacity=".7">KINABALU · SABAH</text>
+</svg></template>
+<template class="pc-tpl"><svg class="pc-art" viewBox="0 0 600 400" role="img" aria-label="Postcard: Hello from Kundasang">
+<rect x="0" y="0" width="600" height="400" fill="#F6EFE2"/>
+<rect x="14" y="14" width="572" height="372" fill="none" stroke="#4A3626" stroke-width="1.5" opacity=".55"/>
+<rect x="20" y="20" width="560" height="360" fill="none" stroke="#4A3626" stroke-width=".8" stroke-dasharray="1 4" opacity=".5"/>
+<g fill="none" stroke="#4A3626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+
+<path d="M150 150 L196 118 L208 96 L218 108 L230 84 L242 104 L254 90 L268 112 L310 140 L380 150" stroke-width="1.2" opacity=".55" stroke-dasharray="4 5"/>
+<path d="M30 190 C 120 160 220 176 300 160 S 470 150 570 172" stroke-width="1.5" opacity=".8"/>
+<path d="M60 300 V214 L105 188 L150 214 V300"/>
+<path d="M150 300 V200 H260 V300"/>
+<path d="M260 300 V214 L310 186 L360 214 V300"/>
+<path d="M360 300 V206 H460 V300"/>
+<path d="M146 200 H264 M356 206 H464" stroke-width="2.4"/>
+<path d="M78 230 h18 v20 h-18 z M114 230 h18 v20 h-18 z M86 300 v-30 h38 v30"/>
+<path d="M162 214 h86 v18 h-86 z" stroke-width="1.5"/>
+<text x="205" y="228" text-anchor="middle" font-family="Manrope, sans-serif" font-size="11" font-weight="700" letter-spacing="2" fill="#4A3626" stroke="none">ANOOH</text>
+<path d="M156 246 L254 246 L246 260 L164 260 Z M174 246 l-4 14 M194 246 l-2 14 M214 246 l0 14 M234 246 l2 14" stroke-width="1.4"/>
+<path d="M170 300 v-30 h28 v30 M212 272 h30 v20 h-30 z"/>
+<path d="M278 230 h16 v18 h-16 z M326 230 h16 v18 h-16 z M296 300 v-34 h28 v34"/>
+<path d="M372 222 h22 v16 h-22 z M404 222 h22 v16 h-22 z M436 222 h16 v16 h-16 z" stroke-width="1.5"/>
+<path d="M366 254 H454 L448 266 H372 Z" stroke-width="1.4"/>
+<path d="M378 300 v-28 h26 v28 M416 274 h26 v18 h-26 z"/>
+<path d="M500 300 V214 M500 214 c0 -10 16 -10 16 0 M510 214 v6 M505 220 h10" stroke-width="1.8"/>
+<path d="M30 300 H570" stroke-width="2.2"/>
+<path d="M40 312 H90 M130 312 H180 M220 312 H270 M310 312 H360 M400 312 H450 M490 312 H540" stroke-width="1.6" opacity=".6"/>
+<path d="M530 300 L538 276 L546 300 Z M534 288 L538 270 L542 288" stroke-width="1.6"/>
+<path d="M40 300 c4 -16 18 -16 22 0" stroke-width="1.4"/>
+<path d="M90 110 q6 -6 12 0 q6 -6 12 0 M430 96 q7 -7 14 0 q7 -7 14 0" stroke-width="1.4"/>
+
+<path d="M30 322 C 200 318 400 326 570 320" stroke-width="1.6"/>
+<path d="M32 327 C 210 324 380 330 568 325" stroke-width=".8" opacity=".5"/>
+</g>
+<rect x="476" y="34" width="88" height="104" rx="2" fill="none" stroke="#4A3626" stroke-width="1.2" stroke-dasharray="4 4" opacity=".45"/>
+<text x="40" y="360" font-family="Fraunces, Georgia, serif" font-style="italic" font-size="26" fill="#4A3626">Hello from Kundasang</text>
+<text x="560" y="358" text-anchor="end" font-family="Manrope, sans-serif" font-size="10" font-weight="700" letter-spacing="2.5" fill="#4A3626" opacity=".7">KUNDASANG · SABAH</text>
+</svg></template>
+
 </div>
 </section>
 
-<!-- MENU BOOK: scrolling through this band turns the pages -->
-<section id="menu-book">
-<div id="stage" class="stage wrap">
+<!-- MENU CAROUSEL: scrolling down this band slides the nine coffees from right to left; the end brings up a link to the Menu page -->
+<section id="menu-book" class="mc">
+<div class="mc-stick">
+<div class="wrap mc-in">
 <div class="stage-head">
 <h2>View the Anooh menu</h2>
-<p>Keep scrolling to turn the pages, or use the arrows.</p>
+<p>Nine ways to take your coffee. Keep scrolling to see them all.</p>
 </div>
-
-<div class="book">
-<div class="page base-l">
-<p class="pg-label">Inside cover</p>
-<p class="pg-quote">Brewed to order, poured with care.</p>
-<p class="pg-note">A taste of our bar and bakery case. Prices in RM. Dine in with the view, take it away, or order for delivery.</p>
-</div>
-<div class="page base-r"></div>
-
-<div class="leaf" data-leaf="0">
-<div class="face cover front">
-<span class="cover-k">Anooh Coffee</span>
-<div style="display:flex;flex-direction:column;gap:14px">
-<svg viewBox="0 0 120 60" aria-hidden="true" style="width:clamp(48px,7vw,96px);height:auto" fill="none" stroke="#D9C4A6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 26h64v14a20 20 0 0 1-20 20H40a20 20 0 0 1-20-20z"></path><path d="M84 30h6a9 9 0 0 1 0 18h-8"></path><path d="M40 4c-4 6 4 8 0 14M54 4c-4 6 4 8 0 14M68 4c-4 6 4 8 0 14"></path></svg>
-<span class="cover-t">The Menu</span>
-</div>
-<span class="cover-s">Coffee · Non-Coffee · Pastry Buns · Croissants</span>
-</div>
-<div class="face back">
-<div class="bk-head"><p class="bk-num">01</p><h3 class="bk-title">Coffee</h3><p class="bk-cols" style="--pc:2"><span>Hot</span><span>Iced</span></p></div>
-<ul class="bk-list" style="--pc:2">
-<li><img src="media/book/anooh-kupi.jpg" width="120" height="120" alt="" loading="lazy"><span class="bk-n">Signature Anooh Kupi</span><span class="bk-p" data-l="Hot">10.00</span><span class="bk-p" data-l="Iced">12.00</span></li>
-<li><img src="media/book/cafe-latte.jpg" width="120" height="120" alt="" loading="lazy"><span class="bk-n">Cafe Latté</span><span class="bk-p" data-l="Hot">12.00</span><span class="bk-p" data-l="Iced">14.00</span></li>
-<li><img src="media/book/caramel-macchiato.jpg" width="120" height="120" alt="" loading="lazy"><span class="bk-n">Caramel Macchiato</span><span class="bk-p" data-l="Hot">16.00</span><span class="bk-p" data-l="Iced">18.00</span></li>
-<li><img src="media/book/spanish-latte.jpg" width="120" height="120" alt="" loading="lazy"><span class="bk-n">Spanish Latté</span><span class="bk-p" data-l="Hot">12.00</span><span class="bk-p" data-l="Iced">14.00</span></li>
+<div class="mc-view">
+<ul class="mc-track" id="mc-track" aria-label="Our coffees, one card each">
+<li class="mc-card"><div class="mc-cup"><span class="mc-tag">Our signature</span><img src="media/book/cups/anooh-kupi.webp" width="300" height="400" alt="Anooh Kupi in an Anooh Coffee takeaway cup" loading="lazy"></div><h3>Anooh Kupi</h3><p class="mc-d">Our signature drink blends coffee and tea, perfectly balancing sweet and bitter notes.</p><p class="mc-price"><span>Hot <b>RM 10.00</b></span><span>Iced <b>RM 12.00</b></span></p></li>
+<li class="mc-card"><div class="mc-cup"><img src="media/book/cups/espresso.webp" width="300" height="400" alt="Espresso in an Anooh Coffee takeaway cup" loading="lazy"></div><h3>Espresso</h3><p class="mc-d">A concentrated coffee beverage brewed by forcing hot water through finely-ground coffee beans under high pressure. 30ml.</p></li>
+<li class="mc-card"><div class="mc-cup"><img src="media/book/cups/americano.webp" width="300" height="400" alt="Americano in an Anooh Coffee takeaway cup" loading="lazy"></div><h3>Americano</h3><p class="mc-d">A simple coffee drink made with espresso and hot water.</p></li>
+<li class="mc-card"><div class="mc-cup"><img src="media/book/cups/cappuccino.webp" width="300" height="400" alt="Cappuccino in an Anooh Coffee takeaway cup" loading="lazy"></div><h3>Cappuccino</h3><p class="mc-d">A classic Italian coffee drink made with espresso, steamed milk, and milk foam. Featuring both the richness of espresso and the sweetness of milk, with a frothy texture.</p></li>
+<li class="mc-card"><div class="mc-cup"><img src="media/book/cups/cafe-latte.webp" width="300" height="400" alt="Cafe Latte in an Anooh Coffee takeaway cup" loading="lazy"></div><h3>Cafe Latte</h3><p class="mc-d">Made with espresso and steamed milk, usually topped with a thin layer of foam.</p><p class="mc-price"><span>Hot <b>RM 12.00</b></span><span>Iced <b>RM 14.00</b></span></p></li>
+<li class="mc-card"><div class="mc-cup"><img src="media/book/cups/caffe-mocha.webp" width="300" height="400" alt="Caffe Mocha in an Anooh Coffee takeaway cup" loading="lazy"></div><h3>Caffe Mocha</h3><p class="mc-d">A chocolate-flavoured variation of a latte, combining espresso, steamed milk, and chocolate flavouring: chocolate syrup and cocoa powder.</p></li>
+<li class="mc-card"><div class="mc-cup"><img src="media/book/cups/caramel-macchiato.webp" width="300" height="400" alt="Caramel Macchiato in an Anooh Coffee takeaway cup" loading="lazy"></div><h3>Caramel Macchiato</h3><p class="mc-d">A coffee beverage that features steamed milk, vanilla syrup, espresso, and caramel sauce.</p><p class="mc-price"><span>Hot <b>RM 16.00</b></span><span>Iced <b>RM 18.00</b></span></p></li>
+<li class="mc-card"><div class="mc-cup"><img src="media/book/cups/vanilla-latte.webp" width="300" height="400" alt="Vanilla Latte in an Anooh Coffee takeaway cup" loading="lazy"></div><h3>Vanilla Latte</h3><p class="mc-d">Combines the rich, bold flavour of espresso with the creamy texture of steamed milk, enhanced by the sweet and aromatic flavour of vanilla.</p></li>
+<li class="mc-card"><div class="mc-cup"><img src="media/book/cups/hazelnut-latte.webp" width="300" height="400" alt="Hazelnut Latte in an Anooh Coffee takeaway cup" loading="lazy"></div><h3>Hazelnut Latte</h3><p class="mc-d">Made with espresso, steamed milk, and hazelnut syrup. Combines the rich, bold flavour of espresso with the sweet, nutty taste of hazelnut.</p></li>
 </ul>
 </div>
-</div>
-
-<div class="leaf" data-leaf="1">
-<div class="face front">
-<div class="bk-head"><p class="bk-num">02</p><h3 class="bk-title">Non-Coffee</h3><p class="bk-cols" style="--pc:2"><span>Hot</span><span>Iced</span></p></div>
-<ul class="bk-list" style="--pc:2">
-<li><img src="media/book/green-tea.jpg" width="120" height="120" alt="" loading="lazy"><span class="bk-n">Green Tea<small class="bk-v">Matcha or Thai</small></span><span class="bk-p" data-l="Hot">13.00</span><span class="bk-p" data-l="Iced">15.00</span></li>
-<li><img src="media/book/chocolate.jpg" width="120" height="120" alt="" loading="lazy"><span class="bk-n">Chocolate<small class="bk-v">Vanilla or Hazelnut</small></span><span class="bk-p" data-l="Hot">13.00</span><span class="bk-p" data-l="Iced">15.00</span></li>
-<li><img src="media/book/strawberry-chocolate.jpg" width="120" height="120" alt="" loading="lazy"><span class="bk-n">Strawberry Chocolate</span><span class="bk-p" data-l="Hot"><i>–</i></span><span class="bk-p" data-l="Iced">15.00</span></li>
-</ul>
-</div>
-<div class="face back">
-<div class="bk-head"><p class="bk-num">03</p><h3 class="bk-title">Pastry Buns</h3><p class="bk-cols" style="--pc:1"><span>RM</span></p></div>
-<ul class="bk-list" style="--pc:1">
-<li><img src="media/book/korean-garlic.jpg" width="120" height="120" alt="" loading="lazy"><span class="bk-n">Korean Garlic</span><span class="bk-p">8.00</span></li>
-<li><img src="media/book/pandan.jpg" width="120" height="120" alt="" loading="lazy"><span class="bk-n">Pandan</span><span class="bk-p">7.00</span></li>
-<li><img src="media/book/tausa.jpg" width="120" height="120" alt="" loading="lazy"><span class="bk-n">Tausa</span><span class="bk-p">7.00</span></li>
-<li><img src="media/book/sausage.jpg" width="120" height="120" alt="" loading="lazy"><span class="bk-n">Sausage</span><span class="bk-p">7.00</span></li>
-<li><img src="media/book/floss-chicken.jpg" width="120" height="120" alt="" loading="lazy"><span class="bk-n">Floss Chicken</span><span class="bk-p">7.00</span></li>
-</ul>
+<div class="mc-foot">
+<span class="mc-bar" aria-hidden="true"><i id="mc-fill"></i></span>
+<div class="mc-pop" id="mc-pop" role="status" hidden>
+<span>That's our coffee line-up. Hungry too?</span>
+<a href="#menu">See the full menu <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
 </div>
 </div>
-
-<div class="leaf" data-leaf="2">
-<div class="face front">
-<div class="bk-head"><p class="bk-num">04</p><h3 class="bk-title">Croissants</h3><p class="bk-cols" style="--pc:1"><span>RM</span></p></div>
-<ul class="bk-list" style="--pc:1">
-<li><img src="media/book/plain.jpg" width="120" height="120" alt="" loading="lazy"><span class="bk-n">Plain</span><span class="bk-p">7.00</span></li>
-<li><img src="media/book/salted-egg.jpg" width="120" height="120" alt="" loading="lazy"><span class="bk-n">Salted Egg</span><span class="bk-p">12.00</span></li>
-<li><img src="media/book/garlic-cream-cheese.jpg" width="120" height="120" alt="" loading="lazy"><span class="bk-n">Garlic Cream Cheese</span><span class="bk-p">12.00</span></li>
-<li><img src="media/book/ham-sandwich.jpg" width="120" height="120" alt="" loading="lazy"><span class="bk-n">Ham Sandwich</span><span class="bk-p">14.00</span></li>
-<li><img src="media/book/tuna.jpg" width="120" height="120" alt="" loading="lazy"><span class="bk-n">Tuna</span><span class="bk-p">14.00</span></li>
-<li><img src="media/book/almond-cream.jpg" width="120" height="120" alt="" loading="lazy"><span class="bk-n">Almond Cream</span><span class="bk-p">14.00</span></li>
-</ul>
-</div>
-<div class="face back">
-<div class="bk-head"><p class="bk-num">05</p><h3 class="bk-title">Also on the menu</h3></div>
-<ul class="bk-more">
-<li>Espresso, Americano &amp; lattes</li>
-<li>Soda &amp; Milky fruit drinks</li>
-<li>Sabah Tea, Kopi Tenom &amp; Apai Kopi</li>
-<li>Dimna &amp; Uinah bottled drinks</li>
-<li>Ice cream</li>
-<li>Cakes, sandwiches &amp; cookies</li>
-<li>Burritos &amp; tortillas</li>
-</ul>
-</div>
-</div>
-
-<div class="leaf" data-leaf="3">
-<div class="face front bk-end">
-<p class="pg-label">There's more</p>
-<p class="pg-quote">Sabahan coffee, sodas, cakes and more on the full menu.</p>
-<a href="#menu" class="book-small-btn">See the full menu</a>
-</div>
-<div class="face endpaper back"></div>
-</div>
-</div>
-
-<div class="pager">
-<button type="button" id="prev" aria-label="Previous page"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"></path></svg></button>
-<span id="spread" aria-live="polite">Cover · 1 / 4</span>
-<button type="button" id="next" class="fwd" aria-label="Next page"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></button>
 </div>
 </div>
 </section>
@@ -820,13 +984,13 @@ html.bouncy .kc-card.in:hover,html.bouncy .product.in:hover,html.bouncy .tile.in
 <li>Live buskers</li>
 <li>Open mic</li>
 </ul>
-<div class="ac-text" lang="ms">
-<p>Hujung minggu dan cuti umum lebih istimewa sambil layan kopi panas, dengar busker live, sambil menikmati pemandangan Gunung Kinabalu yang memukau.</p>
-<p>Suasana chill, muzik yang menenangkan, dan view yang tak pernah mengecewakan memang perfect untuk recharge mood anda.</p>
-<p><b>Setiap hujung minggu &amp; cuti umum di Anooh Coffee.</b> Jom singgah dan nikmati pengalaman terbaik di Kundasang!</p>
+<div class="ac-text">
+<p>Weekends and public holidays are better with a hot coffee, live buskers and a stunning view of Mount Kinabalu.</p>
+<p>Easy vibes, calming music and a view that never disappoints: the perfect way to recharge.</p>
+<p><b>Every weekend &amp; public holiday at Anooh Coffee.</b> Drop by and enjoy the best of Kundasang!</p>
 </div>
-<p class="ac-en"><span>In English</span>Weekends and public holidays are better with a hot coffee, live buskers and a stunning view of Mount Kinabalu. Easy vibes, calming music and a view that never disappoints: the perfect way to recharge. Every weekend and public holiday at Anooh Coffee, so drop by for the best of Kundasang.</p>
 <button type="button" class="ac-lineup-btn" id="ac-lineup-btn" aria-haspopup="dialog" aria-controls="ac-dialog"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>See who's playing this weekend</button>
+<a class="ac-tiktok" href="https://www.tiktok.com/@anoohcoffee" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"></path><path d="M14 3c.4 2.6 2.2 4.4 5 4.6"></path></svg>Watch the sessions on TikTok <span aria-hidden="true">↗</span></a>
 </div>
 <div class="feature-media ac-media">
 <figure class="sv-video">
@@ -845,32 +1009,7 @@ html.bouncy .kc-card.in:hover,html.bouncy .product.in:hover,html.bouncy .tile.in
 <p>Kundasang sits high in the hills below Mount Kinabalu. Come early on a clear morning for the best of it, before the afternoon mist rolls in. Grab a window seat or a table outside, order something warm, and take your time.</p>
 <div class="cta-view-media tile" style="background:#B5834F;color:#2B2017">[Photo: the view]</div>
 <p>Drop by on your way up the mountain or on the drive home. Only at Anooh Coffee, Kundasang.</p>
-<a href="#visit" class="btn">Plan your visit</a>
-</div>
-</section>
-
-<section id="visit">
-<div class="wrap visit">
-<div>
-<h3>Contact us</h3>
-<p class="soft">Questions, large orders or group visits, give us a call.</p>
-<p style="font-weight:600">017-813 0732</p>
-<p class="soft">Dine-in · Takeaway · Delivery<br>Rated 4.3 on Google from 1,253 reviews</p>
-</div>
-<div>
-<h3>Find us</h3>
-<p>KM3 Jalan Kundasang–Ranau<br>89308 Kundasang, Ranau<br>Sabah, Malaysia</p>
-<div class="links">
-<a href="https://www.google.com/maps/search/?api=1&amp;query=Anooh+Coffee+Kundasang">Google Maps</a>
-<a href="https://waze.com/ul?q=Anooh%20Coffee%20Kundasang">Waze</a>
-</div>
-</div>
-<div>
-<h3>Opening hours</h3>
-<dl class="hours">
-<dt>Every day</dt><dd>6:30 am – 9:30 pm</dd>
-</dl>
-</div>
+<a href="https://www.google.com/maps/search/?api=1&amp;query=Anooh+Coffee+Kundasang" class="btn" target="_blank" rel="noopener">Plan your visit</a>
 </div>
 </section>
 
@@ -936,7 +1075,7 @@ html.bouncy .kc-card.in:hover,html.bouncy .product.in:hover,html.bouncy .tile.in
 <button type="button" class="bl-tab" id="exhibition" data-f="exhibition" aria-pressed="false">Exhibition</button>
 </div>
 <div class="bl-note" data-note="care" hidden>
-<p>Anooh Care is our way of giving back to the community that welcomed us. <span lang="ms">Bersama membina komuniti.</span></p>
+<p>Anooh Care is our way of giving back to the community that welcomed us. Building the community together.</p>
 <ul class="ph-sdg" aria-label="Supports the UN Sustainable Development Goals">
 <li><a href="https://sdgs.un.org/goals/goal4" target="_blank" rel="noopener"><svg class="sdg-icon" viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" fill="#C5192D"/><text x="7" y="37" font-size="36" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="500" fill="#fff">4</text><text x="30" y="18" font-size="10.5" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="500" fill="#fff" letter-spacing=".3">QUALITY</text><text x="30" y="30" font-size="10.5" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="500" fill="#fff" letter-spacing=".3">EDUCATION</text><path d="M18 50l28 4.5v31L18 81z M54 54.5L74 50v31l-20 4.5z" fill="#fff"/><path d="M81 47h5v31h-5z M81 78h5l-2.5 7z" fill="#fff"/></svg><span><small>SDG 4</small>Quality Education</span><svg class="ext" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a></li>
 <li><a href="https://sdgs.un.org/goals/goal17" target="_blank" rel="noopener"><svg class="sdg-icon" viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" fill="#19486A"/><text x="5" y="37" font-size="36" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="500" fill="#fff">17</text><text x="39" y="18" font-size="9.2" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="500" fill="#fff" letter-spacing=".2">PARTNERSHIPS</text><text x="39" y="30" font-size="9.2" font-family="Oswald, 'Arial Narrow', sans-serif" font-weight="500" fill="#fff" letter-spacing=".2">FOR THE GOALS</text><g fill="none" stroke="#fff" stroke-width="2.6"><circle cx="50.0" cy="58.0" r="12.5"/><circle cx="59.5" cy="64.9" r="12.5"/><circle cx="55.9" cy="76.1" r="12.5"/><circle cx="44.1" cy="76.1" r="12.5"/><circle cx="40.5" cy="64.9" r="12.5"/></g></svg><span><small>SDG 17</small>Partnerships for the Goals</span><svg class="ext" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a></li>
@@ -950,43 +1089,41 @@ html.bouncy .kc-card.in:hover,html.bouncy .product.in:hover,html.bouncy .tile.in
 <li class="ph-entry" id="ph-rm500">
 <span class="ph-node" aria-hidden="true"></span>
 <article class="ph-post">
-<div class="ph-copy"><p class="ph-date"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"></rect><path d="M8 3v4M16 3v4M3 10h18"></path></svg><time datetime="2025-09-16">Hari Malaysia, 16 September 2025</time></p>
-<h3>Anooh Prihatin: Bersama Membina Komuniti</h3>
-<div class="ph-text" lang="ms">
-<p>Bersempena dengan sambutan Hari Malaysia, Anooh Coffee berbesar hati memperkenalkan inisiatif Anooh Prihatin - Bersama Membina Komuniti.</p>
-<p>Melalui inisiatif ini, Anooh Coffee memperuntukkan RM500.00 setiap bulan bagi menyokong NGO, pertubuhan, dan organisasi berdaftar yang benar-benar memerlukan. Usaha ini adalah komitmen kami untuk memperkukuh jaringan sokongan serta meningkatkan kesejahteraan masyarakat.</p>
+<div class="ph-copy"><p class="ph-date"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"></rect><path d="M8 3v4M16 3v4M3 10h18"></path></svg><time datetime="2025-09-16">Malaysia Day, 16 September 2025</time></p>
+<h3>Anooh Prihatin: Building the Community Together</h3>
+<div class="ph-text">
+<p>In conjunction with Malaysia Day, Anooh Coffee is proud to introduce Anooh Prihatin: Building the Community Together.</p>
+<p>Through this initiative, Anooh Coffee sets aside RM500.00 every month to support registered NGOs, associations and organisations that are truly in need. It is our commitment to strengthening support networks and improving the wellbeing of the community.</p>
 </div>
 <dl class="ph-facts">
-<div><dt>Dana Sumbangan</dt><dd>RM500.00 setiap bulan</dd></div>
-<div><dt>Untuk</dt><dd>NGO, pertubuhan &amp; organisasi berdaftar</dd></div>
-<div><dt>Cara Memohon</dt><dd>Hubungi <a href="tel:+60178130732">017-813 0732</a><br>atau email <a href="mailto:anoohcare@gmail.com">anoohcare@gmail.com</a></dd></div>
-</dl>
-<p class="ph-en"><span>In English</span>To mark Malaysia Day, Anooh Coffee is proud to introduce Anooh Prihatin: Building the Community Together. Every month, Anooh Coffee sets aside RM500 to support registered NGOs, associations and organisations that truly need it. It is our commitment to strengthening support networks and the wellbeing of the community. To apply, call 017-813 0732 or email anoohcare@gmail.com.</p></div>
-<figure class="ph-poster"><img src="media/care/anooh-care-rm500.jpg" width="900" height="1129" alt="Anooh Prihatin, Bersama Membina Komuniti poster with the Anooh Care badge: Anooh Coffee sets aside RM500.00 every month for registered NGOs and organisations. Apply by calling 017-813 0732 or emailing anoohcare@gmail.com." loading="lazy"></figure>
+<div><dt>Contribution fund</dt><dd>RM500.00 every month</dd></div>
+<div><dt>For</dt><dd>Registered NGOs, associations &amp; organisations</dd></div>
+<div><dt>How to apply</dt><dd>Call <a href="tel:+60178130732">017-813 0732</a><br>or email <a href="mailto:anoohcare@gmail.com">anoohcare@gmail.com</a></dd></div>
+</dl></div>
+<figure class="ph-poster"><img src="media/care/anooh-care-rm500.jpg" width="900" height="1129" alt="Anooh Prihatin poster (Bersama Membina Komuniti, Building the Community Together) with the Anooh Care badge: Anooh Coffee sets aside RM500.00 every month for registered NGOs and organisations. Apply by calling 017-813 0732 or emailing anoohcare@gmail.com." loading="lazy"></figure>
 </article>
 </li>
 <li class="ph-entry ph-older" id="ph-saito">
 <span class="ph-node" aria-hidden="true"></span>
 <article class="ph-post">
-<div class="ph-copy"><p class="ph-date"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"></rect><path d="M8 3v4M16 3v4M3 10h18"></path></svg><span><time datetime="2026-06-08">8 Jun</time> – <time datetime="2026-08-31">31 Ogos 2026</time></span></p>
-<h3>Latihan Industri di Jepun</h3>
-<p class="ph-place">SAITO Kumpulan ke-23 · Universiti Malaysia Sabah</p>
-<div class="ph-text" lang="ms">
-<p><strong>ANOOH CARE Menyokong Pendidikan &amp; Masa Depan Anak Muda Sabah!</strong></p>
-<p>Anooh Care berbesar hati dapat menyumbang kepada Universiti Malaysia Sabah (UMS) bagi menjayakan program Student Aquaculture Industrial Training in Overseas (SAITO) Kumpulan ke-23.</p>
+<div class="ph-copy"><p class="ph-date"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"></rect><path d="M8 3v4M16 3v4M3 10h18"></path></svg><span><time datetime="2026-06-08">8 June</time> – <time datetime="2026-08-31">31 August 2026</time></span></p>
+<h3>Industrial Training in Japan</h3>
+<p class="ph-place">SAITO Cohort 23 · Universiti Malaysia Sabah</p>
+<div class="ph-text">
+<p><strong>ANOOH CARE supports the education and future of Sabah’s young people!</strong></p>
+<p>Anooh Care is proud to have contributed to Universiti Malaysia Sabah (UMS) in support of the 23rd cohort of the Student Aquaculture Industrial Training in Overseas (SAITO) programme.</p>
 <dl class="ph-facts">
-<div><dt>Nama Projek</dt><dd>Latihan Industri di Jepun</dd></div>
-<div><dt>Tarikh</dt><dd>8 Jun – 31 Ogos 2026</dd></div>
-<div><dt>Lokasi Latihan</dt><dd><ul><li>Oribu Suissan Co. Ltd., Kagawa Prefecture, Japan</li><li>Tanoura Fisheries Cooperative</li><li>Kindai University, Japan</li><li>Nagasaka Eel Farm, Nagoya, Japan</li></ul></dd></div>
-<div><dt>Penerima Sumbangan</dt><dd>Universiti Malaysia Sabah</dd></div>
-<div><dt>Penerima Manfaat</dt><dd>14 orang pelajar tahun akhir Program Akuakultur, Universiti Malaysia Sabah</dd></div>
+<div><dt>Project name</dt><dd>Industrial Training in Japan</dd></div>
+<div><dt>Dates</dt><dd>8 June – 31 August 2026</dd></div>
+<div><dt>Training locations</dt><dd><ul><li>Oribu Suissan Co. Ltd., Kagawa Prefecture, Japan</li><li>Tanoura Fisheries Cooperative</li><li>Kindai University, Japan</li><li>Nagasaka Eel Farm, Nagoya, Japan</li></ul></dd></div>
+<div><dt>Recipient</dt><dd>Universiti Malaysia Sabah</dd></div>
+<div><dt>Beneficiaries</dt><dd>14 final-year students of the Aquaculture Programme, Universiti Malaysia Sabah</dd></div>
 </dl>
-<p>Program ini memberikan peluang kepada para pelajar untuk menimba pengalaman, pengetahuan dan pendedahan industri akuakultur di peringkat antarabangsa.</p>
-<p>Pengalaman seperti ini bukan sahaja memperkaya ilmu, malah menjadi bekalan berharga dalam membina masa depan dan kerjaya mereka.</p>
-</div>
-<p class="ph-en"><span>In English</span>Anooh Care is proud to have supported Universiti Malaysia Sabah (UMS) in running the 23rd cohort of SAITO, the Student Aquaculture Industrial Training in Overseas programme. From 8 June to 31 August 2026, 14 final-year aquaculture students trained in Japan at Oribu Suissan in Kagawa, the Tanoura Fisheries Cooperative, Kindai University and Nagasaka Eel Farm in Nagoya. Experience like this builds knowledge and gives them a strong start in their future careers.</p></div>
+<p>The programme gives students the chance to gain experience, knowledge and exposure to the aquaculture industry at an international level.</p>
+<p>Experiences like this do more than broaden their knowledge. They are a valuable foundation as the students build their futures and careers.</p>
+</div></div>
 <div class="ph-gallery ph-square" style="--n:6">
-<ul class="ph-track" tabindex="0" aria-label="Latihan Industri di Jepun photos, swipe or use the thumbnails">
+<ul class="ph-track" tabindex="0" aria-label="Industrial Training in Japan photos, swipe or use the thumbnails">
 <li><img src="media/care/saito-1.jpg" width="900" height="900" alt="A SAITO trainee and a farm worker mending a round net beside a large blue fish tank" loading="lazy"></li>
 <li><img src="media/care/saito-2.jpg" width="900" height="900" alt="A trainee tossing an octopus from a yellow basket into a sea pen at a fishing port" loading="lazy"></li>
 <li><img src="media/care/saito-3.jpg" width="900" height="900" alt="A trainee repairing a net in front of a round blue tank under shade netting" loading="lazy"></li>
@@ -1008,21 +1145,20 @@ html.bouncy .kc-card.in:hover,html.bouncy .product.in:hover,html.bouncy .tile.in
 <li class="ph-entry ph-older" id="ph-breakfast">
 <span class="ph-node" aria-hidden="true"></span>
 <article class="ph-post">
-<div class="ph-copy"><p class="ph-date"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"></rect><path d="M8 3v4M16 3v4M3 10h18"></path></svg><time datetime="2026-07-06">6 – 26 Julai 2026</time></p>
+<div class="ph-copy"><p class="ph-date"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"></rect><path d="M8 3v4M16 3v4M3 10h18"></path></svg><time datetime="2026-07-06">6 – 26 July 2026</time></p>
 <h3>MPP Care 3.0: Breakfast Jom!</h3>
 <p class="ph-place">Universiti Malaysia Sabah</p>
-<div class="ph-text" lang="ms">
-<p>Anooh Coffee melalui inisiatif Anooh Care berbesar hati menyumbang kepada kejayaan pelaksanaan Program MPP Care 3.0: Breakfast Jom! anjuran Majlis Perwakilan Pelajar Universiti Malaysia Sabah (UMS) yang berlangsung pada 6 hingga 26 Julai 2026 (Isnin hingga Jumaat) di Universiti Malaysia Sabah.</p>
-<p>Sumbangan berupa 100 pek roti putih telah disalurkan kepada Majlis Perwakilan Pelajar Sesi 2025/2026 dan memberi manfaat kepada mahasiswa UMS, sebagai tanda sokongan terhadap inisiatif kebajikan yang membantu pelajar memulakan hari dengan lebih bertenaga serta menggalakkan budaya saling membantu dalam kalangan warga kampus.</p>
-<p>Kami percaya bahawa kesejahteraan mahasiswa memainkan peranan penting dalam menyokong kecemerlangan akademik dan pembangunan sahsiah. Inisiatif seperti MPP Care 3.0: Breakfast Jom! bukan sahaja meringankan beban pelajar, malah mencerminkan semangat keprihatinan, kebersamaan dan nilai kemasyarakatan yang menjadi asas kepada pembentukan komuniti kampus yang penyayang dan inklusif.</p>
-<p>Terima kasih kepada Majlis Perwakilan Pelajar Universiti Malaysia Sabah Sesi 2025/2026, para penganjur serta semua pihak yang telah menjayakan program ini dengan penuh dedikasi. Anooh Care akan terus komited menyokong pelbagai inisiatif berimpak positif yang memperkasa kebajikan mahasiswa, membina komuniti yang prihatin serta menyumbang ke arah pembangunan generasi muda yang cemerlang dan berdaya saing.</p>
+<div class="ph-text">
+<p>Through its Anooh Care initiative, Anooh Coffee is proud to have contributed to the success of MPP Care 3.0: Breakfast Jom! The programme was organised by the Universiti Malaysia Sabah (UMS) Student Representative Council (MPP) and ran from 6 to 26 July 2026, Monday to Friday, at Universiti Malaysia Sabah.</p>
+<p>We gave 100 packs of white bread to the Student Representative Council for the 2025/2026 session, for the benefit of UMS students. It is our way of supporting a welfare initiative that helps students start the day with more energy and encourages a culture of helping one another across the campus.</p>
+<p>We believe student wellbeing plays an important part in academic excellence and personal development. Initiatives like MPP Care 3.0: Breakfast Jom! do more than ease the burden on students. They reflect the care, togetherness and community values that a caring, inclusive campus is built on.</p>
+<p>Thank you to the Universiti Malaysia Sabah Student Representative Council for the 2025/2026 session, the organisers and everyone who worked with such dedication to make this programme a success. Anooh Care will keep supporting initiatives that make a positive difference: strengthening student welfare, building a caring community and helping to raise a young generation that is outstanding and ready to compete.</p>
 </div>
 <dl class="ph-facts">
-<div><dt>Sumbangan</dt><dd>100 pek roti putih</dd></div>
-<div><dt>Penerima Sumbangan</dt><dd>Majlis Perwakilan Pelajar UMS Sesi 2025/2026</dd></div>
-<div><dt>Penerima Manfaat</dt><dd>Mahasiswa UMS</dd></div>
-</dl>
-<p class="ph-en"><span>In English</span>Through Anooh Care, Anooh Coffee contributed 100 packs of white bread to MPP Care 3.0: Breakfast Jom!, run by the UMS Student Representative Council on weekdays from 6 to 26 July 2026. The programme helps students start the day with energy and encourages a culture of helping one another on campus. Thank you to the 2025/2026 Student Representative Council, the organisers and everyone who made it happen.</p></div>
+<div><dt>Contribution</dt><dd>100 packs of white bread</dd></div>
+<div><dt>Recipient</dt><dd>UMS Student Representative Council, 2025/2026 session</dd></div>
+<div><dt>Beneficiaries</dt><dd>UMS students</dd></div>
+</dl></div>
 <div class="ph-gallery ph-square">
 <ul class="ph-track" tabindex="0" aria-label="Breakfast Jom! photos, swipe or use the thumbnails">
 <li><img src="media/care/breakfast-1.jpg" width="900" height="900" alt="MPP UMS student representatives and a UMS officer holding packs of white bread in front of a table stacked with more bread" loading="lazy"></li>
@@ -1044,13 +1180,12 @@ html.bouncy .kc-card.in:hover,html.bouncy .product.in:hover,html.bouncy .tile.in
 <article class="ph-post">
 <div class="ph-copy"><p class="ph-date"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"></rect><path d="M8 3v4M16 3v4M3 10h18"></path></svg><time datetime="2026-09-02">2 September 2026</time></p>
 <h3>Aquaculture Day 2026</h3>
-<p class="ph-place">Dewan Auditorium Pascasiswazah, UMS</p>
-<div class="ph-text" lang="ms">
-<p>Pada 2 September 2026, Anooh Care berkesempatan menyumbang dan menyokong kejayaan pelaksanaan Aquaculture Day 2026 yang berlangsung di Dewan Auditorium Pascasiswazah, UMS.</p>
-<p>Inisiatif ini merupakan salah satu usaha kami dalam menyokong SDG 4 (Pendidikan Berkualiti) dan SDG 17 (Kerjasama demi Matlamat), khususnya dalam membina komuniti melalui pendidikan, perkongsian ilmu dan kerjasama yang bermakna.</p>
-<p>Bagi Anooh Care, setiap sumbangan kecil mampu memberi impak yang besar. Semoga usaha seperti ini dapat terus memupuk semangat kerjasama dan memberi manfaat kepada komuniti.</p>
-</div>
-<p class="ph-en"><span>In English</span>On 2 September 2026, Anooh Care contributed to and supported Aquaculture Day 2026 at the UMS Postgraduate Auditorium. It is part of our support for SDG 4 (Quality Education) and SDG 17 (Partnerships for the Goals): building community through education, shared knowledge and meaningful partnerships. For Anooh Care, every small contribution can make a big difference.</p></div>
+<p class="ph-place">Postgraduate Auditorium, UMS</p>
+<div class="ph-text">
+<p>On 2 September 2026, Anooh Care had the opportunity to contribute to and support the success of Aquaculture Day 2026, held at the Postgraduate Auditorium (Dewan Auditorium Pascasiswazah), UMS.</p>
+<p>This initiative is one of the ways we support SDG 4 (Quality Education) and SDG 17 (Partnerships for the Goals), especially by building community through education, knowledge sharing and meaningful partnerships.</p>
+<p>For Anooh Care, every small contribution can make a big impact. We hope efforts like this keep fostering a spirit of partnership and bring real benefits to the community.</p>
+</div></div>
 <div class="ph-gallery ph-square" style="--n:5">
 <ul class="ph-track" tabindex="0" aria-label="Aquaculture Day 2026 photos, swipe or use the thumbnails">
 <li><img src="media/care/aquaculture-1.jpg" width="900" height="900" alt="Organisers and guests at the Aquaculture Day banner on stage at the opening" loading="lazy"></li>
@@ -1072,16 +1207,15 @@ html.bouncy .kc-card.in:hover,html.bouncy .product.in:hover,html.bouncy .tile.in
 <li class="ph-entry ph-older" id="ph-tvet" data-cat="campaign">
 <span class="ph-node" aria-hidden="true"></span>
 <article class="ph-post">
-<div class="ph-copy"><p class="ph-date"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"></rect><path d="M8 3v4M16 3v4M3 10h18"></path></svg><time datetime="2026-10-12">12 Oktober 2026</time></p>
-<h3>Program Outreach TVET'26 Bersama Komuniti di Anooh Coffee</h3>
-<p class="ph-place">Anooh Coffee, Kundasang · bersama ADTEC Sandakan (JTM SERASI)</p>
-<div class="ph-text" lang="ms">
-<p>Pada 12 Oktober 2026, Anooh Coffee berbesar hati menjadi lokasi rasmi serta Rakan Strategik Komuniti ADTEC Sandakan bagi menjayakan Program Outreach dan Promosi TVET Bersama Komuniti di bawah penjenamaan JTM SERASI.</p>
-<p>Program ini dilangsungkan dalam suasana yang santai dan selesa di premis kami. Pihak ADTEC Sandakan telah mengadakan sesi ramah mesra, mengedarkan risalah kursus kemahiran, serta membuka sudut info ringkas untuk pendedahan laluan kerjaya teknikal kepada pengunjung dan masyarakat setempat.</p>
-<p>Sebagai simbolik jalinan kerjasama dan tanda apresiasi, pihak delegasi ADTEC Sandakan turut menyempurnakan penyerahan cenderamata istimewa hasil cetakan 3D khas kepada pihak pengurusan Anooh Coffee.</p>
-<p>Setinggi-tinggi penghargaan kepada pengurusan ADTEC Sandakan atas kepercayaan ini. Semoga kerjasama seperti ini dapat terus menterjemahkan kebersamaan institusi bersama komuniti!</p>
+<div class="ph-copy"><p class="ph-date"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"></rect><path d="M8 3v4M16 3v4M3 10h18"></path></svg><time datetime="2026-10-12">12 October 2026</time></p>
+<h3>TVET’26 Community Outreach Programme at Anooh Coffee</h3>
+<p class="ph-place">Anooh Coffee, Kundasang · with ADTEC Sandakan (JTM SERASI)</p>
+<div class="ph-text">
+<p>On 12 October 2026, Anooh Coffee was proud to be the official venue and a Community Strategic Partner of ADTEC Sandakan for its TVET (Technical and Vocational Education and Training) Outreach and Promotion Programme with the Community, held under the JTM SERASI brand.</p>
+<p>The programme took place in a relaxed, comfortable setting at our café. The ADTEC Sandakan team held friendly meet-and-greet sessions, handed out leaflets on skills courses and set up a small information corner introducing visitors and the local community to technical career paths.</p>
+<p>As a symbol of the partnership and a token of appreciation, the ADTEC Sandakan delegation also presented a special 3D-printed souvenir to the management of Anooh Coffee.</p>
+<p>Our heartfelt thanks to the management of ADTEC Sandakan for their trust. We hope partnerships like this keep bringing institutions and the community closer together!</p>
 </div>
-<p class="ph-en"><span>In English</span>On 12 October 2026, Anooh Coffee was proud to be the official venue and Community Strategic Partner of ADTEC Sandakan for its TVET Outreach and Promotion Programme with the Community, under the JTM SERASI banner. In a relaxed setting at our café, the ADTEC Sandakan team chatted with visitors, handed out skills-course leaflets and ran a small info corner on technical career paths. As a token of the partnership, the delegation presented Anooh Coffee's management with a special 3D-printed souvenir. Our sincere thanks to ADTEC Sandakan for their trust.</p>
 </div>
 <div class="ph-gallery ph-portrait" style="--n:7">
 <ul class="ph-track" tabindex="0" aria-label="TVET outreach photos, swipe or use the thumbnails">
@@ -1101,6 +1235,47 @@ html.bouncy .kc-card.in:hover,html.bouncy .product.in:hover,html.bouncy .tile.in
 <button type="button" class="ph-thumb" data-i="4" aria-label="Show photo 5 of 7"><img src="media/care/tvet-5.jpg" alt="" loading="lazy"></button>
 <button type="button" class="ph-thumb" data-i="5" aria-label="Show photo 6 of 7"><img src="media/care/tvet-6.jpg" alt="" loading="lazy"></button>
 <button type="button" class="ph-thumb" data-i="6" aria-label="Show photo 7 of 7"><img src="media/care/tvet-7.jpg" alt="" loading="lazy"></button>
+</div>
+</div>
+</article>
+</li>
+<li class="ph-entry ph-older" id="ph-kubis" data-cat="exhibition">
+<span class="ph-node" aria-hidden="true"></span>
+<article class="ph-post">
+<div class="ph-copy"><p class="ph-date"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"></rect><path d="M8 3v4M16 3v4M3 10h18"></path></svg><span><time datetime="2024-12-21">21</time> – <time datetime="2024-12-24">24 December 2024</time></span></p>
+<h3>Pesta Kubis Sabah 2024</h3>
+<p class="ph-place">Kundasang town square · with Kundasang Aquafarm</p>
+<div class="ph-text">
+<p>Anooh Coffee joined in the celebrations at Pesta Kubis Sabah 2024, the Sabah Cabbage Festival, held in the grounds of Kundasang town from 21 to 24 December 2024.</p>
+<p>Come along to the festival and stop by the Anooh Coffee &amp; Kundasang Aquafarm booth, right next to the main stage, for a coffee. We have Anooh Blend and souvenirs too, and fresh salad greens if you’d like to take some home.</p>
+</div>
+<dl class="ph-facts">
+<div><dt>Dates</dt><dd>21 – 24 December 2024</dd></div>
+<div><dt>Location</dt><dd>Kundasang town square, Kundasang</dd></div>
+<div><dt>Booth</dt><dd>Anooh Coffee &amp; Kundasang Aquafarm, next to the main stage</dd></div>
+<div><dt>At the booth</dt><dd>Coffee, Anooh Blend, souvenirs and fresh salad greens</dd></div>
+</dl>
+</div>
+<div class="ph-gallery ph-portrait" style="--n:8">
+<ul class="ph-track" tabindex="0" aria-label="Pesta Kubis Sabah 2024 photos, swipe or use the thumbnails">
+<li><img src="media/expo/kubis-1.jpg" width="900" height="1270" alt="The Anooh Coffee and Kundasang Aquafarm booth under a white tent at Pesta Kubis Sabah 2024, beside the main stage in Kundasang town" loading="lazy"></li>
+<li><img src="media/expo/kubis-2.jpg" width="900" height="1270" alt="The booth's table and the Anooh Coffee banner, “Love from the Mountain”, with opening hours and location" loading="lazy"></li>
+<li><img src="media/expo/kubis-3.jpg" width="900" height="1270" alt="A white hydroponic rack of fresh green lettuce from Kundasang Aquafarm at the booth" loading="lazy"></li>
+<li><img src="media/expo/kubis-4.jpg" width="900" height="1270" alt="Close-up of frilly green lettuce growing in the hydroponic rack" loading="lazy"></li>
+<li><img src="media/expo/kubis-5.jpg" width="900" height="1270" alt="Two bags of Anooh Blend espresso coffee beans, 100% Arabica, on the booth table" loading="lazy"></li>
+<li><img src="media/expo/kubis-6.jpg" width="900" height="1270" alt="A rack of handmade Sabahan souvenirs above bags of Anooh Blend and other local products" loading="lazy"></li>
+<li><img src="media/expo/kubis-7.jpg" width="900" height="1270" alt="Close-up of mini traditional Sabahan dress keychains in pink “Indigenous” packaging" loading="lazy"></li>
+<li><img src="media/expo/kubis-8.jpg" width="900" height="1270" alt="Red and black Kundasang T-shirts on hangers, printed “Sabah Land Below the Wind”" loading="lazy"></li>
+</ul>
+<div class="ph-thumbs">
+<button type="button" class="ph-thumb on" data-i="0" aria-label="Show photo 1 of 8" aria-current="true"><img src="media/expo/kubis-1.jpg" alt="" loading="lazy"></button>
+<button type="button" class="ph-thumb" data-i="1" aria-label="Show photo 2 of 8"><img src="media/expo/kubis-2.jpg" alt="" loading="lazy"></button>
+<button type="button" class="ph-thumb" data-i="2" aria-label="Show photo 3 of 8"><img src="media/expo/kubis-3.jpg" alt="" loading="lazy"></button>
+<button type="button" class="ph-thumb" data-i="3" aria-label="Show photo 4 of 8"><img src="media/expo/kubis-4.jpg" alt="" loading="lazy"></button>
+<button type="button" class="ph-thumb" data-i="4" aria-label="Show photo 5 of 8"><img src="media/expo/kubis-5.jpg" alt="" loading="lazy"></button>
+<button type="button" class="ph-thumb" data-i="5" aria-label="Show photo 6 of 8"><img src="media/expo/kubis-6.jpg" alt="" loading="lazy"></button>
+<button type="button" class="ph-thumb" data-i="6" aria-label="Show photo 7 of 8"><img src="media/expo/kubis-7.jpg" alt="" loading="lazy"></button>
+<button type="button" class="ph-thumb" data-i="7" aria-label="Show photo 8 of 8"><img src="media/expo/kubis-8.jpg" alt="" loading="lazy"></button>
 </div>
 </div>
 </article>
@@ -1572,7 +1747,7 @@ html.bouncy .kc-card.in:hover,html.bouncy .product.in:hover,html.bouncy .tile.in
 <p>For questions, requests or complaints about your personal data, contact [name or role of contact person]:</p>
 <ul>
 <li>Phone: <a href="tel:+60178130732">017-813 0732</a></li>
-<li>Email: [email address]</li>
+<li>Email: <a href="mailto:anoohcare@gmail.com">anoohcare@gmail.com</a></li>
 <li>Post: [legal name of business], KM3 Jalan Kundasang–Ranau, 89308 Ranau, Sabah</li>
 <li>Instagram: <a href="https://www.instagram.com/anooh_coffee/">@anooh_coffee</a> · Facebook: <a href="https://www.facebook.com/anoohcoffee/">facebook.com/anoohcoffee</a></li>
 </ul>
@@ -1667,6 +1842,64 @@ html.bouncy .kc-card.in:hover,html.bouncy .product.in:hover,html.bouncy .tile.in
 </section>
 </main>
 
+<!-- TERMS OF SERVICE -->
+<main id="terms" class="view" hidden>
+<section class="wrap page-hero">
+<p class="eyebrow">Terms of Service</p>
+<h1 tabindex="-1">The small print, kept short.</h1>
+<p>The terms for using this website.</p>
+</section>
+<section class="legal anchor">
+<div class="wrap legal-body">
+<h2 class="h2">Terms of Service</h2>
+<p class="updated">Last updated: 24 October 2026</p>
+<h3>1. Who we are</h3>
+<p>This website is run by [legal name of business] ([business registration number]), trading as Anooh Coffee, KM3 Jalan Kundasang–Ranau, 89308 Ranau, Sabah, Malaysia.</p>
+<h3>2. Using this website</h3>
+<p>You may browse and share this website for personal, non-commercial use. Please do not copy our photos, logo or text for other purposes without asking us first.</p>
+<h3>3. Menu, prices and opening hours</h3>
+<p>We keep the menu, prices and opening hours on this site up to date, but they can change, and items can sell out. The prices and availability in our shop on the day are the ones that apply.</p>
+<h3>4. Links to other sites</h3>
+<p>This site links to Google Maps, Waze, Instagram, Facebook and TikTok. Those services have their own terms and privacy policies, and we are not responsible for them.</p>
+<h3>5. Your personal data</h3>
+<p>How we handle personal data is explained in our <a href="#privacy">Privacy Policy</a>.</p>
+<h3>6. Changes and contact</h3>
+<p>We may update these terms from time to time; the date above shows the latest version. Questions? Call us on <a href="tel:+60178130732">017-813 0732</a> or email <a href="mailto:anoohcare@gmail.com">anoohcare@gmail.com</a>.</p>
+<p>These terms are governed by the laws of Malaysia.</p>
+</div>
+</section>
+</main>
+
+<!-- ACCESSIBILITY -->
+<main id="accessibility" class="view" hidden>
+<section class="wrap page-hero">
+<p class="eyebrow">Accessibility</p>
+<h1 tabindex="-1">A site everyone can use.</h1>
+<p>What we do to keep this website easy to use, and how to tell us when something gets in your way.</p>
+</section>
+<section class="legal anchor">
+<div class="wrap legal-body">
+<h2 class="h2">Accessibility statement</h2>
+<p class="updated">Last updated: 24 October 2026</p>
+<h3>Our aim</h3>
+<p>We want everyone to be able to read our menu, find us and get in touch, whatever device or assistive technology they use. We aim to follow the Web Content Accessibility Guidelines (WCAG) 2.1 at level AA.</p>
+<h3>What we have done</h3>
+<ul>
+<li>Every page and menu can be used with a keyboard, with a visible focus outline.</li>
+<li>Images that carry meaning have text descriptions; decorative ones are hidden from screen readers.</li>
+<li>Text and buttons have strong colour contrast, and the layout works on phones and when you zoom in.</li>
+<li>If your device asks for reduced motion, we turn off the bounce, slide and stamp animations.</li>
+<li>Videos play muted, and you can pause them.</li>
+</ul>
+<h3>Known limits</h3>
+<p>Some posters in our Blog are images with text in them. We add the key details as written text alongside each one, but a few small details may only appear in the image.</p>
+<h3>Tell us</h3>
+<p>If anything on this site is hard to use, please call <a href="tel:+60178130732">017-813 0732</a> or email <a href="mailto:anoohcare@gmail.com">anoohcare@gmail.com</a>, and we will help and fix it.</p>
+</div>
+</section>
+</main>
+
+
 <dialog id="ac-dialog" class="ac-dialog" aria-labelledby="ac-d-title">
 <button type="button" class="kc-d-close ac-d-close" aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
 <div class="ac-d-band">
@@ -1707,75 +1940,114 @@ html.bouncy .kc-card.in:hover,html.bouncy .product.in:hover,html.bouncy .tile.in
 </dialog>
 
 <footer>
-<div class="wrap">
-<b>Anooh</b>
-<span>Coffee with a mountain view in Kundasang, Sabah. © <span id="yr">2026</span> Anooh Coffee.</span>
-<span class="foot-links"><a href="#visit">Find us</a><a href="#privacy">Personal Data Notice</a></span>
+<div class="wrap ft">
+<div class="ft-brand"><b>Anooh</b><span>Coffee with a mountain view in Kundasang, Sabah.</span></div>
+<div class="ft-col">
+<h3>Contact us</h3>
+<ul>
+<li><a href="tel:+60178130732"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"></path></svg>017-813 0732</a></li>
+<li><a href="mailto:anoohcare@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg>anoohcare@gmail.com</a></li>
+</ul>
+</div>
+<div class="ft-col">
+<h3>Find us</h3>
+<address>KM3 Jalan Kundasang–Ranau<br>89308 Kundasang, Ranau<br>Sabah, Malaysia</address>
+<ul>
+<li><a href="https://www.google.com/maps/search/?api=1&amp;query=Anooh+Coffee+Kundasang" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg>Open in Google Maps</a></li>
+</ul>
+</div>
+<div class="ft-col">
+<h3>Legal</h3>
+<ul>
+<li><a href="#privacy">Privacy Policy</a></li>
+<li><a href="#terms">Terms of Service</a></li>
+<li><a href="#accessibility">Accessibility</a></li>
+</ul>
+</div>
+</div>
+<div class="wrap ft-bottom">
+<div class="ft-follow"><span>Follow us</span>
+<a href="https://www.instagram.com/anooh_coffee/" class="ft-soc" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.3" cy="6.7" r="0.6" fill="currentColor"></circle></svg></a>
+<a href="https://www.facebook.com/anoohcoffee/" class="ft-soc" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"></rect><path d="M16 7.5h-1.8a2.7 2.7 0 0 0-2.7 2.7V21M9.2 12.6h6"></path></svg></a>
+<a href="https://www.tiktok.com/@anoohcoffee" class="ft-soc" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"></path><path d="M14 3c.4 2.6 2.2 4.4 5 4.6"></path></svg></a>
+</div>
+<small>© <span id="yr">2026</span> Anooh Coffee. Love from the mountain.</small>
 </div>
 </footer>
 
 </div>
 
 <script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+// postcards: "Click me" pops a random postcard over the hero photo, then it gets a stamp and a red postmark
 (function () {
-  var menu = document.getElementById('menu-book');
-  var stage = document.getElementById('stage');
-  var leaves = Array.prototype.slice.call(document.querySelectorAll('.leaf'));
-  var label = document.getElementById('spread');
-  var prev = document.getElementById('prev');
-  var next = document.getElementById('next');
-  var names = ['Cover', 'Drinks', 'Bakery', 'More'];
-  var n = leaves.length, last = n - 1, f = -1, raf = null;
-
-  function render(v) {
-    if (v === f) return;
-    f = v;
-    leaves.forEach(function (el, i) {
-      var a = Math.max(0, Math.min(1, f - i));
-      var z = a > 0 && a < 1 ? 60 : a >= 1 ? 20 + i : 20 + (n - i);
-      el.style.transform = 'rotateY(' + Math.round(-180 * a * 10) / 10 + 'deg)';
-      el.style.setProperty('--k', Math.sin(Math.PI * a).toFixed(3));
-      el.style.zIndex = z;
-      // only the visible face of each spread should be reachable by keyboard
-      var shown = i === Math.round(f) || i === Math.round(f) - 1;
-      el.querySelectorAll('a').forEach(function (a2) { a2.tabIndex = shown ? 0 : -1; });
-    });
-    var idx = Math.max(0, Math.min(last, Math.round(f)));
-    label.textContent = names[idx] + ' · ' + (idx + 1) + ' / ' + n;
-    prev.disabled = idx === 0;
-    next.disabled = idx === last;
+  var open = document.getElementById('pc-open'), pop = document.getElementById('pc-pop');
+  if (!open || !pop) return;
+  var face = pop.querySelector('.pc-face'), tpls = document.querySelectorAll('.pc-tpl'), last = -1;
+  var months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+  var d = new Date();
+  pop.querySelector('.pc-date').textContent = d.getDate() + ' ' + months[d.getMonth()];
+  pop.querySelector('.pc-year').textContent = d.getFullYear();
+  function show() {
+    var i;
+    do { i = Math.floor(Math.random() * tpls.length); } while (tpls.length > 1 && i === last);
+    last = i;
+    face.innerHTML = '';
+    face.appendChild(tpls[i].content.cloneNode(true));
+    pop.hidden = false;
+    pop.classList.remove('go');
+    void pop.offsetWidth;
+    pop.classList.add('go');
+    open.setAttribute('aria-expanded', 'true');
   }
-
-  function range() {
-    return menu.offsetHeight - stage.offsetHeight;
+  function hide() {
+    pop.hidden = true;
+    pop.classList.remove('go');
+    open.setAttribute('aria-expanded', 'false');
   }
-
-  function onScroll() {
-    if (raf) return;
-    raf = requestAnimationFrame(function () {
-      raf = null;
-      var r = range();
-      if (r <= 0) return;
-      var p = Math.max(0, Math.min(1, -menu.getBoundingClientRect().top / r));
-      render(Math.round(p * last * 100) / 100);
-    });
+  open.addEventListener('click', function () { if (pop.hidden) show(); else show(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !pop.hidden) hide(); });
+  document.addEventListener('click', function (e) { if (!pop.hidden && !pop.contains(e.target) && !open.contains(e.target)) hide(); });
+})();
+// menu carousel: scrolling down the band slides the coffees from right to left; at the end of the band the link to the Menu page pops up
+(function () {
+  var band = document.getElementById('menu-book'), track = document.getElementById('mc-track');
+  if (!band || !track) return;
+  var stick = band.querySelector('.mc-stick'), view = band.querySelector('.mc-view');
+  var fill = document.getElementById('mc-fill'), pop = document.getElementById('mc-pop'), foot = pop.parentNode;
+  var inner = band.querySelector('.mc-in'), hint = band.querySelector('.stage-head p');
+  var hintText = hint ? hint.textContent : '';
+  var dist = 0, raf = null, free = false;
+  function measure() {
+    if (!band.offsetParent) return;
+    // when the stage is taller than the screen, pinning it would hide the cards, so fall back to swiping
+    band.classList.remove('mc-free'); band.style.height = '';
+    var cs = getComputedStyle(inner);
+    free = inner.offsetHeight - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom) > stick.clientHeight + 1;
+    band.classList.toggle('mc-free', free);
+    if (hint) hint.textContent = free ? hintText.replace('Keep scrolling', 'Swipe') : hintText;
+    dist = Math.max(0, track.scrollWidth - view.clientWidth);
+    if (free) { track.style.transform = ''; render(); return; }
+    // the band is as tall as the sticky stage plus one pixel of scroll per pixel of slide, and a short pause at the end
+    band.style.height = (stick.offsetHeight + dist + Math.round(window.innerHeight * 0.35)) + 'px';
+    render();
   }
-
-  function goTo(k) {
-    var t = Math.max(0, Math.min(last, k));
-    render(t);
-    var top = window.scrollY + menu.getBoundingClientRect().top + (t / last) * range();
-    try { window.scrollTo({ top: top, behavior: 'smooth' }); } catch (e) { window.scrollTo(0, top); }
+  function render() {
+    raf = null;
+    var y = free ? view.scrollLeft : -band.getBoundingClientRect().top;
+    var p = dist ? Math.max(0, Math.min(1, y / dist)) : 1;
+    if (!free) track.style.transform = 'translate3d(' + (-p * dist).toFixed(1) + 'px,0,0)';
+    fill.style.setProperty('--p', (Math.max(0.1, p) * 100).toFixed(1) + '%');
+    var end = p >= 0.995;
+    if (end !== !pop.hidden) { pop.hidden = !end; foot.classList.toggle('done', end); }
   }
-
-  prev.addEventListener('click', function () { goTo(Math.round(f) - 1); });
-  next.addEventListener('click', function () { goTo(Math.round(f) + 1); });
+  function onScroll() { if (!raf) raf = requestAnimationFrame(render); }
   window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onScroll);
-  render(0);
-  onScroll();
-  document.getElementById('yr').textContent = new Date().getFullYear();
-  window.anoohBook = onScroll;
+  view.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', measure);
+  window.addEventListener('load', measure);
+  window.anoohBook = measure;
+  measure();
 })();
 // pages and navigation: each #token is an element id; its enclosing .view is the page to show
 (function () {
