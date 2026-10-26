@@ -8,13 +8,15 @@ It is a single static page: plain HTML, CSS and JavaScript with no build step. F
 
 | Path | What it is |
 | --- | --- |
-| `index.html` | The whole site (Home, About Us, Menu, Discover Us, Shop, Personal Data Notice) |
+| `index.html` | The whole site (Home, Our Story, Menu, Blog, Shop, and the Personal Data Notice, Terms and Accessibility pages) |
 | `images/hero.jpg` | Hero photo on the home page |
 | `media/souvenirs.mp4`, `media/souvenirs-poster.jpg` | Keychain preview video (Shop › Souvenirs) |
 | `media/keychains/` | The 8 Sabahan dress keychain photos |
-| `media/artisan-corner.mp4`, `media/artisan-corner-poster.jpg` | Busker video (Discover Us › Artisan Corner) |
-| `media/prihatin/` | Anooh Prihatin photos (Kongsi Rezeki Jumaat, Latihan Industri di Jepun) |
-| `media/book/` | Drink and pastry photos on the home page menu book |
+| `media/artisan-corner.mp4`, `media/artisan-corner-poster.jpg` | Busker video (Artisan Corner) |
+| `media/care/` | Photos and posters for the Anooh Care posts on the Blog |
+| `media/expo/` | Photos for the Exhibition posts on the Blog |
+| `media/book/cups/` | The nine coffee cup photos in the home page menu book |
+| `media/footer/halal-malaysia.png` | Halal Malaysia logo in the footer |
 | `media/promos/` | Promotion posters (Mix & Match, Milky Fruit, Soda Fruit Day) |
 | `.nojekyll` | Tells GitHub Pages to serve the files as they are |
 
