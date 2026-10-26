@@ -45,7 +45,6 @@ h1,h2,h3{text-wrap:balance}
 .spin{animation:spin 18s linear infinite}
 .drift{animation:drift 7s ease-in-out infinite}
 @media (prefers-reduced-motion: reduce){.spin,.drift{animation:none}html{scroll-behavior:auto}}
-
 .wall{position:fixed;inset:0;z-index:0;pointer-events:none;background-color:var(--wall)}
 .wall svg{display:block;width:100%;height:100%}
 .site{position:relative;z-index:1}
@@ -75,7 +74,6 @@ header .wrap{padding-block:22px;display:flex;flex-wrap:wrap;align-items:center;j
 header .wrap{position:relative}
 #main-nav{display:flex;flex-wrap:wrap;align-items:center;gap:4px 26px;font-size:15px;font-weight:600}
 .nav-list{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;align-items:center;gap:4px 14px}
-.nav-item{position:relative}
 .nav-row{display:flex;align-items:center}
 .nav-link{text-decoration:none;padding:12px 0;box-shadow:inset 0 -2px 0 transparent}
 .nav-link[aria-current="page"]{box-shadow:inset 0 -2px 0 var(--espresso)}
@@ -143,7 +141,7 @@ header.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45d
 @media (max-width:900px){.nav-home .brand{display:none}header .wrap{column-gap:12px}.burger{margin-left:auto}}
 @media (max-width:340px){.brand{gap:10px}.brand .logo-badge{width:42px;height:42px}.brand .logo-word{height:14px}.brand small{font-size:7.5px;letter-spacing:1.4px}}
 
-/* phones and small tablets: hamburger opens a full-width panel; each section expands like an accordion */
+/* phones and small tablets: hamburger opens a full-width panel of page links */
 @media (max-width:900px){
   .burger{display:flex}
   #main-nav{display:none;flex-basis:100%;flex-direction:column;align-items:stretch;gap:0;padding-bottom:8px;max-height:calc(100vh - 110px);max-height:calc(100dvh - 110px);overflow-y:auto;overscroll-behavior:contain}
@@ -445,7 +443,6 @@ button.badge:focus-visible{outline:3px solid var(--espresso);outline-offset:4px}
 @keyframes pc-slam{0%{opacity:0;scale:2.4;rotate:-34deg}70%{opacity:.9;scale:.94;rotate:-14deg}100%{opacity:.9;scale:1;rotate:-12deg}}
 @keyframes pc-thud{0%{scale:1}35%{scale:.975}100%{scale:1}}
 @media (prefers-reduced-motion: reduce){.pc-pop.go .pc-card,.pc-pop.go .pc-stamp,.pc-pop.go .pc-mark{animation:none}.pc-stamp{opacity:1}.pc-mark{opacity:.82;rotate:-12deg}}
-
 .stage{position:sticky;top:var(--hh,0px);height:var(--sh);box-sizing:border-box;padding-block:32px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;overflow:hidden}
 .stage-head{text-align:center;display:flex;flex-direction:column;gap:8px;max-width:720px}
 .stage-head h2{margin:0;font-family:var(--display);font-weight:400;font-size:clamp(30px,4vw,48px);line-height:1.1;color:var(--espresso)}
@@ -818,7 +815,6 @@ var ANNOUNCEMENT = {
 
 </div>
 </section>
-
 
 <!-- MENU BOOK: scrolling through this band turns the pages -->
 <section id="menu-book">
