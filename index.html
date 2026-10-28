@@ -306,6 +306,9 @@ header.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45d
 .bk-send{align-self:flex-start;min-height:48px;padding:0 26px;border-radius:999px;border:0;background:var(--accent);color:var(--paper);font:inherit;font-size:16px;font-weight:700;cursor:pointer}
 .bk-send:hover{background:var(--mocha)}
 .bk-send[disabled]{opacity:.6;cursor:progress}
+.bk-slow{font-weight:600;color:var(--body)}
+.bk-slow a{color:var(--espresso)}
+.bk-slow[hidden]{display:none}
 .bk-done{display:flex;flex-direction:column;gap:12px}
 .bk-done h4{margin:0;font-family:var(--display);font-weight:400;font-size:26px;color:var(--espresso)}
 .bk-done p{margin:0;font-size:16px;line-height:1.6;color:var(--body)}
@@ -1975,6 +1978,7 @@ var ANNOUNCEMENT = {
 <p class="bk-err" id="bk-ok-err" aria-live="polite"></p>
 <button type="submit" class="bk-send">Send registration</button>
 <p class="bk-hint">After you press send, a quick spam check opens, then you come straight back here.</p>
+<p class="bk-hint bk-slow" id="bk-slow" role="status" hidden>Still loading? The form service can take a little while. Please wait, or <a href="https://wa.me/60178130732" target="_blank" rel="noopener">message us on WhatsApp</a> instead.</p>
 </form>
 <div class="bk-done" id="bk-done" hidden tabindex="-1">
 <h4>Thanks, you're on the list!</h4>
@@ -2432,8 +2436,16 @@ document.getElementById('yr').textContent = new Date().getFullYear();
     if (f._honey.value || Date.now() - bkOpenedAt < BK_MIN_MS) { bkForm.hidden = true; bkDone.hidden = false; bkDone.focus(); bkForm.reset(); return; }
     f._next.value = location.origin + location.pathname + '?busk=thanks';
     var send = bkForm.querySelector('.bk-send');
-    send.disabled = true; send.textContent = 'Opening the spam check…';
+    send.disabled = true; send.textContent = 'Sending… this can take a few seconds';
+    // FormSubmit's free service can be slow to answer; if the page is still here after a while, say so
+    bkSlow = setTimeout(function () { bkSlowNote.hidden = false; }, 12000);
     HTMLFormElement.prototype.submit.call(bkForm);
+  });
+  // coming back with the browser's Back button restores this page as it was: undo the "Sending…" state
+  var bkSlow = 0, bkSlowNote = document.getElementById('bk-slow');
+  window.addEventListener('pageshow', function () {
+    clearTimeout(bkSlow); bkSlowNote.hidden = true;
+    var send = bkForm.querySelector('.bk-send'); send.disabled = false; send.textContent = 'Send registration';
   });
 
   // keychain stories open in a pop-up; the story text lives in a <template> on each card
