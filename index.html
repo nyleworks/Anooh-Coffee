@@ -2382,7 +2382,14 @@ document.getElementById('yr').textContent = new Date().getFullYear();
   var bkDlg = document.getElementById('bk-dialog'), bkBtn = document.getElementById('bk-open');
   var bkForm = document.getElementById('bk-form'), bkDone = document.getElementById('bk-done');
   var bkSlowNote = document.getElementById('bk-slow'), bkStatus = document.getElementById('bk-status'), bkSend = bkForm.querySelector('.bk-send');
-  var bkOpenedAt = 0, bkSlow = 0;
+  var bkOpenedAt = 0, bkSlow = 0, bkToken = null;
+  var bkConnected = /^https:\/\/script\.google\.com\/macros\/s\/[\w-]+\/exec$/.test(BUSKER_SHEET_URL);
+  // the Sheet script hands out a signed, timed pass when the form opens; registrations without one are ignored
+  // (an older script that hands out no pass answers with plain text; the form then sends without one)
+  function bkGetToken() {
+    return fetch(BUSKER_SHEET_URL + '?token=1').then(function (r) { return r.text(); })
+      .then(function (t) { var j = {}; try { j = JSON.parse(t); } catch (e) {} bkToken = typeof j.token === 'string' ? j.token : ''; return bkToken; });
+  }
   function bkToday() { var d = new Date(); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); }
   function bkIdle() { clearTimeout(bkSlow); bkSlowNote.hidden = true; bkSend.disabled = false; bkSend.textContent = 'Send registration'; }
   function bkThanks() { bkIdle(); bkForm.hidden = true; bkDone.hidden = false; bkDone.focus(); bkForm.reset(); }
@@ -2392,6 +2399,7 @@ document.getElementById('yr').textContent = new Date().getFullYear();
     bkForm.hidden = false; bkDone.hidden = true; bkStatus.hidden = true;
     bkForm.querySelector('#bk-date').min = bkToday();
     bkOpenedAt = Date.now();
+    if (bkConnected && bkToken === null) bkGetToken().catch(function () {});
     if (bkDlg.showModal) bkDlg.showModal(); else bkDlg.setAttribute('open', '');
     document.documentElement.style.overflow = 'hidden';
   });
@@ -2434,15 +2442,20 @@ document.getElementById('yr').textContent = new Date().getFullYear();
     if (ok.indexOf(false) > -1) { bkForm.querySelector('[aria-invalid="true"]').focus(); return; }
     // bots: a filled honeypot or an instant submit gets a quiet "thanks" and nothing is sent
     if (f.website.value || Date.now() - bkOpenedAt < BK_MIN_MS) { bkThanks(); return; }
-    if (!/^https:\/\/script\.google\.com\/macros\/s\/[\w-]+\/exec$/.test(BUSKER_SHEET_URL)) {
+    if (!bkConnected) {
       bkSay('Sorry, online registration isn’t connected yet.'); return;
     }
     var body = new URLSearchParams(new FormData(bkForm));
     body.set('phone', phone); body.set('elapsed', String(Date.now() - bkOpenedAt));
     bkSend.disabled = true; bkSend.textContent = 'Sending…';
     bkSlow = setTimeout(function () { bkSlowNote.hidden = false; }, 10000);
-    // Apps Script answers from another domain, so the reply can't be read ("no-cors"); reaching it counts as sent
-    fetch(BUSKER_SHEET_URL, { method: 'POST', mode: 'no-cors', body: body })
+    // Apps Script's reply to a POST can't be read from here ("no-cors"); reaching it counts as sent
+    (bkToken !== null ? Promise.resolve(bkToken) : bkGetToken())
+      .then(function (t) {
+        if (t) body.set('token', t);
+        bkToken = null; // each pass is used once; a new one is fetched next time the form opens
+        return fetch(BUSKER_SHEET_URL, { method: 'POST', mode: 'no-cors', body: body });
+      })
       .then(bkThanks)
       .catch(function () { bkIdle(); bkSay('Sorry, that didn’t go through. Please check your connection and try again.'); });
   });
