@@ -308,7 +308,9 @@ header.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45d
 .bk-send[disabled]{opacity:.6;cursor:progress}
 .bk-slow{font-weight:600;color:var(--body)}
 .bk-slow a{color:var(--espresso)}
-.bk-slow[hidden]{display:none}
+.bk-slow[hidden],.bk-status[hidden]{display:none}
+.bk-status{margin:0;padding:12px 14px;border-radius:12px;background:var(--wall);font-size:14px;line-height:1.55;color:var(--body)}
+.bk-status a{color:var(--espresso);font-weight:700}
 .bk-done{display:flex;flex-direction:column;gap:12px}
 .bk-done h4{margin:0;font-family:var(--display);font-weight:400;font-size:26px;color:var(--espresso)}
 .bk-done p{margin:0;font-size:16px;line-height:1.6;color:var(--body)}
@@ -1688,7 +1690,7 @@ var ANNOUNCEMENT = {
 
 <h3>3. Personal data we collect</h3>
 <ul>
-<li><b>This website.</b> The site has no accounts, and we do not set cookies or run analytics on it. The only form is the Artisan Corner busker registration, which asks for your name, phone number and, if you choose, what you play, a preferred date, a link to your music and a message. You also tick a box to agree that we may contact you. The form is sent to us by email through FormSubmit (formsubmit.co), which first shows a short anti-spam check. We use these details only to arrange a performance slot with you. When the page loads, your browser connects to Google Fonts and to our website host, [hosting provider], which may receive your IP address and browser details as part of normal web traffic. Links to Google Maps, Instagram and Facebook take you to those services, which handle your data under their own policies.</li>
+<li><b>This website.</b> The site has no accounts, and we do not set cookies or run analytics on it. The only form is the Artisan Corner busker registration, which asks for your name, phone number and, if you choose, what you play, a preferred date, a link to your music and a message. You also tick a box to agree that we may contact you. The form saves your answers, with the date and time you sent them, to a private Google Sheet in our Google account (Google stores it for us as our service provider). Only Anooh Coffee staff can open it. We use these details only to arrange a performance slot with you, and we delete them once they are no longer needed for that. When the page loads, your browser connects to Google Fonts and to our website host, [hosting provider], which may receive your IP address and browser details as part of normal web traffic. Links to Google Maps, Instagram and Facebook take you to those services, which handle your data under their own policies.</li>
 <li><b>When you contact us</b> by phone, WhatsApp, Instagram or Facebook: your name, phone number or social media account name, and what you write to us.</li>
 <li><b>Orders and delivery:</b> your name, phone number, delivery address and order details. If you order through a delivery platform [such as GrabFood or foodpanda], the platform shares with us only what we need to prepare and hand over your order.</li>
 <li><b>Payments:</b> we do not store card details. Card and e-wallet payments are processed by [payment providers]. We keep records of transactions.</li>
@@ -1771,7 +1773,7 @@ var ANNOUNCEMENT = {
 
 <h3>3. Data peribadi yang kami kumpul</h3>
 <ul>
-<li><b>Laman web ini.</b> Laman ini tidak mempunyai akaun, dan kami tidak menetapkan kuki atau menjalankan analitik padanya. Satu-satunya borang ialah pendaftaran pemuzik jalanan Artisan Corner, yang meminta nama dan nombor telefon anda serta, jika anda mahu, alat muzik yang anda mainkan, tarikh pilihan, pautan muzik anda dan mesej. Anda juga menandakan kotak untuk bersetuju bahawa kami boleh menghubungi anda. Borang ini dihantar kepada kami melalui e-mel menggunakan FormSubmit (formsubmit.co), yang terlebih dahulu memaparkan semakan anti-spam yang ringkas. Kami menggunakan butiran ini hanya untuk mengatur slot persembahan bersama anda. Apabila halaman dimuatkan, pelayar anda berhubung dengan Google Fonts dan hos laman web kami, [penyedia hos], yang mungkin menerima alamat IP dan butiran pelayar anda sebagai sebahagian daripada trafik web biasa. Pautan ke Google Maps, Instagram dan Facebook membawa anda ke perkhidmatan tersebut, yang mengendalikan data anda mengikut dasar mereka sendiri.</li>
+<li><b>Laman web ini.</b> Laman ini tidak mempunyai akaun, dan kami tidak menetapkan kuki atau menjalankan analitik padanya. Satu-satunya borang ialah pendaftaran pemuzik jalanan Artisan Corner, yang meminta nama dan nombor telefon anda serta, jika anda mahu, alat muzik yang anda mainkan, tarikh pilihan, pautan muzik anda dan mesej. Anda juga menandakan kotak untuk bersetuju bahawa kami boleh menghubungi anda. Borang ini menyimpan jawapan anda, bersama tarikh dan masa ia dihantar, ke dalam Google Sheet peribadi dalam akaun Google kami (Google menyimpannya bagi pihak kami sebagai penyedia perkhidmatan). Hanya kakitangan Anooh Coffee boleh membukanya. Kami menggunakan butiran ini hanya untuk mengatur slot persembahan bersama anda, dan kami memadamkannya apabila tidak lagi diperlukan untuk tujuan itu. Apabila halaman dimuatkan, pelayar anda berhubung dengan Google Fonts dan hos laman web kami, [penyedia hos], yang mungkin menerima alamat IP dan butiran pelayar anda sebagai sebahagian daripada trafik web biasa. Pautan ke Google Maps, Instagram dan Facebook membawa anda ke perkhidmatan tersebut, yang mengendalikan data anda mengikut dasar mereka sendiri.</li>
 <li><b>Apabila anda menghubungi kami</b> melalui telefon, WhatsApp, Instagram atau Facebook: nama anda, nombor telefon atau nama akaun media sosial, dan kandungan mesej anda.</li>
 <li><b>Pesanan dan penghantaran:</b> nama, nombor telefon, alamat penghantaran dan butiran pesanan anda. Jika anda membuat pesanan melalui platform penghantaran [seperti GrabFood atau foodpanda], platform tersebut hanya berkongsi maklumat yang kami perlukan untuk menyediakan dan menyerahkan pesanan anda.</li>
 <li><b>Pembayaran:</b> kami tidak menyimpan butiran kad. Pembayaran kad dan e-dompet diproses oleh [penyedia pembayaran]. Kami menyimpan rekod transaksi.</li>
@@ -1926,9 +1928,9 @@ var ANNOUNCEMENT = {
 <p class="ac-d-foot">Line-up can change with the weather. Follow <a href="https://www.instagram.com/anooh_coffee/" target="_blank" rel="noopener">@anooh_coffee</a> for the latest, or call 017-813 0732.</p>
 </div>
 </dialog>
-<!-- Busker registration: entries are emailed through FormSubmit to the address in this form's action (keep it the same as BUSKER_FORM_TO in the script).
-     The first time someone submits, FormSubmit sends a one-time activation email to that address; click it once to start receiving entries.
-     Spam protection: FormSubmit's captcha, the hidden _honey field, and a minimum fill-in time checked in the script. -->
+<!-- Busker registration: entries are saved as rows in a Google Sheet through a Google Apps Script web app.
+     Paste the web app URL into BUSKER_SHEET_URL in the script near the bottom (see the setup guide). Until then the form says it isn't connected yet.
+     Spam protection: the hidden "website" field and a minimum fill-in time, checked here and again in the Apps Script, plus a rate limit in the script. -->
 <dialog id="bk-dialog" class="ac-dialog" aria-labelledby="bk-d-title">
 <button type="button" class="kc-d-close ac-d-close" aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
 <div class="ac-d-band">
@@ -1937,48 +1939,44 @@ var ANNOUNCEMENT = {
 <p class="ac-d-dates">Play for our guests on a weekend or public holiday. Leave your details and we'll get back to you to set a slot.</p>
 </div>
 <div class="ac-d-body">
-<form class="bk-form" id="bk-form" action="https://formsubmit.co/cowffeeortwea@gmail.com" method="post" novalidate>
-<input type="hidden" name="_subject" value="New busker registration, Artisan Corner">
-<input type="hidden" name="_template" value="table">
-<input type="hidden" name="_captcha" value="true">
-<input type="hidden" name="_next" value="">
-<div class="bk-hp" aria-hidden="true"><label>Leave this empty <input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></div>
+<form class="bk-form" id="bk-form" novalidate>
+<div class="bk-hp" aria-hidden="true"><label>Leave this empty <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
 <div class="bk-field">
 <label for="bk-name">Name or stage name</label>
-<input id="bk-name" name="Name" type="text" autocomplete="name" required minlength="2" maxlength="60" aria-describedby="bk-name-err">
+<input id="bk-name" name="name" type="text" autocomplete="name" required minlength="2" maxlength="60" aria-describedby="bk-name-err">
 <p class="bk-err" id="bk-name-err" aria-live="polite"></p>
 </div>
 <div class="bk-field">
 <label for="bk-phone">Phone or WhatsApp</label>
-<input id="bk-phone" name="Phone" type="tel" autocomplete="tel" inputmode="tel" required maxlength="16" placeholder="e.g. 012-345 6789" aria-describedby="bk-phone-err">
+<input id="bk-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required maxlength="16" placeholder="e.g. 012-345 6789" aria-describedby="bk-phone-err">
 <p class="bk-err" id="bk-phone-err" aria-live="polite"></p>
 </div>
 <div class="bk-field">
 <label for="bk-act">What do you play? <small>(optional)</small></label>
-<input id="bk-act" name="Instruments and style" type="text" maxlength="100" placeholder="e.g. acoustic guitar and vocals, sompoton, folk" aria-describedby="bk-act-err">
+<input id="bk-act" name="plays" type="text" maxlength="100" placeholder="e.g. acoustic guitar and vocals, sompoton, folk" aria-describedby="bk-act-err">
 <p class="bk-err" id="bk-act-err" aria-live="polite"></p>
 </div>
 <div class="bk-field">
 <label for="bk-date">Preferred weekend <small>(optional)</small></label>
-<input id="bk-date" name="Preferred date" type="date" aria-describedby="bk-date-err">
+<input id="bk-date" name="date" type="date" aria-describedby="bk-date-err">
 <p class="bk-err" id="bk-date-err" aria-live="polite"></p>
 </div>
 <div class="bk-field">
 <label for="bk-link">Link to your music <small>(optional)</small></label>
-<input id="bk-link" name="Music link" type="url" inputmode="url" maxlength="200" placeholder="https://www.tiktok.com/@yourname" aria-describedby="bk-link-hint bk-link-err">
+<input id="bk-link" name="link" type="url" inputmode="url" maxlength="200" placeholder="https://www.tiktok.com/@yourname" aria-describedby="bk-link-hint bk-link-err">
 <p class="bk-hint" id="bk-link-hint">A TikTok, Instagram or YouTube link starting with https://</p>
 <p class="bk-err" id="bk-link-err" aria-live="polite"></p>
 </div>
 <div class="bk-field">
 <label for="bk-note">Anything else? <small>(optional)</small></label>
-<textarea id="bk-note" name="Message" maxlength="500" aria-describedby="bk-note-err"></textarea>
+<textarea id="bk-note" name="message" maxlength="500" aria-describedby="bk-note-err"></textarea>
 <p class="bk-err" id="bk-note-err" aria-live="polite"></p>
 </div>
-<label class="bk-consent"><input type="checkbox" id="bk-ok" name="Consent" value="Yes" required aria-describedby="bk-ok-err"><span>Anooh Coffee may contact me about playing at Artisan Corner, and my details are handled as set out in the <a href="#privacy">Personal Data Notice</a>.</span></label>
+<label class="bk-consent"><input type="checkbox" id="bk-ok" name="consent" value="Yes" required aria-describedby="bk-ok-err"><span>Anooh Coffee may contact me about playing at Artisan Corner, and my details are handled as set out in the <a href="#privacy">Personal Data Notice</a>.</span></label>
 <p class="bk-err" id="bk-ok-err" aria-live="polite"></p>
 <button type="submit" class="bk-send">Send registration</button>
-<p class="bk-hint">After you press send, a quick spam check opens, then you come straight back here.</p>
-<p class="bk-hint bk-slow" id="bk-slow" role="status" hidden>Still loading? The form service can take a little while. Please wait, or <a href="https://wa.me/60178130732" target="_blank" rel="noopener">message us on WhatsApp</a> instead.</p>
+<p class="bk-hint bk-slow" id="bk-slow" role="status" hidden>Still sending? Please wait a moment, or <a href="https://wa.me/60178130732" target="_blank" rel="noopener">message us on WhatsApp</a> instead.</p>
+<p class="bk-status" id="bk-status" role="alert" hidden></p>
 </form>
 <div class="bk-done" id="bk-done" hidden tabindex="-1">
 <h4>Thanks, you're on the list!</h4>
@@ -2377,36 +2375,31 @@ document.getElementById('yr').textContent = new Date().getFullYear();
   });
   if (location.hash === '#whos-playing') acOpen();
 
-  // busker registration pop-up; the form posts to FormSubmit, which shows its captcha and then returns here with ?busk=thanks
-  var BUSKER_FORM_TO = 'cowffeeortwea@gmail.com';
+  // busker registration pop-up; entries are saved to a Google Sheet through an Apps Script web app
+  // paste the web app URL (it ends in /exec) between the quotes; leave it empty and the form says it isn't connected yet
+  var BUSKER_SHEET_URL = 'https://script.google.com/macros/s/AKfycbxd_78XM39_HgFOJ3X_DpHbNgzxDobRxBE0wtracj0fSdGxvYvzwjRDulfqXHhAhtn7/exec';
   var BK_MIN_MS = 4000; // faster than this from opening the form looks like a bot
   var bkDlg = document.getElementById('bk-dialog'), bkBtn = document.getElementById('bk-open');
   var bkForm = document.getElementById('bk-form'), bkDone = document.getElementById('bk-done');
-  var bkOpenedAt = 0;
-  bkForm.action = 'https://formsubmit.co/' + BUSKER_FORM_TO;
+  var bkSlowNote = document.getElementById('bk-slow'), bkStatus = document.getElementById('bk-status'), bkSend = bkForm.querySelector('.bk-send');
+  var bkOpenedAt = 0, bkSlow = 0;
   function bkToday() { var d = new Date(); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); }
-  function bkShow(thanks) {
+  function bkIdle() { clearTimeout(bkSlow); bkSlowNote.hidden = true; bkSend.disabled = false; bkSend.textContent = 'Send registration'; }
+  function bkThanks() { bkIdle(); bkForm.hidden = true; bkDone.hidden = false; bkDone.focus(); bkForm.reset(); }
+  function bkClose() { if (bkDlg.open) bkDlg.close(); }
+  bkBtn.addEventListener('click', function () {
     if (bkDlg.open) return;
-    bkForm.hidden = !!thanks; bkDone.hidden = !thanks;
+    bkForm.hidden = false; bkDone.hidden = true; bkStatus.hidden = true;
     bkForm.querySelector('#bk-date').min = bkToday();
     bkOpenedAt = Date.now();
     if (bkDlg.showModal) bkDlg.showModal(); else bkDlg.setAttribute('open', '');
     document.documentElement.style.overflow = 'hidden';
-    if (thanks) bkDone.focus();
-  }
-  function bkClose() { if (bkDlg.open) bkDlg.close(); }
-  bkBtn.addEventListener('click', function () { bkShow(false); });
+  });
   bkDlg.querySelector('.ac-d-close').addEventListener('click', bkClose);
   bkDlg.addEventListener('click', function (e) { if (e.target === bkDlg) bkClose(); });
   bkDlg.addEventListener('close', function () { document.documentElement.style.overflow = ''; bkBtn.focus({ preventScroll: true }); });
   bkDlg.querySelector('a[href="#privacy"]').addEventListener('click', bkClose);
   window.addEventListener('hashchange', bkClose);
-  // back from FormSubmit: show the thank-you inside the pop-up, over Artisan Corner
-  if (/[?&]busk=thanks\b/.test(location.search)) {
-    history.replaceState(null, '', location.pathname);
-    window.addEventListener('hashchange', function back() { window.removeEventListener('hashchange', back); setTimeout(function () { bkShow(true); }, 0); });
-    location.hash = '#artisan-corner';
-  }
   function bkCheck(id, ok, msg) {
     var el = document.getElementById(id);
     el.setAttribute('aria-invalid', ok ? 'false' : 'true');
@@ -2417,35 +2410,41 @@ document.getElementById('yr').textContent = new Date().getFullYear();
     if (!v) return true;
     try { var u = new URL(v); return (u.protocol === 'https:' || u.protocol === 'http:') && u.hostname.indexOf('.') > 0; } catch (e) { return false; }
   }
+  function bkSay(text) { // fixed messages only, with a WhatsApp link as the way round
+    bkStatus.textContent = text + ' ';
+    var a = document.createElement('a'); a.href = 'https://wa.me/60178130732'; a.target = '_blank'; a.rel = 'noopener'; a.textContent = 'Message us on WhatsApp';
+    bkStatus.appendChild(a); bkStatus.appendChild(document.createTextNode(' or call 017-813 0732.'));
+    bkStatus.hidden = false;
+  }
   bkForm.addEventListener('submit', function (e) {
     e.preventDefault();
     var f = bkForm.elements;
-    ['Name', 'Phone', 'Instruments and style', 'Music link', 'Message'].forEach(function (k) { f[k].value = f[k].value.trim(); });
-    var name = f.Name.value, phone = f.Phone.value.replace(/[\s\-().]/g, ''), date = f['Preferred date'].value;
+    ['name', 'phone', 'plays', 'link', 'message'].forEach(function (k) { f[k].value = f[k].value.trim(); });
+    var name = f.name.value, phone = f.phone.value.replace(/[\s\-().]/g, ''), date = f.date.value;
     var ok = [
       bkCheck('bk-name', name.length >= 2 && name.length <= 60 && !/[<>]/.test(name), 'Please enter your name or stage name (2 to 60 characters, no < or >).'),
       bkCheck('bk-phone', /^(\+?60|0)1\d{8,9}$/.test(phone) || /^(\+?60|0)[3-9]\d{7,8}$/.test(phone) || /^\+(?!60)\d{8,14}$/.test(phone), 'Please enter a valid phone number, like 012-345 6789 or +60 12-345 6789.'),
-      bkCheck('bk-act', f['Instruments and style'].value.length <= 100 && !/[<>]/.test(f['Instruments and style'].value), 'Please keep this under 100 characters, without < or >.'),
+      bkCheck('bk-act', f.plays.value.length <= 100 && !/[<>]/.test(f.plays.value), 'Please keep this under 100 characters, without < or >.'),
       bkCheck('bk-date', !date || date >= bkToday(), 'Please pick today or a later date.'),
-      bkCheck('bk-link', f['Music link'].value.length <= 200 && bkUrlOk(f['Music link'].value), 'Please paste a full link starting with https://'),
-      bkCheck('bk-note', f.Message.value.length <= 500, 'Please keep your message under 500 characters.'),
-      bkCheck('bk-ok', f.Consent.checked, 'Please tick this so we can contact you.')
+      bkCheck('bk-link', f.link.value.length <= 200 && bkUrlOk(f.link.value), 'Please paste a full link starting with https://'),
+      bkCheck('bk-note', f.message.value.length <= 500, 'Please keep your message under 500 characters.'),
+      bkCheck('bk-ok', f.consent.checked, 'Please tick this so we can contact you.')
     ];
+    bkStatus.hidden = true;
     if (ok.indexOf(false) > -1) { bkForm.querySelector('[aria-invalid="true"]').focus(); return; }
     // bots: a filled honeypot or an instant submit gets a quiet "thanks" and nothing is sent
-    if (f._honey.value || Date.now() - bkOpenedAt < BK_MIN_MS) { bkForm.hidden = true; bkDone.hidden = false; bkDone.focus(); bkForm.reset(); return; }
-    f._next.value = location.origin + location.pathname + '?busk=thanks';
-    var send = bkForm.querySelector('.bk-send');
-    send.disabled = true; send.textContent = 'Sending… this can take a few seconds';
-    // FormSubmit's free service can be slow to answer; if the page is still here after a while, say so
-    bkSlow = setTimeout(function () { bkSlowNote.hidden = false; }, 12000);
-    HTMLFormElement.prototype.submit.call(bkForm);
-  });
-  // coming back with the browser's Back button restores this page as it was: undo the "Sending…" state
-  var bkSlow = 0, bkSlowNote = document.getElementById('bk-slow');
-  window.addEventListener('pageshow', function () {
-    clearTimeout(bkSlow); bkSlowNote.hidden = true;
-    var send = bkForm.querySelector('.bk-send'); send.disabled = false; send.textContent = 'Send registration';
+    if (f.website.value || Date.now() - bkOpenedAt < BK_MIN_MS) { bkThanks(); return; }
+    if (!/^https:\/\/script\.google\.com\/macros\/s\/[\w-]+\/exec$/.test(BUSKER_SHEET_URL)) {
+      bkSay('Sorry, online registration isn’t connected yet.'); return;
+    }
+    var body = new URLSearchParams(new FormData(bkForm));
+    body.set('phone', phone); body.set('elapsed', String(Date.now() - bkOpenedAt));
+    bkSend.disabled = true; bkSend.textContent = 'Sending…';
+    bkSlow = setTimeout(function () { bkSlowNote.hidden = false; }, 10000);
+    // Apps Script answers from another domain, so the reply can't be read ("no-cors"); reaching it counts as sent
+    fetch(BUSKER_SHEET_URL, { method: 'POST', mode: 'no-cors', body: body })
+      .then(bkThanks)
+      .catch(function () { bkIdle(); bkSay('Sorry, that didn’t go through. Please check your connection and try again.'); });
   });
 
   // keychain stories open in a pop-up; the story text lives in a <template> on each card
