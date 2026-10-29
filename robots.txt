@@ -1,0 +1,7 @@
+# Search engines only read robots.txt at the root of a domain, so this file starts
+# working once the site has its own domain (e.g. anoohcoffee.com). Until then, submit
+# the sitemap in Google Search Console instead.
+User-agent: *
+Allow: /
+
+Sitemap: https://nyleworks.github.io/Anooh-Coffee/sitemap.xml
